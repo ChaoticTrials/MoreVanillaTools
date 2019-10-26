@@ -32,7 +32,7 @@ public class RedstonePickaxe extends PickaxeBase {
             Block block = state.getBlock();
             if (block == Blocks.REDSTONE_ORE) {
                 ItemStack drop = new ItemStack(Items.REDSTONE);
-                int i = new Random().nextInt(4);
+                int i = new Random().nextInt(3);
                 for (int x = 0; x <= i; x++)
                     worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
             }
