@@ -1,12 +1,12 @@
 package de.melanx.MoreVanillaTools.items;
 
+import de.melanx.MoreVanillaTools.items.coal.*;
+import de.melanx.MoreVanillaTools.items.emerald.*;
+import de.melanx.MoreVanillaTools.items.glowstone.*;
 import de.melanx.MoreVanillaTools.items.lapis.*;
 import de.melanx.MoreVanillaTools.items.obsidian.*;
-import de.melanx.MoreVanillaTools.items.redstone.*;
-import de.melanx.MoreVanillaTools.items.coal.*;
-import de.melanx.MoreVanillaTools.items.glowstone.*;
 import de.melanx.MoreVanillaTools.items.quartz.*;
-import de.melanx.MoreVanillaTools.items.emerald.*;
+import de.melanx.MoreVanillaTools.items.redstone.*;
 import net.minecraft.item.Item;
 
 public class ModItems {

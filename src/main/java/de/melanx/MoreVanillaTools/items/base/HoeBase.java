@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 
 public class HoeBase extends HoeItem {
 
-    public HoeBase(String name, IItemTier mat, int speed) {
+    public HoeBase(String name, IItemTier mat, float speed) {
         super(mat, speed, new Item.Properties().group(MoreVanillaTools.creativeTab));
         Registry.registerItem(this, name);
         Registry.registerModel(this);

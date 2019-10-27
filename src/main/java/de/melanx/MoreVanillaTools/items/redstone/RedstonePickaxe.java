@@ -18,8 +18,8 @@ import java.util.Random;
 
 public class RedstonePickaxe extends PickaxeBase {
 
-    private static final int DAMAGE = 0;
-    private static final float SPEED = 2.8F;
+    private static final int DAMAGE = 1;
+    private static final float SPEED = -2.8F;
 
     public RedstonePickaxe() {
         super("redstone_pickaxe", ItemTiers.REDSTONE_TIER, DAMAGE, SPEED);

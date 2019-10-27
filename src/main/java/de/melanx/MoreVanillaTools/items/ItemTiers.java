@@ -19,7 +19,7 @@ public class ItemTiers {
 
         @Override
         public float getAttackDamage() {
-            return 2;
+            return 1.5F;
         }
 
         @Override
@@ -51,7 +51,7 @@ public class ItemTiers {
 
         @Override
         public float getAttackDamage() {
-            return 2;
+            return 1.5F;
         }
 
         @Override
@@ -83,7 +83,7 @@ public class ItemTiers {
 
         @Override
         public float getAttackDamage() {
-            return 1.8F;
+            return 2.5F;
         }
 
         @Override
@@ -115,7 +115,7 @@ public class ItemTiers {
 
         @Override
         public float getAttackDamage() {
-            return 1.8F;
+            return 2;
         }
 
         @Override
@@ -147,7 +147,7 @@ public class ItemTiers {
 
         @Override
         public float getAttackDamage() {
-            return 2;
+            return 2.5F;
         }
 
         @Override
@@ -179,7 +179,7 @@ public class ItemTiers {
 
         @Override
         public float getAttackDamage() {
-            return 1.8F;
+            return 2;
         }
 
         @Override
@@ -189,7 +189,7 @@ public class ItemTiers {
 
         @Override
         public int getEnchantability() {
-            return 17;
+            return 18;
         }
 
         @Override
@@ -211,7 +211,7 @@ public class ItemTiers {
 
         @Override
         public float getAttackDamage() {
-            return 3.1F;
+            return 4;
         }
 
         @Override

@@ -19,7 +19,7 @@ import java.util.Random;
 public class EmeraldPickaxe extends PickaxeBase {
 
     private static final int DAMAGE = 0;
-    private static final float SPEED = 2.8F;
+    private static final float SPEED = -2.5F;
 
     public EmeraldPickaxe() {
         super("emerald_pickaxe", ItemTiers.EMERALD_TIER, DAMAGE, SPEED);

@@ -12,7 +12,7 @@ import javax.annotation.Nonnull;
 public class ObsidianPickaxe extends PickaxeBase {
 
     private static final int DAMAGE = 0;
-    private static final float SPEED = 2.8F;
+    private static final int SPEED = -3;
 
     public ObsidianPickaxe() {
         super("obsidian_pickaxe", ItemTiers.OBSIDIAN_TIER, DAMAGE, SPEED);

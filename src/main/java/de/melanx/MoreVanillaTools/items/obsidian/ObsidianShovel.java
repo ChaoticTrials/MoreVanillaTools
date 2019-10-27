@@ -5,8 +5,8 @@ import de.melanx.MoreVanillaTools.items.base.ShovelBase;
 
 public class ObsidianShovel extends ShovelBase {
 
-    private static final int DAMAGE = 1;
-    private static final float SPEED = -3.0F;
+    private static final float DAMAGE = 0.5F;
+    private static final float SPEED = -3.2F;
 
     public ObsidianShovel() {
         super("obsidian_shovel", ItemTiers.OBSIDIAN_TIER, DAMAGE, SPEED);

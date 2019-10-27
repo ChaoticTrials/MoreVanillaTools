@@ -19,7 +19,7 @@ import java.util.Random;
 public class CoalPickaxe extends PickaxeBase {
 
     private static final int DAMAGE = 0;
-    private static final float SPEED = 2.8F;
+    private static final int SPEED = -3;
 
     public CoalPickaxe() {
         super("coal_pickaxe", ItemTiers.COAL_TIER, DAMAGE, SPEED);

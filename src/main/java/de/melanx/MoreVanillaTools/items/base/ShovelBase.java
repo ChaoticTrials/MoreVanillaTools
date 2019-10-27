@@ -8,7 +8,7 @@ import net.minecraft.item.ShovelItem;
 
 public class ShovelBase extends ShovelItem {
 
-    public ShovelBase(String name, IItemTier mat, int damage, float speed) {
+    public ShovelBase(String name, IItemTier mat, float damage, float speed) {
         super(mat, damage, speed, new Item.Properties().group(MoreVanillaTools.creativeTab));
         Registry.registerItem(this, name);
         Registry.registerModel(this);
