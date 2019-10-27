@@ -1,4 +1,4 @@
-package de.melanx.MoreVanillaTools.items.coal;
+package de.melanx.MoreVanillaTools.items.quartz;
 
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
@@ -16,13 +16,13 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.Random;
 
-public class CoalPickaxe extends PickaxeBase {
+public class QuartzPickaxe extends PickaxeBase {
 
     private static final int DAMAGE = 0;
     private static final float SPEED = 2.8F;
 
-    public CoalPickaxe() {
-        super("coal_pickaxe", ItemTiers.COAL_TIER, DAMAGE, SPEED);
+    public QuartzPickaxe() {
+        super("quartz_pickaxe", ItemTiers.QUARTZ_TIER, DAMAGE, SPEED);
     }
 
     @SubscribeEvent
@@ -30,8 +30,8 @@ public class CoalPickaxe extends PickaxeBase {
     public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
         if (!stack.getEnchantmentTagList().toString().contains("minecraft:silk_touch")) {
             Block block = state.getBlock();
-            if (block == Blocks.COAL_ORE) {
-                ItemStack drop = new ItemStack(Items.COAL);
+            if (block == Blocks.NETHER_QUARTZ_ORE) {
+                ItemStack drop = new ItemStack(Items.QUARTZ);
                 int i = new Random().nextInt(2);
                 if (i == 0)
                     worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));

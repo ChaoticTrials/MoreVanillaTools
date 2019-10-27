@@ -166,4 +166,68 @@ public class ItemTiers {
         }
     };
 
+    public static final IItemTier QUARTZ_TIER = new IItemTier() {
+        @Override
+        public int getMaxUses() {
+            return 155;
+        }
+
+        @Override
+        public float getEfficiency() {
+            return 4.9F;
+        }
+
+        @Override
+        public float getAttackDamage() {
+            return 1.8F;
+        }
+
+        @Override
+        public int getHarvestLevel() {
+            return 2;
+        }
+
+        @Override
+        public int getEnchantability() {
+            return 17;
+        }
+
+        @Override
+        public Ingredient getRepairMaterial() {
+            return Ingredient.fromItems(Items.QUARTZ);
+        }
+    };
+
+    public static final IItemTier EMERALD_TIER = new IItemTier() {
+        @Override
+        public int getMaxUses() {
+            return 3197;
+        }
+
+        @Override
+        public float getEfficiency() {
+            return 8.2F;
+        }
+
+        @Override
+        public float getAttackDamage() {
+            return 3.1F;
+        }
+
+        @Override
+        public int getHarvestLevel() {
+            return 3;
+        }
+
+        @Override
+        public int getEnchantability() {
+            return 14;
+        }
+
+        @Override
+        public Ingredient getRepairMaterial() {
+            return Ingredient.fromItems(Items.EMERALD);
+        }
+    };
+
 }

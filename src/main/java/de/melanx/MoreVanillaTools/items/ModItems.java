@@ -5,6 +5,8 @@ import de.melanx.MoreVanillaTools.items.obsidian.*;
 import de.melanx.MoreVanillaTools.items.redstone.*;
 import de.melanx.MoreVanillaTools.items.coal.*;
 import de.melanx.MoreVanillaTools.items.glowstone.*;
+import de.melanx.MoreVanillaTools.items.quartz.*;
+import de.melanx.MoreVanillaTools.items.emerald.*;
 import net.minecraft.item.Item;
 
 public class ModItems {
@@ -39,6 +41,17 @@ public class ModItems {
     public static Item glowstone_shovel;
     public static Item glowstone_hoe;
 
+    public static Item emerald_sword;
+    public static Item emerald_axe;
+    public static Item emerald_pickaxe;
+    public static Item emerald_shovel;
+    public static Item emerald_hoe;
+
+    public static Item quartz_sword;
+    public static Item quartz_axe;
+    public static Item quartz_pickaxe;
+    public static Item quartz_shovel;
+    public static Item quartz_hoe;
 
     public static void init() {
         redstone_sword = new RedstoneSword();
@@ -71,6 +84,17 @@ public class ModItems {
         glowstone_shovel = new GlowstoneShovel();
         glowstone_hoe = new GlowstoneHoe();
 
+        emerald_sword = new EmeraldSword();
+        emerald_axe = new EmeraldAxe();
+        emerald_pickaxe = new EmeraldPickaxe();
+        emerald_shovel = new EmeraldShovel();
+        emerald_hoe = new EmeraldHoe();
+
+        quartz_sword = new QuartzSword();
+        quartz_axe = new QuartzAxe();
+        quartz_pickaxe = new QuartzPickaxe();
+        quartz_shovel = new QuartzShovel();
+        quartz_hoe = new QuartzHoe();
     }
 
 }

@@ -28,5 +28,17 @@
   "item.morevanillatools.glowstone_axe": "Glowstone Axe",
   "item.morevanillatools.glowstone_pickaxe": "Glowstone Pickaxe",
   "item.morevanillatools.glowstone_shovel": "Glowstone Shovel",
-  "item.morevanillatools.glowstone_hoe": "Glowstone Hoe"
+  "item.morevanillatools.glowstone_hoe": "Glowstone Hoe",
+
+  "item.morevanillatools.emerald_sword": "Emerald Sword",
+  "item.morevanillatools.emerald_axe": "Emerald Axe",
+  "item.morevanillatools.emerald_pickaxe": "Emerald Pickaxe",
+  "item.morevanillatools.emerald_shovel": "Emerald Shovel",
+  "item.morevanillatools.emerald_hoe": "Emerald Hoe",
+
+  "item.morevanillatools.quartz_sword": "Nether Quartz Sword",
+  "item.morevanillatools.quartz_axe": "Nether Quartz Axe",
+  "item.morevanillatools.quartz_pickaxe": "Nether Quartz Pickaxe",
+  "item.morevanillatools.quartz_shovel": "Nether Quartz Shovel",
+  "item.morevanillatools.quartz_hoe": "Nether Quartz Hoe"
 }
