@@ -11,14 +11,14 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle'
 
-version = modVersion
-group = modGroup
-archivesBaseName = modBaseName
+version = mod_version
+group = "de.melanx.morevanillatools"
+archivesBaseName = "morevanillatools"
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings channel: 'stable', version: '53-1.14.2'
+    mappings channel: 'stable', version: mappings_version
 
     runs {
         client {
@@ -74,5 +74,5 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.14.4-28.1.69'
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 }

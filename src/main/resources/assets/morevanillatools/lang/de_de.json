@@ -1,0 +1,43 @@
+{
+  "item.morevanillatools.redstone_sword": "Redstone Schwert",
+  "item.morevanillatools.redstone_axe": "Redstone Axt",
+  "item.morevanillatools.redstone_pickaxe": "Redstone Spitzhacke",
+  "item.morevanillatools.redstone_shovel": "Redstone Schaufel",
+  "item.morevanillatools.redstone_hoe": "Redstone Hacke",
+
+  "item.morevanillatools.lapis_sword": "Lapis Schwert",
+  "item.morevanillatools.lapis_axe": "Lapis Axt",
+  "item.morevanillatools.lapis_pickaxe": "Lapis Spitzhacke",
+  "item.morevanillatools.lapis_shovel": "Lapis Schaufel",
+  "item.morevanillatools.lapis_hoe": "Lapis Hacke",
+
+  "item.morevanillatools.obsidian_sword": "Obsidian Schwert",
+  "item.morevanillatools.obsidian_axe": "Obsidian Axt",
+  "item.morevanillatools.obsidian_pickaxe": "Obsidian Spitzhacke",
+  "item.morevanillatools.obsidian_shovel": "Obsidian Schaufel",
+  "item.morevanillatools.obsidian_hoe": "Obsidian Hacke",
+
+  "item.morevanillatools.coal_sword": "Kohle Schwert",
+  "item.morevanillatools.coal_axe": "Kohle Axt",
+  "item.morevanillatools.coal_pickaxe": "Kohle Spitzhacke",
+  "item.morevanillatools.coal_shovel": "Kohle Schaufel",
+  "item.morevanillatools.coal_hoe": "Kohle Hacke",
+
+  "item.morevanillatools.glowstone_sword": "Glowstone Schwert",
+  "item.morevanillatools.glowstone_axe": "Glowstone Axt",
+  "item.morevanillatools.glowstone_pickaxe": "Glowstone Spitzhacke",
+  "item.morevanillatools.glowstone_shovel": "Glowstone Schaufel",
+  "item.morevanillatools.glowstone_hoe": "Glowstone Hacke",
+
+  "item.morevanillatools.emerald_sword": "Smaragd Schwert",
+  "item.morevanillatools.emerald_axe": "Smaragd Axt",
+  "item.morevanillatools.emerald_pickaxe": "Smaragd Spitzhacke",
+  "item.morevanillatools.emerald_shovel": "Smaragd Schaufel",
+  "item.morevanillatools.emerald_hoe": "Smaragd Hacke",
+
+  "item.morevanillatools.quartz_sword": "Nether Quartz Schwert",
+  "item.morevanillatools.quartz_axe": "Nether Quartz Axt",
+  "item.morevanillatools.quartz_pickaxe": "Nether Quartz Spitzhacke",
+  "item.morevanillatools.quartz_shovel": "Nether Quartz Schaufel",
+  "item.morevanillatools.quartz_hoe": "Nether Quartz Hacke"
+}
