@@ -67,6 +67,12 @@ public class CreativeTab extends ItemGroup {
         addItem(ModItems.quartz_pickaxe);
         addItem(ModItems.quartz_shovel);
         addItem(ModItems.quartz_hoe);
+
+        addItem(ModItems.bone_sword);
+        addItem(ModItems.bone_axe);
+        addItem(ModItems.bone_pickaxe);
+        addItem(ModItems.bone_shovel);
+        addItem(ModItems.bone_hoe);
     }
 
     private void addItem(IItemProvider item) {

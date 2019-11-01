@@ -1,12 +1,13 @@
 package de.melanx.MoreVanillaTools.items;
 
-import de.melanx.MoreVanillaTools.items.coal.*;
-import de.melanx.MoreVanillaTools.items.emerald.*;
-import de.melanx.MoreVanillaTools.items.glowstone.*;
-import de.melanx.MoreVanillaTools.items.lapis.*;
-import de.melanx.MoreVanillaTools.items.obsidian.*;
-import de.melanx.MoreVanillaTools.items.quartz.*;
-import de.melanx.MoreVanillaTools.items.redstone.*;
+import de.melanx.MoreVanillaTools.items.materials.coal.*;
+import de.melanx.MoreVanillaTools.items.materials.emerald.*;
+import de.melanx.MoreVanillaTools.items.materials.glowstone.*;
+import de.melanx.MoreVanillaTools.items.materials.lapis.*;
+import de.melanx.MoreVanillaTools.items.materials.obsidian.*;
+import de.melanx.MoreVanillaTools.items.materials.quartz.*;
+import de.melanx.MoreVanillaTools.items.materials.redstone.*;
+import de.melanx.MoreVanillaTools.items.materials.bone.*;
 import net.minecraft.item.Item;
 
 public class ModItems {
@@ -53,6 +54,12 @@ public class ModItems {
     public static Item quartz_shovel;
     public static Item quartz_hoe;
 
+    public static Item bone_sword;
+    public static Item bone_axe;
+    public static Item bone_pickaxe;
+    public static Item bone_shovel;
+    public static Item bone_hoe;
+
     public static void init() {
         redstone_sword = new RedstoneSword();
         redstone_axe = new RedstoneAxe();
@@ -95,6 +102,12 @@ public class ModItems {
         quartz_pickaxe = new QuartzPickaxe();
         quartz_shovel = new QuartzShovel();
         quartz_hoe = new QuartzHoe();
+
+        bone_sword = new BoneSword();
+        bone_axe = new BoneAxe();
+        bone_pickaxe = new BonePickaxe();
+        bone_shovel = new BoneShovel();
+        bone_hoe = new BoneHoe();
     }
 
 }

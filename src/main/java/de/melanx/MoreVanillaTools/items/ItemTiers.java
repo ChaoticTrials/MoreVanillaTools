@@ -230,4 +230,36 @@ public class ItemTiers {
         }
     };
 
+    public static final IItemTier BONE_TIER = new IItemTier() {
+        @Override
+        public int getMaxUses() {
+            return 206;
+        }
+
+        @Override
+        public float getEfficiency() {
+            return 4.9F;
+        }
+
+        @Override
+        public float getAttackDamage() {
+            return 2;
+        }
+
+        @Override
+        public int getHarvestLevel() {
+            return 1;
+        }
+
+        @Override
+        public int getEnchantability() {
+            return 17;
+        }
+
+        @Override
+        public Ingredient getRepairMaterial() {
+            return Ingredient.fromItems(Items.BONE);
+        }
+    };
+
 }

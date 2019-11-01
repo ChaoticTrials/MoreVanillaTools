@@ -39,5 +39,11 @@
   "item.morevanillatools.quartz_axe": "Nether Quartz Axt",
   "item.morevanillatools.quartz_pickaxe": "Nether Quartz Spitzhacke",
   "item.morevanillatools.quartz_shovel": "Nether Quartz Schaufel",
-  "item.morevanillatools.quartz_hoe": "Nether Quartz Hacke"
+  "item.morevanillatools.quartz_hoe": "Nether Quartz Hacke",
+
+  "item.morevanillatools.bone_sword": "Knochen Schwert",
+  "item.morevanillatools.bone_axe": "Knochen Axt",
+  "item.morevanillatools.bone_pickaxe": "Knochen Spitzhacke",
+  "item.morevanillatools.bone_shovel": "Knochen Schaufel",
+  "item.morevanillatools.bone_hoe": "Knochen Hacke"
 }

@@ -40,5 +40,11 @@
   "item.morevanillatools.quartz_axe": "Nether Quartz Axe",
   "item.morevanillatools.quartz_pickaxe": "Nether Quartz Pickaxe",
   "item.morevanillatools.quartz_shovel": "Nether Quartz Shovel",
-  "item.morevanillatools.quartz_hoe": "Nether Quartz Hoe"
+  "item.morevanillatools.quartz_hoe": "Nether Quartz Hoe",
+
+  "item.morevanillatools.bone_sword": "Bone Sword",
+  "item.morevanillatools.bone_axe": "Bone Axe",
+  "item.morevanillatools.bone_pickaxe": "Bone Pickaxe",
+  "item.morevanillatools.bone_shovel": "Bone Shovel",
+  "item.morevanillatools.bone_hoe": "Bone Hoe"
 }
