@@ -22,7 +22,7 @@ public class ToolUtil {
         Random rand = event.getEntityLiving().world.rand;
 
         if (entity instanceof AbstractSkeletonEntity && rand.nextInt(10) <= 2) {
-            event.setAmount(event.getAmount() * (rand.nextInt(26) + 1) / 10);
+            event.setAmount(event.getAmount() * (rand.nextInt(26) / 10 + 1));
         }
     }
 
