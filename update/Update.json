@@ -1,10 +1,11 @@
 {
   "homepage": "www.melanx.de",
   "promos": {
-    "1.14.4-latest": "0.2.1",
-    "1.14.4-recommended": "0.2.1"
+    "1.14.4-latest": "1.0",
+    "1.14.4-recommended": "1.0"
   },
   "1.14.4": {
+    "1.0": "Added paper tools\nAdded config\nAdded feature item drops by using tool (chance: 0,5%)\nAdded granite/andesite/diorite as ingredient for stone tools\nRe-textured all tools\nFixed config on server not working (#2)",
     "0.2.1": "Fixed bone sword/axe reduce damage in some cases",
     "0.2": "Added bone tools",
     "0.1": "Initial Release"
