@@ -8,6 +8,7 @@ import de.melanx.MoreVanillaTools.items.materials.obsidian.*;
 import de.melanx.MoreVanillaTools.items.materials.quartz.*;
 import de.melanx.MoreVanillaTools.items.materials.redstone.*;
 import de.melanx.MoreVanillaTools.items.materials.bone.*;
+import de.melanx.MoreVanillaTools.items.materials.paper.*;
 import net.minecraft.item.Item;
 
 public class ModItems {
@@ -60,6 +61,12 @@ public class ModItems {
     public static Item bone_shovel;
     public static Item bone_hoe;
 
+    public static Item paper_sword;
+    public static Item paper_axe;
+    public static Item paper_pickaxe;
+    public static Item paper_shovel;
+    public static Item paper_hoe;
+
     public static void init() {
         redstone_sword = new RedstoneSword();
         redstone_axe = new RedstoneAxe();
@@ -108,6 +115,12 @@ public class ModItems {
         bone_pickaxe = new BonePickaxe();
         bone_shovel = new BoneShovel();
         bone_hoe = new BoneHoe();
+
+        paper_sword = new PaperSword();
+        paper_axe = new PaperAxe();
+        paper_pickaxe = new PaperPickaxe();
+        paper_shovel = new PaperShovel();
+        paper_hoe = new PaperHoe();
     }
 
 }

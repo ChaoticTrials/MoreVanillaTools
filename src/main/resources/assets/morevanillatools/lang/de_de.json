@@ -45,5 +45,11 @@
   "item.morevanillatools.bone_axe": "Knochen Axt",
   "item.morevanillatools.bone_pickaxe": "Knochen Spitzhacke",
   "item.morevanillatools.bone_shovel": "Knochen Schaufel",
-  "item.morevanillatools.bone_hoe": "Knochen Hacke"
+  "item.morevanillatools.bone_hoe": "Knochen Hacke",
+
+  "item.morevanillatools.paper_sword": "Papier Schwert",
+  "item.morevanillatools.paper_axe": "Papier Axt",
+  "item.morevanillatools.paper_pickaxe": "Papier Spitzhacke",
+  "item.morevanillatools.paper_shovel": "Papier Schaufel",
+  "item.morevanillatools.paper_hoe": "Papier Hacke"
 }

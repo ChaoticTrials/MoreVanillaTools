@@ -262,4 +262,36 @@ public class ItemTiers {
         }
     };
 
+    public static final IItemTier PAPER_TIER = new IItemTier() {
+        @Override
+        public int getMaxUses() {
+            return 13;
+        }
+
+        @Override
+        public float getEfficiency() {
+            return 1.8F;
+        }
+
+        @Override
+        public float getAttackDamage() {
+            return 0;
+        }
+
+        @Override
+        public int getHarvestLevel() {
+            return 0;
+        }
+
+        @Override
+        public int getEnchantability() {
+            return 17;
+        }
+
+        @Override
+        public Ingredient getRepairMaterial() {
+            return Ingredient.fromItems(Items.PAPER);
+        }
+    };
+
 }

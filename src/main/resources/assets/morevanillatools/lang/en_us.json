@@ -46,5 +46,11 @@
   "item.morevanillatools.bone_axe": "Bone Axe",
   "item.morevanillatools.bone_pickaxe": "Bone Pickaxe",
   "item.morevanillatools.bone_shovel": "Bone Shovel",
-  "item.morevanillatools.bone_hoe": "Bone Hoe"
+  "item.morevanillatools.bone_hoe": "Bone Hoe",
+
+  "item.morevanillatools.paper_sword": "Paper Sword",
+  "item.morevanillatools.paper_axe": "Paper Axe",
+  "item.morevanillatools.paper_pickaxe": "Paper Pickaxe",
+  "item.morevanillatools.paper_shovel": "Paper Shovel",
+  "item.morevanillatools.paper_hoe": "Paper Hoe"
 }
