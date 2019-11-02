@@ -24,7 +24,9 @@ public class ToolUtil {
         LivingEntity entity = event.getEntityLiving();
         Random rand = event.getEntityLiving().world.rand;
 
-        if (entity instanceof AbstractSkeletonEntity && rand.nextInt(10) <= 2) {
+        int chance = ConfigHandler.COMMON.extraDamageChance.get();
+        if (chance < 0 || chance > 1000) chance = 200;
+        if (entity instanceof AbstractSkeletonEntity && rand.nextInt(1000) < chance && ConfigHandler.COMMON.extraDamage.get()) {
             event.setAmount(event.getAmount() * (rand.nextInt(26) / 10 + 1));
         }
     }
@@ -36,7 +38,9 @@ public class ToolUtil {
                 Random rand = event.getEntityLiving().world.rand;
                 int looting = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, weapon);
 
-                if(event.getEntityLiving() instanceof AbstractSkeletonEntity && rand.nextInt(26) <= 3 + looting)
+                int chance = ConfigHandler.COMMON.headDropChance.get();
+                if (chance < 0 || chance > 1000) chance = 50;
+                if(ConfigHandler.COMMON.headDrop.get() && event.getEntityLiving() instanceof AbstractSkeletonEntity && rand.nextInt(1000) < chance + looting)
                     addDrop(event, new ItemStack(event.getEntity() instanceof WitherSkeletonEntity ? Items.WITHER_SKELETON_SKULL : Items.SKELETON_SKULL));
             }
         }
@@ -50,7 +54,9 @@ public class ToolUtil {
 
     public static boolean damageItem(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entityLiving, IItemTier mat) {
         if (!world.isRemote && state.getBlockHardness(world, pos) != 0.0F) {
-            if (new Random().nextInt(1000) < 5) {
+            int chance = ConfigHandler.COMMON.extraDropChance.get();
+            if (chance < 0 || chance > 1000) chance = 5;
+            if (new Random().nextInt(1000) < chance) {
                 ItemStack itemStack = mat.getRepairMaterial().getMatchingStacks()[0];
                 world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
             }
@@ -65,7 +71,9 @@ public class ToolUtil {
         if (!world.isRemote) {
             world.setBlockState(pos, blockstate, 11);
             if (playerentity != null) {
-                if (new Random().nextInt(1000) < 5) {
+                int chance = ConfigHandler.COMMON.extraDropChance.get();
+                if (chance < 0 || chance > 1000) chance = 5;
+                if (new Random().nextInt(1000) < chance) {
                     ItemStack itemStack = mat.getRepairMaterial().getMatchingStacks()[0];
                     world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
                 }

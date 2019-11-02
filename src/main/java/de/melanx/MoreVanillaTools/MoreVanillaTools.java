@@ -1,6 +1,7 @@
 package de.melanx.MoreVanillaTools;
 
 import de.melanx.MoreVanillaTools.items.ModItems;
+import de.melanx.MoreVanillaTools.util.ConfigHandler;
 import de.melanx.MoreVanillaTools.util.CreativeTab;
 import de.melanx.MoreVanillaTools.util.Registry;
 import net.minecraft.item.Item;
@@ -8,7 +9,9 @@ import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -28,8 +31,12 @@ public class MoreVanillaTools {
     public MoreVanillaTools() {
         instance = this;
 
+        ModLoadingContext modLoadingContext = ModLoadingContext.get();
+
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientRegistries);
+
+        modLoadingContext.registerConfig(ModConfig.Type.COMMON, ConfigHandler.COMMON_SPEC);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
