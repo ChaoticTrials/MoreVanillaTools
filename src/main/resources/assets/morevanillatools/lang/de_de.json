@@ -51,5 +51,7 @@
   "item.morevanillatools.paper_axe": "Papier Axt",
   "item.morevanillatools.paper_pickaxe": "Papier Spitzhacke",
   "item.morevanillatools.paper_shovel": "Papier Schaufel",
-  "item.morevanillatools.paper_hoe": "Papier Hacke"
+  "item.morevanillatools.paper_hoe": "Papier Hacke",
+
+  "death.attack.paperCut": "%1$s wurde durch Papier niedergestreckt."
 }

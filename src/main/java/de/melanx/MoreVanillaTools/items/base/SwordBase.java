@@ -1,8 +1,11 @@
 package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
+import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
+import de.melanx.MoreVanillaTools.util.ModDamageSource;
 import de.melanx.MoreVanillaTools.util.Registry;
+import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -37,6 +40,9 @@ public class SwordBase extends SwordItem {
             ItemStack itemStack = mat.getRepairMaterial().getMatchingStacks()[0];
             world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
         }
+
+        ToolUtil.paperDamage(mat, attacker);
+
         stack.damageItem(1, attacker, (e) -> {
             e.sendBreakAnimation(EquipmentSlotType.MAINHAND);
         });
