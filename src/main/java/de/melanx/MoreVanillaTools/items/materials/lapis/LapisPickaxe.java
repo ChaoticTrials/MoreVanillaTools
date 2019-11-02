@@ -5,6 +5,8 @@ import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -28,7 +30,7 @@ public class LapisPickaxe extends PickaxeBase {
     @SubscribeEvent
     @Override
     public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
-        if (!stack.getEnchantmentTagList().toString().contains("minecraft:silk_touch")) {
+        if (EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) < 1) {
             Block block = state.getBlock();
             if (block == Blocks.LAPIS_ORE) {
                 ItemStack drop = new ItemStack(Items.LAPIS_LAZULI);
