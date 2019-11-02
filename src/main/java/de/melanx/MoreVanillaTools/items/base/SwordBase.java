@@ -1,9 +1,7 @@
 package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
-import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
-import de.melanx.MoreVanillaTools.util.ModDamageSource;
 import de.melanx.MoreVanillaTools.util.Registry;
 import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.entity.LivingEntity;
@@ -32,7 +30,7 @@ public class SwordBase extends SwordItem {
 
     @Override
     public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        int chance = ConfigHandler.COMMON.extraDropChance.get();
+        int chance = ConfigHandler.extraDropChance.get();
         if (chance < 0 || chance > 1000) chance = 5;
         if (new Random().nextInt(1000) < chance) {
             World world = target.getEntityWorld().getWorld();

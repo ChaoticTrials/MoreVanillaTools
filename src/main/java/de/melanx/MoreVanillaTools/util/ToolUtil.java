@@ -25,9 +25,9 @@ public class ToolUtil {
         LivingEntity entity = event.getEntityLiving();
         Random rand = event.getEntityLiving().world.rand;
 
-        int chance = ConfigHandler.COMMON.extraDamageChance.get();
+        int chance = ConfigHandler.extraDamageChance.get();
         if (chance < 0 || chance > 1000) chance = 200;
-        if (entity instanceof AbstractSkeletonEntity && rand.nextInt(1000) < chance && ConfigHandler.COMMON.extraDamage.get()) {
+        if (entity instanceof AbstractSkeletonEntity && rand.nextInt(1000) < chance && ConfigHandler.extraDamage.get()) {
             event.setAmount(event.getAmount() * (rand.nextInt(26) / 10 + 1));
         }
     }
@@ -39,9 +39,9 @@ public class ToolUtil {
                 Random rand = event.getEntityLiving().world.rand;
                 int looting = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, weapon);
 
-                int chance = ConfigHandler.COMMON.headDropChance.get();
+                int chance = ConfigHandler.headDropChance.get();
                 if (chance < 0 || chance > 1000) chance = 50;
-                if (ConfigHandler.COMMON.headDrop.get() && event.getEntityLiving() instanceof AbstractSkeletonEntity && rand.nextInt(1000) < chance + looting)
+                if (ConfigHandler.headDrop.get() && event.getEntityLiving() instanceof AbstractSkeletonEntity && rand.nextInt(1000) < chance + looting)
                     addDrop(event, new ItemStack(event.getEntity() instanceof WitherSkeletonEntity ? Items.WITHER_SKELETON_SKULL : Items.SKELETON_SKULL));
             }
         }
@@ -87,7 +87,7 @@ public class ToolUtil {
     }
 
     private static void extraDrop(World world, BlockPos pos, IItemTier mat) {
-        int chance = ConfigHandler.COMMON.extraDropChance.get();
+        int chance = ConfigHandler.extraDropChance.get();
         if (chance < 0 || chance > 1000) chance = 5;
         if (new Random().nextInt(1000) < chance) {
             ItemStack itemStack = mat.getRepairMaterial().getMatchingStacks()[0];
@@ -96,9 +96,9 @@ public class ToolUtil {
     }
 
     public static void paperDamage(IItemTier mat, LivingEntity entityLiving) {
-        int chance = ConfigHandler.COMMON.damageByPaperToolsChance.get();
+        int chance = ConfigHandler.damageByPaperToolsChance.get();
         if (chance < 0) chance = 100;
-        if (mat == ItemTiers.PAPER_TIER && ConfigHandler.COMMON.damageByPaperTools.get() && new Random().nextInt(1000) < chance) {
+        if (mat == ItemTiers.PAPER_TIER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance) {
             entityLiving.attackEntityFrom(ModDamageSource.PAPER_CUT, 1);
         }
     }
