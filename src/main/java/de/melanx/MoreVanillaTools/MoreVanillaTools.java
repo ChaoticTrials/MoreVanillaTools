@@ -58,7 +58,7 @@ public class MoreVanillaTools {
             ModItems.init();
             for (Item item : Registry.ITEMS_TO_REGISTER) {
                 event.getRegistry().register(item);
-                LOGGER.info(item.getRegistryName());
+                LOGGER.debug(item.getRegistryName());
             }
 
             LOGGER.info("Items registered.");

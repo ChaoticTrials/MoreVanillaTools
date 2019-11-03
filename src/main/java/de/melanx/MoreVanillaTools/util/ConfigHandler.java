@@ -108,7 +108,7 @@ public class ConfigHandler {
     }
 
     public static void loadConfig(ForgeConfigSpec spec, Path path) {
-        MoreVanillaTools.LOGGER.info("Loading config file {}", path);
+        MoreVanillaTools.LOGGER.debug("Loading config file {}", path);
 
         final CommentedFileConfig configData = CommentedFileConfig.builder(path).sync().autosave().writingMode(WritingMode.REPLACE).build();
 
