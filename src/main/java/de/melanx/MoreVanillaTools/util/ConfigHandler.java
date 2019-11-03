@@ -31,6 +31,26 @@ public class ConfigHandler {
     public static ForgeConfigSpec.IntValue minPaperDamage;
     public static ForgeConfigSpec.IntValue maxPaperDamage;
 
+    public static ForgeConfigSpec.IntValue boneDurability;
+    public static ForgeConfigSpec.IntValue coalDurability;
+    public static ForgeConfigSpec.IntValue emeraldDurability;
+    public static ForgeConfigSpec.IntValue glowstoneDurability;
+    public static ForgeConfigSpec.IntValue lapisDurability;
+    public static ForgeConfigSpec.IntValue obsidianDurability;
+    public static ForgeConfigSpec.IntValue paperDurability;
+    public static ForgeConfigSpec.IntValue quartzDurability;
+    public static ForgeConfigSpec.IntValue redstoneDurability;
+
+    public static ForgeConfigSpec.IntValue boneHarvestlevel;
+    public static ForgeConfigSpec.IntValue coalHarvestlevel;
+    public static ForgeConfigSpec.IntValue emeraldHarvestlevel;
+    public static ForgeConfigSpec.IntValue glowstoneHarvestlevel;
+    public static ForgeConfigSpec.IntValue lapisHarvestlevel;
+    public static ForgeConfigSpec.IntValue obsidianHarvestlevel;
+    public static ForgeConfigSpec.IntValue paperHarvestlevel;
+    public static ForgeConfigSpec.IntValue quartzHarvestlevel;
+    public static ForgeConfigSpec.IntValue redstoneHarvestlevel;
+
     public static void init(ForgeConfigSpec.Builder builder) {
         builder.push("features");
         extraDrop = builder.comment("If set true, tools may drop an item when they'll be used.")
@@ -55,10 +75,35 @@ public class ConfigHandler {
         builder.pop();
 
         builder.push("amounts");
-        minPaperDamage = builder.comment()
+        minPaperDamage = builder.comment("The minimum amount of damage. Default: 1 = 0.5 hearts")
                 .defineInRange("minPaperDamage", 1, 0, Integer.MAX_VALUE);
-        maxPaperDamage = builder.comment()
+        maxPaperDamage = builder.comment("The maximum amount of damage. Default: 5 = 2.5 hearts")
                 .defineInRange("maxPaperDamage", 5, 0, Integer.MAX_VALUE);
+
+            builder.push("harvestlevels").comment("The harvestlevel of the tools (0 = wood; 1 = stone; 2 = iron; 3 = diamond; 4 = higher)");
+            boneHarvestlevel = builder.defineInRange("bone tools harvestlevel", 1, 0, 4);
+            coalHarvestlevel = builder.defineInRange("coal tools harvestlevel", 1, 0, 4);
+            emeraldHarvestlevel = builder.defineInRange("emerald tools harvestlevel", 3, 0, 4);
+            glowstoneHarvestlevel = builder.defineInRange("glowstone tools harvestlevel", 2, 0, 4);
+            lapisHarvestlevel = builder.defineInRange("lapis tools harvestlevel", 2, 0, 4);
+            obsidianHarvestlevel = builder.defineInRange("obsidian tools harvestlevel", 4, 0, 4);
+            paperHarvestlevel = builder.defineInRange("paper tools harvestlevel", 0, 0, 4);
+            quartzHarvestlevel = builder.defineInRange("quartz tools harvestlevel", 2, 0, 4);
+            redstoneHarvestlevel = builder.defineInRange("redstone tools harvestlevel", 2, 0, 4);
+            builder.pop();
+
+            builder.push("durabilities").comment("The durability of the tools");
+            boneDurability = builder.defineInRange("bone tools durability", 206, 1, Integer.MAX_VALUE);
+            coalDurability = builder.defineInRange("coal tools durability", 155, 1, Integer.MAX_VALUE);
+            emeraldDurability = builder.defineInRange("emerald tools durability", 3197, 1, Integer.MAX_VALUE);
+            glowstoneDurability = builder.defineInRange("glowstone tools durability", 193, 1, Integer.MAX_VALUE);
+            lapisDurability = builder.defineInRange("lapis tools durability", 193, 1, Integer.MAX_VALUE);
+            obsidianDurability = builder.defineInRange("obsidian tools durability", (int) (1337 * 3.14F), 1, Integer.MAX_VALUE);
+            paperDurability = builder.defineInRange("paper tools durability", 13, 1, Integer.MAX_VALUE);
+            quartzDurability = builder.defineInRange("quartz tools durability", 155, 1, Integer.MAX_VALUE);
+            redstoneDurability = builder.defineInRange("redstone tools durability", 193, 1, Integer.MAX_VALUE);
+            builder.pop();
+
         builder.pop();
     }
 

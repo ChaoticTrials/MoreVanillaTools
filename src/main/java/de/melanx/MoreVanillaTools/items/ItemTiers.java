@@ -1,5 +1,6 @@
 package de.melanx.MoreVanillaTools.items;
 
+import de.melanx.MoreVanillaTools.util.ConfigHandler;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -9,7 +10,7 @@ public class ItemTiers {
     public static final IItemTier REDSTONE_TIER = new IItemTier() {
         @Override
         public int getMaxUses() {
-            return 193;
+            return ConfigHandler.redstoneDurability.get();
         }
 
         @Override
@@ -24,7 +25,7 @@ public class ItemTiers {
 
         @Override
         public int getHarvestLevel() {
-            return 2;
+            return ConfigHandler.redstoneHarvestlevel.get();
         }
 
         @Override
@@ -41,7 +42,7 @@ public class ItemTiers {
     public static final IItemTier LAPIS_TIER = new IItemTier() {
         @Override
         public int getMaxUses() {
-            return 193;
+            return ConfigHandler.lapisDurability.get();
         }
 
         @Override
@@ -56,7 +57,7 @@ public class ItemTiers {
 
         @Override
         public int getHarvestLevel() {
-            return 2;
+            return ConfigHandler.lapisHarvestlevel.get();
         }
 
         @Override
@@ -73,7 +74,7 @@ public class ItemTiers {
     public static final IItemTier OBSIDIAN_TIER = new IItemTier() {
         @Override
         public int getMaxUses() {
-            return (int) (1337 * 3.14F);
+            return ConfigHandler.obsidianDurability.get();
         }
 
         @Override
@@ -88,7 +89,7 @@ public class ItemTiers {
 
         @Override
         public int getHarvestLevel() {
-            return 4;
+            return ConfigHandler.obsidianHarvestlevel.get();
         }
 
         @Override
@@ -105,7 +106,7 @@ public class ItemTiers {
     public static final IItemTier COAL_TIER = new IItemTier() {
         @Override
         public int getMaxUses() {
-            return 155;
+            return ConfigHandler.coalDurability.get();
         }
 
         @Override
@@ -120,7 +121,7 @@ public class ItemTiers {
 
         @Override
         public int getHarvestLevel() {
-            return 1;
+            return ConfigHandler.coalHarvestlevel.get();
         }
 
         @Override
@@ -137,7 +138,7 @@ public class ItemTiers {
     public static final IItemTier GLOWSTONE_TIER = new IItemTier() {
         @Override
         public int getMaxUses() {
-            return 193;
+            return ConfigHandler.glowstoneDurability.get();
         }
 
         @Override
@@ -152,7 +153,7 @@ public class ItemTiers {
 
         @Override
         public int getHarvestLevel() {
-            return 2;
+            return ConfigHandler.glowstoneHarvestlevel.get();
         }
 
         @Override
@@ -169,7 +170,7 @@ public class ItemTiers {
     public static final IItemTier QUARTZ_TIER = new IItemTier() {
         @Override
         public int getMaxUses() {
-            return 155;
+            return ConfigHandler.quartzDurability.get();
         }
 
         @Override
@@ -184,7 +185,7 @@ public class ItemTiers {
 
         @Override
         public int getHarvestLevel() {
-            return 2;
+            return ConfigHandler.quartzHarvestlevel.get();
         }
 
         @Override
@@ -201,7 +202,7 @@ public class ItemTiers {
     public static final IItemTier EMERALD_TIER = new IItemTier() {
         @Override
         public int getMaxUses() {
-            return 3197;
+            return ConfigHandler.emeraldDurability.get();
         }
 
         @Override
@@ -216,7 +217,7 @@ public class ItemTiers {
 
         @Override
         public int getHarvestLevel() {
-            return 3;
+            return ConfigHandler.emeraldHarvestlevel.get();
         }
 
         @Override
@@ -233,7 +234,7 @@ public class ItemTiers {
     public static final IItemTier BONE_TIER = new IItemTier() {
         @Override
         public int getMaxUses() {
-            return 206;
+            return ConfigHandler.boneDurability.get();
         }
 
         @Override
@@ -248,7 +249,7 @@ public class ItemTiers {
 
         @Override
         public int getHarvestLevel() {
-            return 1;
+            return ConfigHandler.boneHarvestlevel.get();
         }
 
         @Override
@@ -265,7 +266,7 @@ public class ItemTiers {
     public static final IItemTier PAPER_TIER = new IItemTier() {
         @Override
         public int getMaxUses() {
-            return 13;
+            return ConfigHandler.paperDurability.get();
         }
 
         @Override
@@ -280,7 +281,7 @@ public class ItemTiers {
 
         @Override
         public int getHarvestLevel() {
-            return 0;
+            return ConfigHandler.paperHarvestlevel.get();
         }
 
         @Override
