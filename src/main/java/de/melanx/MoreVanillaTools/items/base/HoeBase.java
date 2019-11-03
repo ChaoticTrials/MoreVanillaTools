@@ -1,6 +1,7 @@
 package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
+import de.melanx.MoreVanillaTools.util.ModDamageSource;
 import de.melanx.MoreVanillaTools.util.Registry;
 import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.block.BlockState;
@@ -37,6 +38,7 @@ public class HoeBase extends HoeItem {
             if (blockstate != null) {
                 PlayerEntity playerentity = context.getPlayer();
                 world.playSound(playerentity, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, 1);
                 return ToolUtil.itemUsed(context, world, pos, blockstate, playerentity, mat);
             }
         }

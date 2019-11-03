@@ -57,7 +57,7 @@ public class ToolUtil {
         if (!world.isRemote && state.getBlockHardness(world, pos) != 0.0F) {
 
             extraDrop(world, pos, mat);
-            paperDamage(mat, entityLiving);
+            if (paperDamage(mat)) entityLiving.attackEntityFrom(ModDamageSource.PAPER_CUT, 1);
 
             stack.damageItem(1, entityLiving, (e) -> {
                 e.sendBreakAnimation(EquipmentSlotType.MAINHAND);
@@ -72,10 +72,7 @@ public class ToolUtil {
             if (playerentity != null) {
                 extraDrop(world, pos, mat);
 
-                LivingEntity entityLiving = playerentity.getAttackingEntity();
-                if (entityLiving != null) {
-                    paperDamage(mat, entityLiving);
-                }
+                if (paperDamage(mat)) playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, 1);
 
                 context.getItem().damageItem(1, playerentity, (e) -> {
                     e.sendBreakAnimation(context.getHand());
@@ -89,18 +86,16 @@ public class ToolUtil {
     private static void extraDrop(World world, BlockPos pos, IItemTier mat) {
         int chance = ConfigHandler.extraDropChance.get();
         if (chance < 0 || chance > 1000) chance = 5;
-        if (new Random().nextInt(1000) < chance) {
+        if (new Random().nextInt(1000) < chance && ConfigHandler.extraDrop.get()) {
             ItemStack itemStack = mat.getRepairMaterial().getMatchingStacks()[0];
             world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
         }
     }
 
-    public static void paperDamage(IItemTier mat, LivingEntity entityLiving) {
+    public static boolean paperDamage(IItemTier mat) {
         int chance = ConfigHandler.damageByPaperToolsChance.get();
         if (chance < 0) chance = 100;
-        if (mat == ItemTiers.PAPER_TIER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance) {
-            entityLiving.attackEntityFrom(ModDamageSource.PAPER_CUT, 1);
-        }
+        return mat == ItemTiers.PAPER_TIER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance;
     }
 
 }

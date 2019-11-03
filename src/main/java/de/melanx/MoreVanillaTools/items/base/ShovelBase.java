@@ -1,6 +1,7 @@
 package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
+import de.melanx.MoreVanillaTools.util.ModDamageSource;
 import de.melanx.MoreVanillaTools.util.Registry;
 import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.block.BlockState;
@@ -31,6 +32,7 @@ public class ShovelBase extends ShovelItem {
         return ToolUtil.damageItem(stack, world, state, pos, entityLiving, mat);
     }
 
+    @Override
     public ActionResultType onItemUse(ItemUseContext context) {
         World world = context.getWorld();
         BlockPos pos = context.getPos();
@@ -39,6 +41,7 @@ public class ShovelBase extends ShovelItem {
             if (blockstate != null) {
                 PlayerEntity playerentity = context.getPlayer();
                 world.playSound(playerentity, pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                if (ToolUtil.paperDamage(mat)) playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, 1);
                 return ToolUtil.itemUsed(context, world, pos, blockstate, playerentity, mat);
             }
         }

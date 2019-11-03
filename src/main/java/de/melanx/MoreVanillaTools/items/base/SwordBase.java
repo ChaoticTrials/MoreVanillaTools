@@ -2,6 +2,7 @@ package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
+import de.melanx.MoreVanillaTools.util.ModDamageSource;
 import de.melanx.MoreVanillaTools.util.Registry;
 import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.entity.LivingEntity;
@@ -39,7 +40,7 @@ public class SwordBase extends SwordItem {
             world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
         }
 
-        ToolUtil.paperDamage(mat, attacker);
+        if (ToolUtil.paperDamage(mat)) attacker.attackEntityFrom(ModDamageSource.PAPER_CUT, 1);
 
         stack.damageItem(1, attacker, (e) -> {
             e.sendBreakAnimation(EquipmentSlotType.MAINHAND);
