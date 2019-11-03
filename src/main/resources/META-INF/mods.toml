@@ -17,9 +17,9 @@ A mod which adds more tools in the vanilla way.
     ordering="NONE"
     side="BOTH"
 
-#[[dependencies.MoreVanillaTools]]
-#    modId="minecraft"
-#    mandatory=true
-#    versionRange="[1.14.4]"
-#    ordering="NONE"
-#    side="BOTH"
+[[dependencies.MoreVanillaTools]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.14.4]"
+    ordering="NONE"
+    side="BOTH"
