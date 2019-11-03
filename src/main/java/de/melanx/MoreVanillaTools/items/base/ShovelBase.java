@@ -1,6 +1,7 @@
 package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
+import de.melanx.MoreVanillaTools.util.ConfigHandler;
 import de.melanx.MoreVanillaTools.util.ModDamageSource;
 import de.melanx.MoreVanillaTools.util.Registry;
 import de.melanx.MoreVanillaTools.util.ToolUtil;
@@ -14,6 +15,8 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class ShovelBase extends ShovelItem {
 
@@ -41,7 +44,7 @@ public class ShovelBase extends ShovelItem {
             if (blockstate != null) {
                 PlayerEntity playerentity = context.getPlayer();
                 world.playSound(playerentity, pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                if (ToolUtil.paperDamage(mat)) playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, 1);
+                if (ToolUtil.paperDamage(mat)) playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
                 return ToolUtil.itemUsed(context, world, pos, blockstate, playerentity, mat);
             }
         }

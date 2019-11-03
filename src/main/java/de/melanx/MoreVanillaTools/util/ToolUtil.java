@@ -26,7 +26,7 @@ public class ToolUtil {
         Random rand = event.getEntityLiving().world.rand;
 
         int chance = ConfigHandler.extraDamageChance.get();
-        if (chance < 0 || chance > 1000) chance = 200;
+        if (chance == -1) chance = 200;
         if (entity instanceof AbstractSkeletonEntity && rand.nextInt(1000) < chance && ConfigHandler.extraDamage.get()) {
             event.setAmount(event.getAmount() * (rand.nextInt(26) / 10 + 1));
         }
@@ -40,7 +40,7 @@ public class ToolUtil {
                 int looting = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, weapon);
 
                 int chance = ConfigHandler.headDropChance.get();
-                if (chance < 0 || chance > 1000) chance = 50;
+                if (chance == -1) chance = 50;
                 if (ConfigHandler.headDrop.get() && event.getEntityLiving() instanceof AbstractSkeletonEntity && rand.nextInt(1000) < chance + looting)
                     addDrop(event, new ItemStack(event.getEntity() instanceof WitherSkeletonEntity ? Items.WITHER_SKELETON_SKULL : Items.SKELETON_SKULL));
             }
@@ -57,7 +57,7 @@ public class ToolUtil {
         if (!world.isRemote && state.getBlockHardness(world, pos) != 0.0F) {
 
             extraDrop(world, pos, mat);
-            if (paperDamage(mat)) entityLiving.attackEntityFrom(ModDamageSource.PAPER_CUT, 1);
+            if (paperDamage(mat)) entityLiving.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
 
             stack.damageItem(1, entityLiving, (e) -> {
                 e.sendBreakAnimation(EquipmentSlotType.MAINHAND);
@@ -72,7 +72,7 @@ public class ToolUtil {
             if (playerentity != null) {
                 extraDrop(world, pos, mat);
 
-                if (paperDamage(mat)) playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, 1);
+                if (paperDamage(mat)) playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
 
                 context.getItem().damageItem(1, playerentity, (e) -> {
                     e.sendBreakAnimation(context.getHand());
@@ -85,7 +85,7 @@ public class ToolUtil {
 
     private static void extraDrop(World world, BlockPos pos, IItemTier mat) {
         int chance = ConfigHandler.extraDropChance.get();
-        if (chance < 0 || chance > 1000) chance = 5;
+        if (chance == -1) chance = 5;
         if (new Random().nextInt(1000) < chance && ConfigHandler.extraDrop.get()) {
             ItemStack itemStack = mat.getRepairMaterial().getMatchingStacks()[0];
             world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
@@ -94,7 +94,7 @@ public class ToolUtil {
 
     public static boolean paperDamage(IItemTier mat) {
         int chance = ConfigHandler.damageByPaperToolsChance.get();
-        if (chance < 0) chance = 100;
+        if (chance == -1) chance = 100;
         return mat == ItemTiers.PAPER_TIER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance;
     }
 

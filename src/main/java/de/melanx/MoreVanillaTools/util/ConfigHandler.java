@@ -28,6 +28,9 @@ public class ConfigHandler {
     public static ForgeConfigSpec.BooleanValue headDrop;
     public static ForgeConfigSpec.BooleanValue damageByPaperTools;
 
+    public static ForgeConfigSpec.IntValue minPaperDamage;
+    public static ForgeConfigSpec.IntValue maxPaperDamage;
+
     public static void init(ForgeConfigSpec.Builder builder) {
         builder.push("features");
         extraDrop = builder.comment("If set true, tools may drop an item when they'll be used.")
@@ -49,6 +52,13 @@ public class ConfigHandler {
                 .defineInRange("headDropChance", 50, -1, 1000);
         damageByPaperToolsChance = builder.comment("Sets the chance to take an half heart damage if using paper tools. If set to -1, the default (100 = 10%) will be used.")
                 .defineInRange("damageByPaperTools", 100, -1, Integer.MAX_VALUE);
+        builder.pop();
+
+        builder.push("amounts");
+        minPaperDamage = builder.comment()
+                .defineInRange("minPaperDamage", 1, 0, Integer.MAX_VALUE);
+        maxPaperDamage = builder.comment()
+                .defineInRange("maxPaperDamage", 5, 0, Integer.MAX_VALUE);
         builder.pop();
     }
 

@@ -32,7 +32,7 @@ public class SwordBase extends SwordItem {
     @Override
     public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         int chance = ConfigHandler.extraDropChance.get();
-        if (chance < 0 || chance > 1000) chance = 5;
+        if (chance == -1) chance = 5;
         if (new Random().nextInt(1000) < chance) {
             World world = target.getEntityWorld().getWorld();
             BlockPos pos = target.getPosition();
@@ -40,7 +40,7 @@ public class SwordBase extends SwordItem {
             world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
         }
 
-        if (ToolUtil.paperDamage(mat)) attacker.attackEntityFrom(ModDamageSource.PAPER_CUT, 1);
+        if (ToolUtil.paperDamage(mat)) attacker.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
 
         stack.damageItem(1, attacker, (e) -> {
             e.sendBreakAnimation(EquipmentSlotType.MAINHAND);
