@@ -40,7 +40,7 @@ public class SwordBase extends SwordItem {
             world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
         }
 
-        if (ToolUtil.paperDamage(mat)) attacker.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
+        if (ToolUtil.paperDamage(mat)) attacker.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
 
         stack.damageItem(1, attacker, (e) -> {
             e.sendBreakAnimation(EquipmentSlotType.MAINHAND);
