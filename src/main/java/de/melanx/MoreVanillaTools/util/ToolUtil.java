@@ -98,4 +98,9 @@ public class ToolUtil {
         return mat == ItemTiers.PAPER_TIER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance;
     }
 
+    public static int getDefaultChance(int chance, int defaultChance) {
+        if (chance == -1) chance = defaultChance;
+        return chance;
+    }
+
 }

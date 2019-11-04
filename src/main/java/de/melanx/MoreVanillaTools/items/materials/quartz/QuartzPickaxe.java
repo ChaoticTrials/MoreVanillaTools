@@ -2,6 +2,8 @@ package de.melanx.MoreVanillaTools.items.materials.quartz;
 
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
+import de.melanx.MoreVanillaTools.util.ConfigHandler;
+import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -15,8 +17,6 @@ import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-
-import java.util.Random;
 
 public class QuartzPickaxe extends PickaxeBase {
 
@@ -34,8 +34,9 @@ public class QuartzPickaxe extends PickaxeBase {
             Block block = state.getBlock();
             if (block == Blocks.NETHER_QUARTZ_ORE) {
                 ItemStack drop = new ItemStack(Items.QUARTZ);
-                int i = new Random().nextInt(2);
-                if (i == 0)
+                int chance = ConfigHandler.quartzDoubleDropChance.get();
+                chance = ToolUtil.getDefaultChance(chance, 500);
+                if (worldIn.rand.nextInt(1000) < chance && ConfigHandler.quartzDoubleDrop.get())
                     worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
             }
         }

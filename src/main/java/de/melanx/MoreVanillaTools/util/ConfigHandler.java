@@ -23,10 +23,22 @@ public class ConfigHandler {
     public static ForgeConfigSpec.IntValue headDropChance;
     public static ForgeConfigSpec.IntValue damageByPaperToolsChance;
 
+    public static ForgeConfigSpec.IntValue coalDoubleDropChance;
+    public static ForgeConfigSpec.IntValue emeraldDoubleDropChance;
+    public static ForgeConfigSpec.IntValue lapisDoubleDropChance;
+    public static ForgeConfigSpec.IntValue quartzDoubleDropChance;
+    public static ForgeConfigSpec.IntValue redstoneDoubleDropChance;
+
     public static ForgeConfigSpec.BooleanValue extraDrop;
     public static ForgeConfigSpec.BooleanValue extraDamage;
     public static ForgeConfigSpec.BooleanValue headDrop;
     public static ForgeConfigSpec.BooleanValue damageByPaperTools;
+
+    public static ForgeConfigSpec.BooleanValue coalDoubleDrop;
+    public static ForgeConfigSpec.BooleanValue emeraldDoubleDrop;
+    public static ForgeConfigSpec.BooleanValue lapisDoubleDrop;
+    public static ForgeConfigSpec.BooleanValue quartzDoubleDrop;
+    public static ForgeConfigSpec.BooleanValue redstoneDoubleDrop;
 
     public static ForgeConfigSpec.IntValue minPaperDamage;
     public static ForgeConfigSpec.IntValue maxPaperDamage;
@@ -61,6 +73,15 @@ public class ConfigHandler {
                 .define("headDrop", true);
         damageByPaperTools = builder.comment("If set to true paper tools may hurt you.")
                 .define("damageByPaperTools", true);
+
+            builder.push("ore double feature").comment("If set to true the corresponding ore  of the tool drops an additional resource.");
+            coalDoubleDrop = builder.define("coalDoubleDrop", true);
+            emeraldDoubleDrop = builder.define("emeraldDoubleDrop", true);
+            lapisDoubleDrop = builder.define("lapisDoubleDrop", true);
+            quartzDoubleDrop = builder.define("quartzDoubleDrop", true);
+            redstoneDoubleDrop = builder.define("redstoneDoubleDrop", true);
+            builder.pop();
+
         builder.pop();
 
         builder.push("chances");
@@ -72,6 +93,15 @@ public class ConfigHandler {
                 .defineInRange("headDropChance", 50, -1, 1000);
         damageByPaperToolsChance = builder.comment("Sets the chance to take an half heart damage if using paper tools. If set to -1, the default (100 = 10%) will be used.")
                 .defineInRange("damageByPaperTools", 100, -1, Integer.MAX_VALUE);
+
+            builder.push("ore double chance").comment("The chance for dropping an additional resource of their corresponding ore. If set to -1, the default (500 = 50%) will be used.");
+            coalDoubleDropChance = builder.defineInRange("coal double drop chance", 500, -1, 1000);
+            emeraldDoubleDropChance = builder.comment("Default 1 = 0.1%").defineInRange("emerald double drop chance", 1, -1, 1000);
+            lapisDoubleDropChance = builder.defineInRange("lapis double drop chance", 500, -1, 1000);
+            quartzDoubleDropChance = builder.defineInRange("quartz double drop chance", 500, -1, 1000);
+            redstoneDoubleDropChance = builder.defineInRange("redstone double drop chance", 500, -1, 1000);
+            builder.pop();
+
         builder.pop();
 
         builder.push("amounts");

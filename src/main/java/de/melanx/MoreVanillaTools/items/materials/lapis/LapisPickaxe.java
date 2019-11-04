@@ -2,6 +2,8 @@ package de.melanx.MoreVanillaTools.items.materials.lapis;
 
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
+import de.melanx.MoreVanillaTools.util.ConfigHandler;
+import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -15,8 +17,6 @@ import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-
-import java.util.Random;
 
 public class LapisPickaxe extends PickaxeBase {
 
@@ -34,9 +34,13 @@ public class LapisPickaxe extends PickaxeBase {
             Block block = state.getBlock();
             if (block == Blocks.LAPIS_ORE) {
                 ItemStack drop = new ItemStack(Items.LAPIS_LAZULI);
-                int i = new Random().nextInt(3);
-                for (int x = 0; x <= i; x++)
-                    worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
+                int chance = ConfigHandler.lapisDoubleDropChance.get();
+                chance = ToolUtil.getDefaultChance(chance, 500);
+                if (worldIn.rand.nextInt(1000) < chance && ConfigHandler.lapisDoubleDrop.get()) {
+                    int i = worldIn.rand.nextInt(3);
+                    for (int x = 0; x <= i; x++)
+                        worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
+                }
             }
         }
         stack.damageItem(1, entityLiving, e -> {
