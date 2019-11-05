@@ -1,10 +1,11 @@
 {
-  "homepage": "www.melanx.de",
+  "homepage": "https://www.curseforge.com/minecraft/mc-mods/morevanillatools",
   "promos": {
-    "1.14.4-latest": "1.1",
-    "1.14.4-recommended": "1.1"
+    "1.14.4-latest": "1.1.1",
+    "1.14.4-recommended": "1.1.1"
   },
   "1.14.4": {
+    "1.1.1": "Fixed double ore drop not configurable\nFixed max paper damage is 1 to low\nChanged creative tab name to one word",
     "1.1": "Added config for tool durability + harvestlevel\nAdded config for paper tool damage amount\nFixed paper tool damage\nFixed version shown as NONE",
     "1.0": "Added paper tools\nAdded config\nAdded feature item drops by using tool (chance: 0,5%)\nAdded granite/andesite/diorite as ingredient for stone tools\nRe-textured all tools\nFixed config on server not working (#2)",
     "0.2.1": "Fixed bone sword/axe reduce damage in some cases",
