@@ -41,7 +41,6 @@ public class HoeBase extends HoeItem {
             if (blockstate != null) {
                 PlayerEntity playerentity = context.getPlayer();
                 world.playSound(playerentity, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
                 return ToolUtil.itemUsed(context, world, pos, blockstate, playerentity, mat);
             }
         }
