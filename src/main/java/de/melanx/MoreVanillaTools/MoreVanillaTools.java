@@ -1,9 +1,11 @@
 package de.melanx.MoreVanillaTools;
 
+import de.melanx.MoreVanillaTools.enchantments.LuckOfCheapRepairing;
 import de.melanx.MoreVanillaTools.items.ModItems;
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
 import de.melanx.MoreVanillaTools.util.CreativeTab;
 import de.melanx.MoreVanillaTools.util.Registry;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
@@ -16,6 +18,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -36,6 +39,7 @@ public class MoreVanillaTools {
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientRegistries);
+        FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Enchantment.class, this::registerEnchantments);
 
         ConfigHandler.loadConfig(ConfigHandler.SERVER_CONFIG, FMLPaths.CONFIGDIR.get().resolve("morevanillatools-server.toml"));
 
@@ -48,6 +52,13 @@ public class MoreVanillaTools {
 
     private void clientRegistries(final FMLClientSetupEvent event) {
         LOGGER.info("clientRegistries method registered.");
+    }
+
+    private void registerEnchantments(RegistryEvent.Register<Enchantment> event) {
+        if (ConfigHandler.enchantments.get()) {
+            final IForgeRegistry<Enchantment> registry = event.getRegistry();
+            registry.register(new LuckOfCheapRepairing());
+        }
     }
 
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)

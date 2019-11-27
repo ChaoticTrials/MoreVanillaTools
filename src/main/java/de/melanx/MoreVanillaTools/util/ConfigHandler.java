@@ -18,6 +18,7 @@ public class ConfigHandler {
         SERVER_CONFIG = SERVER_BUILDER.build();
     }
 
+    public static ForgeConfigSpec.BooleanValue enchantments;
     public static ForgeConfigSpec.IntValue extraDropChance;
     public static ForgeConfigSpec.IntValue extraDamageChance;
     public static ForgeConfigSpec.IntValue headDropChance;
@@ -65,6 +66,8 @@ public class ConfigHandler {
 
     public static void init(ForgeConfigSpec.Builder builder) {
         builder.push("features");
+        enchantments = builder.comment("If set true, mod enchantments are enabled.")
+                .define("enchantments", true);
         extraDrop = builder.comment("If set true, tools may drop an item when they'll be used.")
                 .define("extraDrop", true);
         extraDamage = builder.comment("If set true, bone axe and sword make extra damage against skeletons.")

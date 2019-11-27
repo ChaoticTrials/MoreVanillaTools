@@ -54,5 +54,7 @@
   "item.morevanillatools.paper_shovel": "Paper Shovel",
   "item.morevanillatools.paper_hoe": "Paper Hoe",
 
-  "death.attack.paperCut": "%1$s was struck down by paper."
+  "death.attack.paperCut": "%1$s was struck down by paper.",
+
+  "enchantment.morevanillatools.repairing_luck": "Luck of Cheap Repairing"
 }

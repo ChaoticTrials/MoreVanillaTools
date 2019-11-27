@@ -53,5 +53,7 @@
   "item.morevanillatools.paper_shovel": "Papierschaufel",
   "item.morevanillatools.paper_hoe": "Papierhacke",
 
-  "death.attack.paperCut": "%1$s wurde durch Papier niedergestreckt."
+  "death.attack.paperCut": "%1$s wurde durch Papier niedergestreckt.",
+
+  "enchantment.morevanillatools.repairing_luck": "Glück der billigen Reparatur"
 }
