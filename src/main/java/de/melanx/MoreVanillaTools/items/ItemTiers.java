@@ -1,8 +1,9 @@
 package de.melanx.MoreVanillaTools.items;
 
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.IItemTier;
-import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 
 public class ItemTiers {
@@ -99,7 +100,7 @@ public class ItemTiers {
 
         @Override
         public Ingredient getRepairMaterial() {
-            return Ingredient.fromItems(Items.OBSIDIAN);
+            return Ingredient.fromItems(Blocks.OBSIDIAN.asItem());
         }
     };
 

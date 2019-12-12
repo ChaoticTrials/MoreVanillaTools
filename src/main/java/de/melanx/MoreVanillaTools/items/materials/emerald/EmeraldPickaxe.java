@@ -5,15 +5,14 @@ import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
 import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Enchantments;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,7 +28,7 @@ public class EmeraldPickaxe extends PickaxeBase {
 
     @SubscribeEvent
     @Override
-    public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
+    public boolean onBlockDestroyed(ItemStack stack, World worldIn, IBlockState state, BlockPos pos, EntityLivingBase entityLiving) {
         if (EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) < 1) {
             Block block = state.getBlock();
             if (block == Blocks.EMERALD_ORE) {
@@ -37,12 +36,10 @@ public class EmeraldPickaxe extends PickaxeBase {
                 int chance = ConfigHandler.emeraldDoubleDropChance.get();
                 chance = ToolUtil.getDefaultChance(chance, 1);
                 if (worldIn.rand.nextInt(1000) < chance && ConfigHandler.emeraldDoubleDrop.get())
-                    worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
+                    worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
             }
         }
-        stack.damageItem(1, entityLiving, e -> {
-            e.sendBreakAnimation(EquipmentSlotType.MAINHAND);
-        });
+        stack.damageItem(1, entityLiving);
         return true;
     }
 }

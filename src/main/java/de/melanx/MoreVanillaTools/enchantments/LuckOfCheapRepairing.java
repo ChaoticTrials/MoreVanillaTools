@@ -3,8 +3,8 @@ package de.melanx.MoreVanillaTools.enchantments;
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.EnchantmentType;
-import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AnvilUpdateEvent;
@@ -12,7 +12,7 @@ import net.minecraftforge.event.AnvilUpdateEvent;
 public class LuckOfCheapRepairing extends Enchantment {
 
     public LuckOfCheapRepairing() {
-        super(Rarity.RARE, EnchantmentType.BREAKABLE, EquipmentSlotType.values());
+        super(Rarity.RARE, EnumEnchantmentType.BREAKABLE, EntityEquipmentSlot.values());
         this.setRegistryName(MoreVanillaTools.MODID, "repairing_luck");
 
         MinecraftForge.EVENT_BUS.addListener(this::onAnvilRepair);

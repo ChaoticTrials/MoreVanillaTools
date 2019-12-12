@@ -1,17 +1,20 @@
 package de.melanx.MoreVanillaTools.util;
 
 import de.melanx.MoreVanillaTools.items.ItemTiers;
-import net.minecraft.block.BlockState;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.monster.AbstractSkeletonEntity;
-import net.minecraft.entity.monster.WitherSkeletonEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.*;
-import net.minecraft.util.ActionResultType;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.EntityWitherSkeleton;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Enchantments;
+import net.minecraft.init.Items;
+import net.minecraft.item.IItemTier;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUseContext;
+import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
@@ -22,65 +25,63 @@ import java.util.Random;
 public class ToolUtil {
 
     public static void moreDamage(LivingDamageEvent event) {
-        LivingEntity entity = event.getEntityLiving();
+        EntityLivingBase entity = event.getEntityLiving();
         Random rand = event.getEntityLiving().world.rand;
 
         int chance = ConfigHandler.extraDamageChance.get();
         if (chance == -1) chance = 200;
-        if (entity instanceof AbstractSkeletonEntity && rand.nextInt(1000) < chance && ConfigHandler.extraDamage.get()) {
+        if (entity instanceof EntitySkeleton && rand.nextInt(1000) < chance && ConfigHandler.extraDamage.get()) {
             event.setAmount(event.getAmount() * (rand.nextInt(26) / 10 + 1));
         }
     }
 
     public static void headDrop(LivingDropsEvent event, Item item) {
-        if (event.isRecentlyHit() && event.getSource().getTrueSource() != null && event.getSource().getTrueSource() instanceof PlayerEntity) {
-            ItemStack weapon = ((PlayerEntity) event.getSource().getTrueSource()).getHeldItemMainhand();
+        if (event.isRecentlyHit() && event.getSource().getTrueSource() != null && event.getSource().getTrueSource() instanceof EntityPlayer) {
+            ItemStack weapon = ((EntityPlayer) event.getSource().getTrueSource()).getHeldItemMainhand();
             if (!weapon.isEmpty() && weapon.getItem() == item) {
                 Random rand = event.getEntityLiving().world.rand;
                 int looting = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, weapon);
 
                 int chance = ConfigHandler.headDropChance.get();
                 if (chance == -1) chance = 50;
-                if (ConfigHandler.headDrop.get() && event.getEntityLiving() instanceof AbstractSkeletonEntity && rand.nextInt(1000) < chance + looting)
-                    addDrop(event, new ItemStack(event.getEntity() instanceof WitherSkeletonEntity ? Items.WITHER_SKELETON_SKULL : Items.SKELETON_SKULL));
+                if (ConfigHandler.headDrop.get() && event.getEntityLiving() instanceof EntitySkeleton && rand.nextInt(1000) < chance + looting)
+                    addDrop(event, new ItemStack(event.getEntity() instanceof EntityWitherSkeleton ? Items.WITHER_SKELETON_SKULL : Items.SKELETON_SKULL));
             }
         }
     }
 
     private static void addDrop(LivingDropsEvent event, ItemStack drop) {
-        ItemEntity entityitem = new ItemEntity(event.getEntityLiving().world, event.getEntityLiving().posX, event.getEntityLiving().posY, event.getEntityLiving().posZ, drop);
+        EntityItem entityitem = new EntityItem(event.getEntityLiving().world, event.getEntityLiving().posX, event.getEntityLiving().posY, event.getEntityLiving().posZ, drop);
         entityitem.setPickupDelay(10);
         event.getDrops().add(entityitem);
     }
 
-    public static boolean damageItem(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entityLiving, IItemTier mat) {
+    public static boolean damageItem(ItemStack stack, World world, IBlockState state, BlockPos pos, EntityLivingBase entityLiving, IItemTier mat) {
         if (!world.isRemote && state.getBlockHardness(world, pos) != 0.0F) {
 
             extraDrop(world, pos, mat);
-            if (paperDamage(mat)) entityLiving.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
+            if (paperDamage(mat))
+                entityLiving.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
 
-            stack.damageItem(1, entityLiving, (e) -> {
-                e.sendBreakAnimation(EquipmentSlotType.MAINHAND);
-            });
+            stack.damageItem(1, entityLiving);
         }
         return true;
     }
 
-    public static ActionResultType itemUsed(ItemUseContext context, World world, BlockPos pos, BlockState blockstate, PlayerEntity playerentity, IItemTier mat) {
+    public static EnumActionResult itemUsed(ItemUseContext context, World world, BlockPos pos, IBlockState blockstate, EntityPlayer playerentity, IItemTier mat) {
         if (!world.isRemote) {
             world.setBlockState(pos, blockstate, 11);
             if (playerentity != null) {
                 extraDrop(world, pos, mat);
 
-                if (paperDamage(mat)) playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
+                if (paperDamage(mat))
+                    playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
 
-                context.getItem().damageItem(1, playerentity, (e) -> {
-                    e.sendBreakAnimation(context.getHand());
-                });
+                context.getItem().damageItem(1, playerentity);
             }
         }
 
-        return ActionResultType.SUCCESS;
+        return EnumActionResult.SUCCESS;
     }
 
     private static void extraDrop(World world, BlockPos pos, IItemTier mat) {
@@ -88,7 +89,7 @@ public class ToolUtil {
         if (chance == -1) chance = 5;
         if (new Random().nextInt(1000) < chance && ConfigHandler.extraDrop.get()) {
             ItemStack itemStack = mat.getRepairMaterial().getMatchingStacks()[0];
-            world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
+            world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
         }
     }
 

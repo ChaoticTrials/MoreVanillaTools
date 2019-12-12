@@ -18,7 +18,7 @@ archivesBaseName = "morevanillatools"
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings channel: 'stable', version: mappings_version
+    mappings channel: 'snapshot', version: mappings_version
 
     runs {
         client {
@@ -38,7 +38,7 @@ minecraft {
         }
 
         server {
-            workingDirectory project.file('run')
+            workingDirectory project.file('run_server')
 
             // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
@@ -54,7 +54,7 @@ minecraft {
         }
 
         data {
-            workingDirectory project.file('run')
+            workingDirectory project.file('run_data')
 
             // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
@@ -83,8 +83,8 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
-    compileOnly fg.deobf("mezz.jei:jei-1.14.4:6.0.0.18:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-1.14.4:6.0.0.18")
+    compileOnly fg.deobf("mezz.jei:jei-1.13.2:5.0.0.20:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.13.2:5.0.0.20")
 }
 
 jar {
