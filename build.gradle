@@ -11,7 +11,7 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle'
 
-version = mod_version
+version = "${mc_version}-${mod_version}"
 group = "de.melanx.morevanillatools"
 archivesBaseName = "morevanillatools"
 
