@@ -48,7 +48,7 @@ public class ToolUtil {
     }
 
     private static void addDrop(LivingDropsEvent event, ItemStack drop) {
-        ItemEntity entityitem = new ItemEntity(event.getEntityLiving().world, event.getEntityLiving().posX, event.getEntityLiving().posY, event.getEntityLiving().posZ, drop);
+        ItemEntity entityitem = new ItemEntity(event.getEntityLiving().world, event.getEntityLiving().lastTickPosX, event.getEntityLiving().lastTickPosY, event.getEntityLiving().lastTickPosZ, drop);
         entityitem.setPickupDelay(10);
         event.getDrops().add(entityitem);
     }

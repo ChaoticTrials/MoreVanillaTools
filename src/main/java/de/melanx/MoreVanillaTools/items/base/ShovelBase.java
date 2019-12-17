@@ -6,6 +6,7 @@ import de.melanx.MoreVanillaTools.util.ModDamageSource;
 import de.melanx.MoreVanillaTools.util.Registry;
 import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.CampfireBlock;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
@@ -39,17 +40,28 @@ public class ShovelBase extends ShovelItem {
     public ActionResultType onItemUse(ItemUseContext context) {
         World world = context.getWorld();
         BlockPos pos = context.getPos();
-        if (context.getFace() != Direction.DOWN && world.getBlockState(pos.up()).isAir(world, pos.up())) {
-            BlockState blockstate = field_195955_e.get(world.getBlockState(pos).getBlock());
-            if (blockstate != null) {
-                PlayerEntity playerentity = context.getPlayer();
+        BlockState blockstate = world.getBlockState(pos);
+        if (context.getFace() == Direction.DOWN) {
+            return ActionResultType.PASS;
+        } else {
+            PlayerEntity playerentity = context.getPlayer();
+            BlockState blockstate1 = SHOVEL_LOOKUP.get(blockstate.getBlock());
+            BlockState blockstate2 = null;
+            if (blockstate1 != null && world.isAirBlock(pos.up())) {
                 world.playSound(playerentity, pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                blockstate2 = blockstate1;
+            } else if (blockstate.getBlock() instanceof CampfireBlock && blockstate.get(CampfireBlock.LIT)) {
+                world.playEvent(null, 1009, pos, 0);
+                blockstate2 = blockstate.with(CampfireBlock.LIT, Boolean.valueOf(false));
+            }
+
+            if (blockstate2 != null) {
                 if (ToolUtil.paperDamage(mat)) playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
                 return ToolUtil.itemUsed(context, world, pos, blockstate, playerentity, mat);
+            } else {
+                return ActionResultType.PASS;
             }
         }
-
-        return ActionResultType.PASS;
     }
 
 }
