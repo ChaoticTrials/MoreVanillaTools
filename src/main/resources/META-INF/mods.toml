@@ -10,14 +10,14 @@ authors="MelanX"
 description='''
 A mod which adds more tools in the vanilla way.
 '''
-[[dependencies.MoreVanillaTools]]
+[[dependencies.morevanillatools]]
     modId="forge"
     mandatory=true
     versionRange="[30,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.MoreVanillaTools]]
+[[dependencies.morevanillatools]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.15.1]"
