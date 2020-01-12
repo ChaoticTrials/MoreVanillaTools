@@ -1,14 +1,14 @@
 package de.melanx.MoreVanillaTools.items;
 
+import de.melanx.MoreVanillaTools.items.materials.bone.*;
 import de.melanx.MoreVanillaTools.items.materials.coal.*;
 import de.melanx.MoreVanillaTools.items.materials.emerald.*;
 import de.melanx.MoreVanillaTools.items.materials.glowstone.*;
 import de.melanx.MoreVanillaTools.items.materials.lapis.*;
 import de.melanx.MoreVanillaTools.items.materials.obsidian.*;
+import de.melanx.MoreVanillaTools.items.materials.paper.*;
 import de.melanx.MoreVanillaTools.items.materials.quartz.*;
 import de.melanx.MoreVanillaTools.items.materials.redstone.*;
-import de.melanx.MoreVanillaTools.items.materials.bone.*;
-import de.melanx.MoreVanillaTools.items.materials.paper.*;
 import net.minecraft.item.Item;
 
 public class ModItems {

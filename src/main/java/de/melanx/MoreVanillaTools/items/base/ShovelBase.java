@@ -56,7 +56,8 @@ public class ShovelBase extends ShovelItem {
             }
 
             if (blockstate2 != null) {
-                if (ToolUtil.paperDamage(mat)) playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
+                if (ToolUtil.paperDamage(mat))
+                    playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
                 return ToolUtil.itemUsed(context, world, pos, blockstate, playerentity, mat);
             } else {
                 return ActionResultType.PASS;

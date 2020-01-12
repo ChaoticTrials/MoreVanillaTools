@@ -25,12 +25,10 @@ import org.apache.logging.log4j.Logger;
 @Mod(MoreVanillaTools.MODID)
 public class MoreVanillaTools {
 
-    public static MoreVanillaTools instance;
-
     public static final String MODID = "morevanillatools";
     public static final Logger LOGGER = LogManager.getLogger(MODID);
-
     public static final ItemGroup creativeTab = new CreativeTab();
+    public static MoreVanillaTools instance;
 
     public MoreVanillaTools() {
         instance = this;
