@@ -56,5 +56,6 @@
 
   "death.attack.paperCut": "%1$s was struck down by paper.",
 
-  "enchantment.morevanillatools.repairing_luck": "Luck of Cheap Repairing"
+  "enchantment.morevanillatools.repairing_luck": "Luck of Cheap Repairing",
+  "enchantment.morevanillatools.repairing_luck.desc": "Reduces the repair costs in the anvil to a minimum."
 }
