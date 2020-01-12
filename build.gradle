@@ -83,8 +83,7 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
-    // waiting for JEI
-//    runtimeOnly fg.deobf("mezz.jei:jei-1.14.4:6.0.0.18")
+    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
 }
 
 jar {
