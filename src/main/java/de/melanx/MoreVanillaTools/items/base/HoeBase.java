@@ -1,8 +1,6 @@
 package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
-import de.melanx.MoreVanillaTools.util.ConfigHandler;
-import de.melanx.MoreVanillaTools.util.ModDamageSource;
 import de.melanx.MoreVanillaTools.util.Registry;
 import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.block.BlockState;
@@ -15,8 +13,6 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class HoeBase extends HoeItem {
 

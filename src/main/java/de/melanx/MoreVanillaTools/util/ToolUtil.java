@@ -57,7 +57,8 @@ public class ToolUtil {
         if (!world.isRemote && state.getBlockHardness(world, pos) != 0.0F) {
 
             extraDrop(world, pos, mat);
-            if (paperDamage(mat)) entityLiving.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
+            if (paperDamage(mat))
+                entityLiving.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
 
             stack.damageItem(1, entityLiving, (e) -> {
                 e.sendBreakAnimation(EquipmentSlotType.MAINHAND);
@@ -72,7 +73,8 @@ public class ToolUtil {
             if (playerentity != null) {
                 extraDrop(world, pos, mat);
 
-                if (paperDamage(mat)) playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
+                if (paperDamage(mat))
+                    playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
 
                 context.getItem().damageItem(1, playerentity, (e) -> {
                     e.sendBreakAnimation(context.getHand());
