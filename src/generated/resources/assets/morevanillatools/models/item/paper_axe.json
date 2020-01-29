@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "morevanillatools:item/paper_axe"
+  }
+}
