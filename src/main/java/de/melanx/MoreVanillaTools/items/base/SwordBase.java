@@ -1,6 +1,7 @@
 package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
+import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
 import de.melanx.MoreVanillaTools.util.ModDamageSource;
 import de.melanx.MoreVanillaTools.util.Registry;
@@ -19,9 +20,9 @@ import java.util.Random;
 
 public class SwordBase extends SwordItem {
 
-    private final IItemTier mat;
+    private final ItemTiers mat;
 
-    public SwordBase(IItemTier mat, int damage, float speed) {
+    public SwordBase(ItemTiers mat, int damage, float speed) {
         super(mat, damage, speed, new Item.Properties().group(MoreVanillaTools.creativeTab));
 
         this.mat = mat;
@@ -45,6 +46,10 @@ public class SwordBase extends SwordItem {
             e.sendBreakAnimation(EquipmentSlotType.MAINHAND);
         });
         return true;
+    }
+
+    public ItemTiers getToolType() {
+        return this.mat;
     }
 
 }

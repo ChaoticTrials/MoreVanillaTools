@@ -1,6 +1,7 @@
 package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
+import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.Registry;
 import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.block.BlockState;
@@ -14,9 +15,9 @@ import net.minecraft.world.World;
 
 public class AxeBase extends AxeItem {
 
-    private final IItemTier mat;
+    private final ItemTiers mat;
 
-    public AxeBase(IItemTier mat, float ATTACK_DAMAGE, float ATTACK_SPEED) {
+    public AxeBase(ItemTiers mat, float ATTACK_DAMAGE, float ATTACK_SPEED) {
         super(mat, ATTACK_DAMAGE, ATTACK_SPEED, new Item.Properties().group(MoreVanillaTools.creativeTab));
 
         this.mat = mat;
@@ -25,5 +26,9 @@ public class AxeBase extends AxeItem {
     @Override
     public boolean onBlockDestroyed(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entityLiving) {
         return ToolUtil.damageItem(stack, world, state, pos, entityLiving, mat);
+    }
+
+    public ItemTiers getToolType() {
+        return this.mat;
     }
 }

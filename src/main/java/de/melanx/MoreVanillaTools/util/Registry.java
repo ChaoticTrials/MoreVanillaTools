@@ -1,26 +1,81 @@
 package de.melanx.MoreVanillaTools.util;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
-import net.minecraft.client.renderer.model.ModelResourceLocation;
+import de.melanx.MoreVanillaTools.items.ItemTiers;
+import de.melanx.MoreVanillaTools.items.base.*;
+import de.melanx.MoreVanillaTools.items.materials.BoneAxe;
+import de.melanx.MoreVanillaTools.items.materials.BoneSword;
+import de.melanx.MoreVanillaTools.items.materials.CoalPickaxe;
+import de.melanx.MoreVanillaTools.items.materials.EmeraldPickaxe;
+import de.melanx.MoreVanillaTools.items.materials.GlowstonePickaxe;
+import de.melanx.MoreVanillaTools.items.materials.LapisPickaxe;
+import de.melanx.MoreVanillaTools.items.materials.ObsidianPickaxe;
+import de.melanx.MoreVanillaTools.items.materials.QuartzPickaxe;
+import de.melanx.MoreVanillaTools.items.materials.RedstonePickaxe;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-
-import java.util.*;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class Registry {
-    public static final List<Item> ITEMS_TO_REGISTER = new ArrayList<>();
-    public static final Map<ItemStack, ModelResourceLocation> MODEL_LOCATIONS = new HashMap<>();
+    public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, MoreVanillaTools.MODID);
 
-    public static void registerItem(Item item, String name) {
-        item.setRegistryName(MoreVanillaTools.MODID, name);
-        ITEMS_TO_REGISTER.add(item);
-    }
+    public static final RegistryObject<Item> BONE_SWORD = ITEMS.register("bone_sword", BoneSword::new);
+    public static final RegistryObject<Item> BONE_AXE = ITEMS.register("bone_axe", BoneAxe::new);
+    public static final RegistryObject<Item> BONE_PICKAXE = ITEMS.register("bone_pickaxe", () -> new PickaxeBase(ItemTiers.BONE, 0, -3));
+    public static final RegistryObject<Item> BONE_SHOVEL = ITEMS.register("bone_shovel", () -> new ShovelBase(ItemTiers.BONE, 1.5F, -3.2F));
+    public static final RegistryObject<Item> BONE_HOE = ITEMS.register("bone_hoe", () -> new HoeBase(ItemTiers.BONE, -2));
 
-    public static void registerModel(Object item) {
-        if (item instanceof Item) {
-            MODEL_LOCATIONS.put(new ItemStack((Item) item), new ModelResourceLocation(Objects.requireNonNull(((Item) item).getRegistryName()), "inventory"));
-        } else {
-            throw new IllegalArgumentException("item should be of type Item or Block");
-        }
+    public static final RegistryObject<Item> COAL_SWORD = ITEMS.register("coal_sword", () -> new SwordBase(ItemTiers.COAL, 2, -2.6F));
+    public static final RegistryObject<Item> COAL_AXE = ITEMS.register("coal_axe", () -> new AxeBase(ItemTiers.COAL, 6, -3.4F));
+    public static final RegistryObject<Item> COAL_PICKAXE = ITEMS.register("coal_pickaxe", CoalPickaxe::new);
+    public static final RegistryObject<Item> COAL_SHOVEL = ITEMS.register("coal_shovel", () -> new ShovelBase(ItemTiers.COAL, 1.5F, -3.2F));
+    public static final RegistryObject<Item> COAL_HOE = ITEMS.register("coal_hoe", () -> new HoeBase(ItemTiers.COAL, -2));
+
+    public static final RegistryObject<Item> EMERALD_SWORD = ITEMS.register("emerald_sword", () -> new SwordBase(ItemTiers.EMERALD, 2, -2.4F));
+    public static final RegistryObject<Item> EMERALD_AXE = ITEMS.register("emerald_axe", () -> new AxeBase(ItemTiers.EMERALD, 4, -2.8F));
+    public static final RegistryObject<Item> EMERALD_PICKAXE = ITEMS.register("emerald_pickaxe", EmeraldPickaxe::new);
+    public static final RegistryObject<Item> EMERALD_SHOVEL = ITEMS.register("emerald_shovel", () -> new ShovelBase(ItemTiers.EMERALD, 1, -3));
+    public static final RegistryObject<Item> EMERALD_HOE = ITEMS.register("emerald_hoe", () -> new HoeBase(ItemTiers.EMERALD, 0));
+
+    public static final RegistryObject<Item> GLOWSTONE_SWORD = ITEMS.register("glowstone_sword", () -> new SwordBase(ItemTiers.GLOWSTONE, 2, -2.2F));
+    public static final RegistryObject<Item> GLOWSTONE_AXE = ITEMS.register("glowstone_axe", () -> new AxeBase(ItemTiers.GLOWSTONE, 6, -3));
+    public static final RegistryObject<Item> GLOWSTONE_PICKAXE = ITEMS.register("glowstone_pickaxe", GlowstonePickaxe::new);
+    public static final RegistryObject<Item> GLOWSTONE_SHOVEL = ITEMS.register("glowstone_shovel", () -> new ShovelBase(ItemTiers.GLOWSTONE, 0.5F, -2.8F));
+    public static final RegistryObject<Item> GLOWSTONE_HOE = ITEMS.register("glowstone_hoe", () -> new HoeBase(ItemTiers.GLOWSTONE, -2));
+
+    public static final RegistryObject<Item> LAPIS_SWORD = ITEMS.register("lapis_sword", () -> new SwordBase(ItemTiers.LAPIS, 3, -2.4F));
+    public static final RegistryObject<Item> LAPIS_AXE = ITEMS.register("lapis_axe", () -> new AxeBase(ItemTiers.LAPIS, 0, 2.8F));
+    public static final RegistryObject<Item> LAPIS_PICKAXE = ITEMS.register("lapis_pickaxe", LapisPickaxe::new);
+    public static final RegistryObject<Item> LAPIS_SHOVEL = ITEMS.register("lapis_shovel", () -> new ShovelBase(ItemTiers.LAPIS, 1.5F, -3));
+    public static final RegistryObject<Item> LAPIS_HOE = ITEMS.register("lapis_hoe", () -> new HoeBase(ItemTiers.LAPIS, -1.2F));
+
+    public static final RegistryObject<Item> OBSIDIAN_SWORD = ITEMS.register("obsidian_sword", () -> new SwordBase(ItemTiers.OBSIDIAN, 2, -2.6F));
+    public static final RegistryObject<Item> OBSIDIAN_AXE = ITEMS.register("obsidian_axe", () -> new AxeBase(ItemTiers.OBSIDIAN, 6, -3.4F));
+    public static final RegistryObject<Item> OBSIDIAN_PICKAXE = ITEMS.register("obsidian_pickaxe", ObsidianPickaxe::new);
+    public static final RegistryObject<Item> OBSIDIAN_SHOVEL = ITEMS.register("obsidian_shovel", () -> new ShovelBase(ItemTiers.OBSIDIAN, 0.5F, -3.2F));
+    public static final RegistryObject<Item> OBSIDIAN_HOE = ITEMS.register("obsidian_hoe", () -> new HoeBase(ItemTiers.OBSIDIAN, -2));
+
+    public static final RegistryObject<Item> PAPER_SWORD = ITEMS.register("paper_sword", () -> new SwordBase(ItemTiers.PAPER, 3, -2.4F));
+    public static final RegistryObject<Item> PAPER_AXE = ITEMS.register("paper_axe", () -> new AxeBase(ItemTiers.PAPER, 6, -3.2F));
+    public static final RegistryObject<Item> PAPER_PICKAXE = ITEMS.register("paper_pickaxe", () -> new PickaxeBase(ItemTiers.PAPER, 1, -2.8F));
+    public static final RegistryObject<Item> PAPER_SHOVEL = ITEMS.register("paper_shovel", () -> new ShovelBase(ItemTiers.PAPER, 1.5F, -3));
+    public static final RegistryObject<Item> PAPER_HOE = ITEMS.register("paper_hoe", () -> new HoeBase(ItemTiers.PAPER, -3));
+
+    public static final RegistryObject<Item> QUARTZ_SWORD = ITEMS.register("quartz_sword", () -> new SwordBase(ItemTiers.QUARTZ, 2, -2.6F));
+    public static final RegistryObject<Item> QUARTZ_AXE = ITEMS.register("quartz_axe", () -> new AxeBase(ItemTiers.QUARTZ, 6, -3.4F));
+    public static final RegistryObject<Item> QUARTZ_PICKAXE = ITEMS.register("quartz_pickaxe", QuartzPickaxe::new);
+    public static final RegistryObject<Item> QUARTZ_SHOVEL = ITEMS.register("quartz_shovel", () -> new ShovelBase(ItemTiers.QUARTZ, 1.5F, -3.2F));
+    public static final RegistryObject<Item> QUARTZ_HOE = ITEMS.register("quartz_hoe", () -> new HoeBase(ItemTiers.QUARTZ, -2));
+
+    public static final RegistryObject<Item> REDSTONE_SWORD = ITEMS.register("redstone_sword", () -> new SwordBase(ItemTiers.REDSTONE, 3, -2.4F));
+    public static final RegistryObject<Item> REDSTONE_AXE = ITEMS.register("redstone_axe", () -> new AxeBase(ItemTiers.REDSTONE, 6, -3.1F));
+    public static final RegistryObject<Item> REDSTONE_PICKAXE = ITEMS.register("redstone_pickaxe", RedstonePickaxe::new);
+    public static final RegistryObject<Item> REDSTONE_SHOVEL = ITEMS.register("redstone_shovel", () -> new ShovelBase(ItemTiers.REDSTONE, 1.5F, -3));
+    public static final RegistryObject<Item> REDSTONE_HOE = ITEMS.register("redstone_hoe", () -> new HoeBase(ItemTiers.REDSTONE, -1.2F));
+
+    public static void registerTools() {
+        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 }

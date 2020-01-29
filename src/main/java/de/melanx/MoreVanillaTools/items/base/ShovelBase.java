@@ -1,6 +1,7 @@
 package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
+import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
 import de.melanx.MoreVanillaTools.util.ModDamageSource;
 import de.melanx.MoreVanillaTools.util.Registry;
@@ -21,9 +22,9 @@ import java.util.Random;
 
 public class ShovelBase extends ShovelItem {
 
-    private final IItemTier mat;
+    private final ItemTiers mat;
 
-    public ShovelBase(IItemTier mat, float damage, float speed) {
+    public ShovelBase(ItemTiers mat, float damage, float speed) {
         super(mat, damage, speed, new Item.Properties().group(MoreVanillaTools.creativeTab));
 
         this.mat = mat;
@@ -61,6 +62,10 @@ public class ShovelBase extends ShovelItem {
                 return ActionResultType.PASS;
             }
         }
+    }
+
+    public ItemTiers getToolType() {
+        return this.mat;
     }
 
 }
