@@ -1,4 +1,4 @@
-package de.melanx.MoreVanillaTools.items.materials.quartz;
+package de.melanx.MoreVanillaTools.items.materials;
 
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
@@ -18,13 +18,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class QuartzPickaxe extends PickaxeBase {
+public class CoalPickaxe extends PickaxeBase {
 
     private static final int DAMAGE = 0;
     private static final int SPEED = -3;
 
-    public QuartzPickaxe() {
-        super("quartz_pickaxe", ItemTiers.QUARTZ, DAMAGE, SPEED);
+    public CoalPickaxe() {
+        super(ItemTiers.COAL, DAMAGE, SPEED);
     }
 
     @SubscribeEvent
@@ -32,11 +32,11 @@ public class QuartzPickaxe extends PickaxeBase {
     public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
         if (EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) < 1) {
             Block block = state.getBlock();
-            if (block == Blocks.NETHER_QUARTZ_ORE) {
-                ItemStack drop = new ItemStack(Items.QUARTZ);
-                int chance = ConfigHandler.quartzDoubleDropChance.get();
+            if (block == Blocks.COAL_ORE) {
+                ItemStack drop = new ItemStack(Items.COAL);
+                int chance = ConfigHandler.coalDoubleDropChance.get();
                 chance = ToolUtil.getDefaultChance(chance, 500);
-                if (worldIn.rand.nextInt(1000) < chance && ConfigHandler.quartzDoubleDrop.get())
+                if (worldIn.rand.nextInt(1000) < chance && ConfigHandler.coalDoubleDrop.get())
                     worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
             }
         }

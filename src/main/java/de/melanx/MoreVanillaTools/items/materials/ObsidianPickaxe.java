@@ -1,4 +1,4 @@
-package de.melanx.MoreVanillaTools.items.materials.obsidian;
+package de.melanx.MoreVanillaTools.items.materials;
 
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
@@ -17,7 +17,7 @@ public class ObsidianPickaxe extends PickaxeBase {
     private static final int SPEED = -3;
 
     public ObsidianPickaxe() {
-        super("obsidian_pickaxe", ItemTiers.OBSIDIAN, DAMAGE, SPEED);
+        super(ItemTiers.OBSIDIAN, DAMAGE, SPEED);
     }
 
     @Override

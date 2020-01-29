@@ -18,10 +18,8 @@ public class HoeBase extends HoeItem {
 
     private final IItemTier mat;
 
-    public HoeBase(String name, IItemTier mat, float speed) {
+    public HoeBase(IItemTier mat, float speed) {
         super(mat, speed, new Item.Properties().group(MoreVanillaTools.creativeTab));
-        Registry.registerItem(this, name);
-        Registry.registerModel(this);
 
         this.mat = mat;
     }

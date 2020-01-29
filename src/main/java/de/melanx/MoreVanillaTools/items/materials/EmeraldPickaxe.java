@@ -1,4 +1,4 @@
-package de.melanx.MoreVanillaTools.items.materials.emerald;
+package de.melanx.MoreVanillaTools.items.materials;
 
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
@@ -24,7 +24,7 @@ public class EmeraldPickaxe extends PickaxeBase {
     private static final float SPEED = -2.5F;
 
     public EmeraldPickaxe() {
-        super("emerald_pickaxe", ItemTiers.EMERALD, DAMAGE, SPEED);
+        super(ItemTiers.EMERALD, DAMAGE, SPEED);
     }
 
     @SubscribeEvent

@@ -1,4 +1,4 @@
-package de.melanx.MoreVanillaTools.items.materials.glowstone;
+package de.melanx.MoreVanillaTools.items.materials;
 
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
@@ -9,7 +9,7 @@ public class GlowstonePickaxe extends PickaxeBase {
     private static final float SPEED = -2.6F;
 
     public GlowstonePickaxe() {
-        super("glowstone_pickaxe", ItemTiers.GLOWSTONE, DAMAGE, SPEED);
+        super(ItemTiers.GLOWSTONE, DAMAGE, SPEED);
     }
 
     // TODO everytime drop 4 dust from block

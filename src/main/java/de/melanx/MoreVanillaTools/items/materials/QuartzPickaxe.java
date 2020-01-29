@@ -1,4 +1,4 @@
-package de.melanx.MoreVanillaTools.items.materials.lapis;
+package de.melanx.MoreVanillaTools.items.materials;
 
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
@@ -18,13 +18,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class LapisPickaxe extends PickaxeBase {
+public class QuartzPickaxe extends PickaxeBase {
 
-    private static final int DAMAGE = 1;
-    private static final float SPEED = -2.8F;
+    private static final int DAMAGE = 0;
+    private static final int SPEED = -3;
 
-    public LapisPickaxe() {
-        super("lapis_pickaxe", ItemTiers.LAPIS, DAMAGE, SPEED);
+    public QuartzPickaxe() {
+        super(ItemTiers.QUARTZ, DAMAGE, SPEED);
     }
 
     @SubscribeEvent
@@ -32,15 +32,12 @@ public class LapisPickaxe extends PickaxeBase {
     public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
         if (EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) < 1) {
             Block block = state.getBlock();
-            if (block == Blocks.LAPIS_ORE) {
-                ItemStack drop = new ItemStack(Items.LAPIS_LAZULI);
-                int chance = ConfigHandler.lapisDoubleDropChance.get();
+            if (block == Blocks.NETHER_QUARTZ_ORE) {
+                ItemStack drop = new ItemStack(Items.QUARTZ);
+                int chance = ConfigHandler.quartzDoubleDropChance.get();
                 chance = ToolUtil.getDefaultChance(chance, 500);
-                if (worldIn.rand.nextInt(1000) < chance && ConfigHandler.lapisDoubleDrop.get()) {
-                    int i = worldIn.rand.nextInt(3);
-                    for (int x = 0; x <= i; x++)
-                        worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
-                }
+                if (worldIn.rand.nextInt(1000) < chance && ConfigHandler.quartzDoubleDrop.get())
+                    worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
             }
         }
         stack.damageItem(1, entityLiving, e -> {
@@ -48,5 +45,4 @@ public class LapisPickaxe extends PickaxeBase {
         });
         return true;
     }
-
 }

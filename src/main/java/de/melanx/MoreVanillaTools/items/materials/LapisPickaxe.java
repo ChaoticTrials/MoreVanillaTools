@@ -1,4 +1,4 @@
-package de.melanx.MoreVanillaTools.items.materials.coal;
+package de.melanx.MoreVanillaTools.items.materials;
 
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
@@ -18,13 +18,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class CoalPickaxe extends PickaxeBase {
+public class LapisPickaxe extends PickaxeBase {
 
-    private static final int DAMAGE = 0;
-    private static final int SPEED = -3;
+    private static final int DAMAGE = 1;
+    private static final float SPEED = -2.8F;
 
-    public CoalPickaxe() {
-        super("coal_pickaxe", ItemTiers.COAL, DAMAGE, SPEED);
+    public LapisPickaxe() {
+        super(ItemTiers.LAPIS, DAMAGE, SPEED);
     }
 
     @SubscribeEvent
@@ -32,12 +32,15 @@ public class CoalPickaxe extends PickaxeBase {
     public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
         if (EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) < 1) {
             Block block = state.getBlock();
-            if (block == Blocks.COAL_ORE) {
-                ItemStack drop = new ItemStack(Items.COAL);
-                int chance = ConfigHandler.coalDoubleDropChance.get();
+            if (block == Blocks.LAPIS_ORE) {
+                ItemStack drop = new ItemStack(Items.LAPIS_LAZULI);
+                int chance = ConfigHandler.lapisDoubleDropChance.get();
                 chance = ToolUtil.getDefaultChance(chance, 500);
-                if (worldIn.rand.nextInt(1000) < chance && ConfigHandler.coalDoubleDrop.get())
-                    worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
+                if (worldIn.rand.nextInt(1000) < chance && ConfigHandler.lapisDoubleDrop.get()) {
+                    int i = worldIn.rand.nextInt(3);
+                    for (int x = 0; x <= i; x++)
+                        worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
+                }
             }
         }
         stack.damageItem(1, entityLiving, e -> {
@@ -45,4 +48,5 @@ public class CoalPickaxe extends PickaxeBase {
         });
         return true;
     }
+
 }

@@ -16,10 +16,8 @@ public class AxeBase extends AxeItem {
 
     private final IItemTier mat;
 
-    public AxeBase(String name, IItemTier mat, float ATTACK_DAMAGE, float ATTACK_SPEED) {
+    public AxeBase(IItemTier mat, float ATTACK_DAMAGE, float ATTACK_SPEED) {
         super(mat, ATTACK_DAMAGE, ATTACK_SPEED, new Item.Properties().group(MoreVanillaTools.creativeTab));
-        Registry.registerItem(this, name);
-        Registry.registerModel(this);
 
         this.mat = mat;
     }

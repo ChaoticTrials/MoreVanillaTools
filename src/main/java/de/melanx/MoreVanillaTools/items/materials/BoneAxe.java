@@ -1,19 +1,19 @@
-package de.melanx.MoreVanillaTools.items.materials.bone;
+package de.melanx.MoreVanillaTools.items.materials;
 
 import de.melanx.MoreVanillaTools.items.ItemTiers;
-import de.melanx.MoreVanillaTools.items.base.SwordBase;
+import de.melanx.MoreVanillaTools.items.base.AxeBase;
 import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 
-public class BoneSword extends SwordBase {
+public class BoneAxe extends AxeBase {
 
-    private static final int DAMAGE = 2;
-    private static final float SPEED = -2.6F;
+    private static final int ATTACK_DAMAGE = 6;
+    private static final float ATTACK_SPEED = -3.4F;
 
-    public BoneSword() {
-        super("bone_sword", ItemTiers.BONE, DAMAGE, SPEED);
+    public BoneAxe() {
+        super(ItemTiers.BONE, ATTACK_DAMAGE, ATTACK_SPEED);
         MinecraftForge.EVENT_BUS.addListener(this::onHitEntity);
         MinecraftForge.EVENT_BUS.addListener(this::onEntityDrops);
     }
@@ -25,4 +25,5 @@ public class BoneSword extends SwordBase {
     private void onEntityDrops(LivingDropsEvent event) {
         ToolUtil.headDrop(event, this);
     }
+
 }

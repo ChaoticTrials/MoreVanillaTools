@@ -16,10 +16,8 @@ public class PickaxeBase extends PickaxeItem {
 
     private final IItemTier mat;
 
-    public PickaxeBase(String name, IItemTier mat, int damage, float speed) {
+    public PickaxeBase(IItemTier mat, int damage, float speed) {
         super(mat, damage, speed, new Item.Properties().group(MoreVanillaTools.creativeTab));
-        Registry.registerItem(this, name);
-        Registry.registerModel(this);
 
         this.mat = mat;
     }

@@ -1,4 +1,4 @@
-package de.melanx.MoreVanillaTools.items.materials.redstone;
+package de.melanx.MoreVanillaTools.items.materials;
 
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
@@ -24,7 +24,7 @@ public class RedstonePickaxe extends PickaxeBase {
     private static final float SPEED = -2.8F;
 
     public RedstonePickaxe() {
-        super("redstone_pickaxe", ItemTiers.REDSTONE, DAMAGE, SPEED);
+        super(ItemTiers.REDSTONE, DAMAGE, SPEED);
     }
 
     @SubscribeEvent
