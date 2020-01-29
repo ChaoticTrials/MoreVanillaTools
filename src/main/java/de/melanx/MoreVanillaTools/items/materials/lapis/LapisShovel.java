@@ -9,6 +9,6 @@ public class LapisShovel extends ShovelBase {
     private static final float SPEED = -3.0F;
 
     public LapisShovel() {
-        super("lapis_shovel", ItemTiers.LAPIS_TIER, DAMAGE, SPEED);
+        super("lapis_shovel", ItemTiers.LAPIS, DAMAGE, SPEED);
     }
 }

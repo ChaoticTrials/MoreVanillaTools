@@ -9,6 +9,6 @@ public class GlowstoneShovel extends ShovelBase {
     private static final float SPEED = -2.8F;
 
     public GlowstoneShovel() {
-        super("glowstone_shovel", ItemTiers.GLOWSTONE_TIER, DAMAGE, SPEED);
+        super("glowstone_shovel", ItemTiers.GLOWSTONE, DAMAGE, SPEED);
     }
 }

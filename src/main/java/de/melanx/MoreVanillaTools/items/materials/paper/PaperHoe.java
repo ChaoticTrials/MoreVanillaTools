@@ -8,6 +8,6 @@ public class PaperHoe extends HoeBase {
     private static final float SPEED = -3F;
 
     public PaperHoe() {
-        super("paper_hoe", ItemTiers.PAPER_TIER, SPEED);
+        super("paper_hoe", ItemTiers.PAPER, SPEED);
     }
 }

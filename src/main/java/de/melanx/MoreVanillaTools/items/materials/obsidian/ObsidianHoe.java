@@ -8,6 +8,6 @@ public class ObsidianHoe extends HoeBase {
     private static final int SPEED = -2;
 
     public ObsidianHoe() {
-        super("obsidian_hoe", ItemTiers.OBSIDIAN_TIER, SPEED);
+        super("obsidian_hoe", ItemTiers.OBSIDIAN, SPEED);
     }
 }

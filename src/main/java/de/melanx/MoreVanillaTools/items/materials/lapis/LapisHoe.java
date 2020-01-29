@@ -8,6 +8,6 @@ public class LapisHoe extends HoeBase {
     private static final float SPEED = -1.2F;
 
     public LapisHoe() {
-        super("lapis_hoe", ItemTiers.LAPIS_TIER, SPEED);
+        super("lapis_hoe", ItemTiers.LAPIS, SPEED);
     }
 }

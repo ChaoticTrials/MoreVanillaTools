@@ -9,6 +9,6 @@ public class CoalSword extends SwordBase {
     private static final float SPEED = -2.6F;
 
     public CoalSword() {
-        super("coal_sword", ItemTiers.COAL_TIER, DAMAGE, SPEED);
+        super("coal_sword", ItemTiers.COAL, DAMAGE, SPEED);
     }
 }

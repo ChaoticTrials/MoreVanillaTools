@@ -97,7 +97,7 @@ public class ToolUtil {
     public static boolean paperDamage(IItemTier mat) {
         int chance = ConfigHandler.damageByPaperToolsChance.get();
         if (chance == -1) chance = 100;
-        return mat == ItemTiers.PAPER_TIER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance;
+        return mat == ItemTiers.PAPER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance;
     }
 
     public static int getDefaultChance(int chance, int defaultChance) {

@@ -9,6 +9,6 @@ public class GlowstoneAxe extends AxeBase {
     private static final int ATTACK_SPEED = -3;
 
     public GlowstoneAxe() {
-        super("glowstone_axe", ItemTiers.GLOWSTONE_TIER, ATTACK_DAMAGE, ATTACK_SPEED);
+        super("glowstone_axe", ItemTiers.GLOWSTONE, ATTACK_DAMAGE, ATTACK_SPEED);
     }
 }

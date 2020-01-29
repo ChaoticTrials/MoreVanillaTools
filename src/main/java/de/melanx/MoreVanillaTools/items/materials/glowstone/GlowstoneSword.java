@@ -9,6 +9,6 @@ public class GlowstoneSword extends SwordBase {
     private static final float SPEED = -2.2F;
 
     public GlowstoneSword() {
-        super("glowstone_sword", ItemTiers.GLOWSTONE_TIER, DAMAGE, SPEED);
+        super("glowstone_sword", ItemTiers.GLOWSTONE, DAMAGE, SPEED);
     }
 }

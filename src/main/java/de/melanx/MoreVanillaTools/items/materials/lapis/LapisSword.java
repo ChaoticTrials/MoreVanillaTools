@@ -9,6 +9,6 @@ public class LapisSword extends SwordBase {
     private static final float SPEED = -2.4F;
 
     public LapisSword() {
-        super("lapis_sword", ItemTiers.LAPIS_TIER, DAMAGE, SPEED);
+        super("lapis_sword", ItemTiers.LAPIS, DAMAGE, SPEED);
     }
 }

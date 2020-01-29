@@ -9,6 +9,6 @@ public class QuartzAxe extends AxeBase {
     private static final float ATTACK_SPEED = -3.4F;
 
     public QuartzAxe() {
-        super("quartz_axe", ItemTiers.QUARTZ_TIER, ATTACK_DAMAGE, ATTACK_SPEED);
+        super("quartz_axe", ItemTiers.QUARTZ, ATTACK_DAMAGE, ATTACK_SPEED);
     }
 }

@@ -9,6 +9,6 @@ public class BonePickaxe extends PickaxeBase {
     private static final int SPEED = -3;
 
     public BonePickaxe() {
-        super("bone_pickaxe", ItemTiers.BONE_TIER, DAMAGE, SPEED);
+        super("bone_pickaxe", ItemTiers.BONE, DAMAGE, SPEED);
     }
 }

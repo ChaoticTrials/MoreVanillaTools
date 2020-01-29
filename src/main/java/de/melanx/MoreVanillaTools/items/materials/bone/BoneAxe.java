@@ -13,7 +13,7 @@ public class BoneAxe extends AxeBase {
     private static final float ATTACK_SPEED = -3.4F;
 
     public BoneAxe() {
-        super("bone_axe", ItemTiers.BONE_TIER, ATTACK_DAMAGE, ATTACK_SPEED);
+        super("bone_axe", ItemTiers.BONE, ATTACK_DAMAGE, ATTACK_SPEED);
         MinecraftForge.EVENT_BUS.addListener(this::onHitEntity);
         MinecraftForge.EVENT_BUS.addListener(this::onEntityDrops);
     }

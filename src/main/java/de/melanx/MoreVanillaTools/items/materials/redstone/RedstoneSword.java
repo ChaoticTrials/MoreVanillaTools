@@ -9,6 +9,6 @@ public class RedstoneSword extends SwordBase {
     private static final float SPEED = -2.4F;
 
     public RedstoneSword() {
-        super("redstone_sword", ItemTiers.REDSTONE_TIER, DAMAGE, SPEED);
+        super("redstone_sword", ItemTiers.REDSTONE, DAMAGE, SPEED);
     }
 }

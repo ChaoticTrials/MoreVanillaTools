@@ -24,7 +24,7 @@ public class RedstonePickaxe extends PickaxeBase {
     private static final float SPEED = -2.8F;
 
     public RedstonePickaxe() {
-        super("redstone_pickaxe", ItemTiers.REDSTONE_TIER, DAMAGE, SPEED);
+        super("redstone_pickaxe", ItemTiers.REDSTONE, DAMAGE, SPEED);
     }
 
     @SubscribeEvent

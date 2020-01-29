@@ -9,6 +9,6 @@ public class EmeraldAxe extends AxeBase {
     private static final float ATTACK_SPEED = -2.8F;
 
     public EmeraldAxe() {
-        super("emerald_axe", ItemTiers.EMERALD_TIER, ATTACK_DAMAGE, ATTACK_SPEED);
+        super("emerald_axe", ItemTiers.EMERALD, ATTACK_DAMAGE, ATTACK_SPEED);
     }
 }

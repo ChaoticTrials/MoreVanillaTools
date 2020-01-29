@@ -8,6 +8,6 @@ public class CoalHoe extends HoeBase {
     private static final int SPEED = -2;
 
     public CoalHoe() {
-        super("coal_hoe", ItemTiers.COAL_TIER, SPEED);
+        super("coal_hoe", ItemTiers.COAL, SPEED);
     }
 }

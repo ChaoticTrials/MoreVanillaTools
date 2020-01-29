@@ -9,6 +9,6 @@ public class CoalAxe extends AxeBase {
     private static final float ATTACK_SPEED = -3.4F;
 
     public CoalAxe() {
-        super("coal_axe", ItemTiers.COAL_TIER, ATTACK_DAMAGE, ATTACK_SPEED);
+        super("coal_axe", ItemTiers.COAL, ATTACK_DAMAGE, ATTACK_SPEED);
     }
 }

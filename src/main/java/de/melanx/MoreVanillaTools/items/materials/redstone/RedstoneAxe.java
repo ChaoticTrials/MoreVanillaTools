@@ -9,7 +9,7 @@ public class RedstoneAxe extends AxeBase {
     private static final float ATTACK_SPEED = -3.1F;
 
     public RedstoneAxe() {
-        super("redstone_axe", ItemTiers.REDSTONE_TIER, ATTACK_DAMAGE, ATTACK_SPEED);
+        super("redstone_axe", ItemTiers.REDSTONE, ATTACK_DAMAGE, ATTACK_SPEED);
     }
 
 }

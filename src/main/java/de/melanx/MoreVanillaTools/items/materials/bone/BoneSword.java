@@ -13,7 +13,7 @@ public class BoneSword extends SwordBase {
     private static final float SPEED = -2.6F;
 
     public BoneSword() {
-        super("bone_sword", ItemTiers.BONE_TIER, DAMAGE, SPEED);
+        super("bone_sword", ItemTiers.BONE, DAMAGE, SPEED);
         MinecraftForge.EVENT_BUS.addListener(this::onHitEntity);
         MinecraftForge.EVENT_BUS.addListener(this::onEntityDrops);
     }

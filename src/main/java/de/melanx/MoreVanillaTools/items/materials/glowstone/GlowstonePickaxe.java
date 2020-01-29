@@ -9,7 +9,7 @@ public class GlowstonePickaxe extends PickaxeBase {
     private static final float SPEED = -2.6F;
 
     public GlowstonePickaxe() {
-        super("glowstone_pickaxe", ItemTiers.GLOWSTONE_TIER, DAMAGE, SPEED);
+        super("glowstone_pickaxe", ItemTiers.GLOWSTONE, DAMAGE, SPEED);
     }
 
     // TODO everytime drop 4 dust from block

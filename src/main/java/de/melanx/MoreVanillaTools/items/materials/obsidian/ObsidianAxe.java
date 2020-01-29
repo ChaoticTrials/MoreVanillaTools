@@ -9,6 +9,6 @@ public class ObsidianAxe extends AxeBase {
     private static final float ATTACK_SPEED = -3.4F;
 
     public ObsidianAxe() {
-        super("obsidian_axe", ItemTiers.OBSIDIAN_TIER, ATTACK_DAMAGE, ATTACK_SPEED);
+        super("obsidian_axe", ItemTiers.OBSIDIAN, ATTACK_DAMAGE, ATTACK_SPEED);
     }
 }

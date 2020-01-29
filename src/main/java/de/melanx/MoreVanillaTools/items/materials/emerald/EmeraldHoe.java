@@ -8,6 +8,6 @@ public class EmeraldHoe extends HoeBase {
     private static final int SPEED = 0;
 
     public EmeraldHoe() {
-        super("emerald_hoe", ItemTiers.EMERALD_TIER, SPEED);
+        super("emerald_hoe", ItemTiers.EMERALD, SPEED);
     }
 }

@@ -24,7 +24,7 @@ public class LapisPickaxe extends PickaxeBase {
     private static final float SPEED = -2.8F;
 
     public LapisPickaxe() {
-        super("lapis_pickaxe", ItemTiers.LAPIS_TIER, DAMAGE, SPEED);
+        super("lapis_pickaxe", ItemTiers.LAPIS, DAMAGE, SPEED);
     }
 
     @SubscribeEvent

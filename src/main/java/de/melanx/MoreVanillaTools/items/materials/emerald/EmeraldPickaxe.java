@@ -24,7 +24,7 @@ public class EmeraldPickaxe extends PickaxeBase {
     private static final float SPEED = -2.5F;
 
     public EmeraldPickaxe() {
-        super("emerald_pickaxe", ItemTiers.EMERALD_TIER, DAMAGE, SPEED);
+        super("emerald_pickaxe", ItemTiers.EMERALD, DAMAGE, SPEED);
     }
 
     @SubscribeEvent

@@ -1,299 +1,96 @@
 package de.melanx.MoreVanillaTools.items;
 
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
+import de.melanx.MoreVanillaTools.util.data.ModTags;
 import net.minecraft.item.IItemTier;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.tags.Tag;
+import net.minecraft.util.LazyValue;
 import net.minecraftforge.common.Tags;
 
-public class ItemTiers {
+import java.util.function.Supplier;
 
-    public static final IItemTier REDSTONE_TIER = new IItemTier() {
-        @Override
-        public int getMaxUses() {
-            return ConfigHandler.redstoneDurability.get();
-        }
+public enum ItemTiers implements IItemTier {
 
-        @Override
-        public float getEfficiency() {
-            return 6.2F;
-        }
+    REDSTONE(ConfigHandler.redstoneDurability.get(), 6.2F, 1.5F, ConfigHandler.redstoneHarvestlevel.get(), 20, () -> {
+        return Ingredient.fromTag(Tags.Items.DUSTS_REDSTONE);
+    }, Tags.Items.STORAGE_BLOCKS_REDSTONE),
+    LAPIS(ConfigHandler.lapisDurability.get(), 6.2F, 1.5F, ConfigHandler.lapisHarvestlevel.get(), 20, () -> {
+        return Ingredient.fromTag(Tags.Items.GEMS_LAPIS);
+    }, Tags.Items.STORAGE_BLOCKS_LAPIS),
+    OBSIDIAN(ConfigHandler.obsidianDurability.get(), 8.2F, 2.5F, ConfigHandler.obsidianHarvestlevel.get(), 15, () -> {
+        return Ingredient.fromTag(Tags.Items.OBSIDIAN);
+    }, Tags.Items.OBSIDIAN),
+    COAL(ConfigHandler.coalDurability.get(), 4.9F, 2, ConfigHandler.coalHarvestlevel.get(), 17, () -> {
+        return Ingredient.fromItems(Items.COAL);
+    }, Tags.Items.STORAGE_BLOCKS_COAL),
+    GLOWSTONE(ConfigHandler.glowstoneDurability.get(), 5, 2.5F, ConfigHandler.glowstoneHarvestlevel.get(), 35, () -> {
+        return Ingredient.fromTag(Tags.Items.DUSTS_GLOWSTONE);
+    }, ModTags.Items.STORAGE_BLOCKS_GLOWSTONE),
+    QUARTZ(ConfigHandler.quartzDurability.get(), 4.9F, 2, ConfigHandler.quartzHarvestlevel.get(), 18, () -> {
+        return Ingredient.fromTag(Tags.Items.GEMS_QUARTZ);
+    }, Tags.Items.STORAGE_BLOCKS_QUARTZ),
+    EMERALD(ConfigHandler.emeraldDurability.get(), 8.2F, 4, ConfigHandler.emeraldHarvestlevel.get(), 25, () -> {
+        return Ingredient.fromTag(Tags.Items.GEMS_EMERALD);
+    }, Tags.Items.GEMS_EMERALD),
+    BONE(ConfigHandler.boneDurability.get(), 4.9F, 2, ConfigHandler.boneHarvestlevel.get(), 17, () -> {
+        return Ingredient.fromTag(Tags.Items.BONES);
+    }, Tags.Items.BONES),
+    PAPER(ConfigHandler.paperDurability.get(), 1.8F, 0, ConfigHandler.paperHarvestlevel.get(), 17, () -> {
+        return Ingredient.fromItems(Items.PAPER);
+    }, ModTags.Items.PAPER);
 
-        @Override
-        public float getAttackDamage() {
-            return 1.5F;
-        }
+    private final int durability;
+    private final float efficiency;
+    private final float attackDamage;
+    private final int harvestLevel;
+    private final int enchantability;
+    private final LazyValue<Ingredient> repairMaterial;
+    private final Tag<Item> ingredient;
 
-        @Override
-        public int getHarvestLevel() {
-            return ConfigHandler.redstoneHarvestlevel.get();
-        }
+    ItemTiers(int durability, float efficiency, float attackDamage, int harvestLevel, int enchantability, Supplier<Ingredient> repairMaterial, Tag<Item> ingredient) {
+        this.durability = durability;
+        this.efficiency = efficiency;
+        this.attackDamage = attackDamage;
+        this.harvestLevel = harvestLevel;
+        this.enchantability = enchantability;
+        this.repairMaterial = new LazyValue<>(repairMaterial);
+        this.ingredient = ingredient;
+    }
 
-        @Override
-        public int getEnchantability() {
-            return 20;
-        }
+    @Override
+    public int getMaxUses() {
+        return this.durability;
+    }
 
-        @Override
-        public Ingredient getRepairMaterial() {
-            return Ingredient.fromTag(Tags.Items.DUSTS_REDSTONE);
-        }
-    };
+    @Override
+    public float getEfficiency() {
+        return this.efficiency;
+    }
 
-    public static final IItemTier LAPIS_TIER = new IItemTier() {
-        @Override
-        public int getMaxUses() {
-            return ConfigHandler.lapisDurability.get();
-        }
+    @Override
+    public float getAttackDamage() {
+        return this.attackDamage;
+    }
 
-        @Override
-        public float getEfficiency() {
-            return 6.2F;
-        }
+    @Override
+    public int getHarvestLevel() {
+        return this.harvestLevel;
+    }
 
-        @Override
-        public float getAttackDamage() {
-            return 1.5F;
-        }
+    @Override
+    public int getEnchantability() {
+        return this.enchantability;
+    }
 
-        @Override
-        public int getHarvestLevel() {
-            return ConfigHandler.lapisHarvestlevel.get();
-        }
+    @Override
+    public Ingredient getRepairMaterial() {
+        return this.repairMaterial.getValue();
+    }
 
-        @Override
-        public int getEnchantability() {
-            return 20;
-        }
-
-        @Override
-        public Ingredient getRepairMaterial() {
-            return Ingredient.fromTag(Tags.Items.GEMS_LAPIS);
-        }
-    };
-
-    public static final IItemTier OBSIDIAN_TIER = new IItemTier() {
-        @Override
-        public int getMaxUses() {
-            return ConfigHandler.obsidianDurability.get();
-        }
-
-        @Override
-        public float getEfficiency() {
-            return 8.2F;
-        }
-
-        @Override
-        public float getAttackDamage() {
-            return 2.5F;
-        }
-
-        @Override
-        public int getHarvestLevel() {
-            return ConfigHandler.obsidianHarvestlevel.get();
-        }
-
-        @Override
-        public int getEnchantability() {
-            return 15;
-        }
-
-        @Override
-        public Ingredient getRepairMaterial() {
-            return Ingredient.fromTag(Tags.Items.OBSIDIAN);
-        }
-    };
-
-    public static final IItemTier COAL_TIER = new IItemTier() {
-        @Override
-        public int getMaxUses() {
-            return ConfigHandler.coalDurability.get();
-        }
-
-        @Override
-        public float getEfficiency() {
-            return 4.9F;
-        }
-
-        @Override
-        public float getAttackDamage() {
-            return 2;
-        }
-
-        @Override
-        public int getHarvestLevel() {
-            return ConfigHandler.coalHarvestlevel.get();
-        }
-
-        @Override
-        public int getEnchantability() {
-            return 17;
-        }
-
-        @Override
-        public Ingredient getRepairMaterial() {
-            return Ingredient.fromItems(Items.COAL);
-        }
-    };
-
-    public static final IItemTier GLOWSTONE_TIER = new IItemTier() {
-        @Override
-        public int getMaxUses() {
-            return ConfigHandler.glowstoneDurability.get();
-        }
-
-        @Override
-        public float getEfficiency() {
-            return 6;
-        }
-
-        @Override
-        public float getAttackDamage() {
-            return 2.5F;
-        }
-
-        @Override
-        public int getHarvestLevel() {
-            return ConfigHandler.glowstoneHarvestlevel.get();
-        }
-
-        @Override
-        public int getEnchantability() {
-            return 35;
-        }
-
-        @Override
-        public Ingredient getRepairMaterial() {
-            return Ingredient.fromTag(Tags.Items.DUSTS_GLOWSTONE);
-        }
-    };
-
-    public static final IItemTier QUARTZ_TIER = new IItemTier() {
-        @Override
-        public int getMaxUses() {
-            return ConfigHandler.quartzDurability.get();
-        }
-
-        @Override
-        public float getEfficiency() {
-            return 4.9F;
-        }
-
-        @Override
-        public float getAttackDamage() {
-            return 2;
-        }
-
-        @Override
-        public int getHarvestLevel() {
-            return ConfigHandler.quartzHarvestlevel.get();
-        }
-
-        @Override
-        public int getEnchantability() {
-            return 18;
-        }
-
-        @Override
-        public Ingredient getRepairMaterial() {
-            return Ingredient.fromTag(Tags.Items.GEMS_QUARTZ);
-        }
-    };
-
-    public static final IItemTier EMERALD_TIER = new IItemTier() {
-        @Override
-        public int getMaxUses() {
-            return ConfigHandler.emeraldDurability.get();
-        }
-
-        @Override
-        public float getEfficiency() {
-            return 8.2F;
-        }
-
-        @Override
-        public float getAttackDamage() {
-            return 4;
-        }
-
-        @Override
-        public int getHarvestLevel() {
-            return ConfigHandler.emeraldHarvestlevel.get();
-        }
-
-        @Override
-        public int getEnchantability() {
-            return 25;
-        }
-
-        @Override
-        public Ingredient getRepairMaterial() {
-            return Ingredient.fromTag(Tags.Items.GEMS_EMERALD);
-        }
-    };
-
-    public static final IItemTier BONE_TIER = new IItemTier() {
-        @Override
-        public int getMaxUses() {
-            return ConfigHandler.boneDurability.get();
-        }
-
-        @Override
-        public float getEfficiency() {
-            return 4.9F;
-        }
-
-        @Override
-        public float getAttackDamage() {
-            return 2;
-        }
-
-        @Override
-        public int getHarvestLevel() {
-            return ConfigHandler.boneHarvestlevel.get();
-        }
-
-        @Override
-        public int getEnchantability() {
-            return 17;
-        }
-
-        @Override
-        public Ingredient getRepairMaterial() {
-            return Ingredient.fromTag(Tags.Items.BONES);
-        }
-    };
-
-    public static final IItemTier PAPER_TIER = new IItemTier() {
-        @Override
-        public int getMaxUses() {
-            return ConfigHandler.paperDurability.get();
-        }
-
-        @Override
-        public float getEfficiency() {
-            return 1.8F;
-        }
-
-        @Override
-        public float getAttackDamage() {
-            return 0;
-        }
-
-        @Override
-        public int getHarvestLevel() {
-            return ConfigHandler.paperHarvestlevel.get();
-        }
-
-        @Override
-        public int getEnchantability() {
-            return 17;
-        }
-
-        @Override
-        public Ingredient getRepairMaterial() {
-            return Ingredient.fromItems(Items.PAPER);
-        }
-    };
-
+    public Tag<Item> getIngredient() {
+        return this.ingredient;
+    }
 }

@@ -9,6 +9,6 @@ public class RedstoneShovel extends ShovelBase {
     private static final float SPEED = -3.0F;
 
     public RedstoneShovel() {
-        super("redstone_shovel", ItemTiers.REDSTONE_TIER, DAMAGE, SPEED);
+        super("redstone_shovel", ItemTiers.REDSTONE, DAMAGE, SPEED);
     }
 }

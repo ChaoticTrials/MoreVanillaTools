@@ -24,7 +24,7 @@ public class QuartzPickaxe extends PickaxeBase {
     private static final int SPEED = -3;
 
     public QuartzPickaxe() {
-        super("quartz_pickaxe", ItemTiers.QUARTZ_TIER, DAMAGE, SPEED);
+        super("quartz_pickaxe", ItemTiers.QUARTZ, DAMAGE, SPEED);
     }
 
     @SubscribeEvent

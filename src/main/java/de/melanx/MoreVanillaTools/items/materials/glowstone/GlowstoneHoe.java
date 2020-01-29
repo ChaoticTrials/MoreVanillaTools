@@ -8,6 +8,6 @@ public class GlowstoneHoe extends HoeBase {
     private static final int SPEED = -2;
 
     public GlowstoneHoe() {
-        super("glowstone_hoe", ItemTiers.GLOWSTONE_TIER, SPEED);
+        super("glowstone_hoe", ItemTiers.GLOWSTONE, SPEED);
     }
 }

@@ -9,6 +9,6 @@ public class PaperSword extends SwordBase {
     private static final float SPEED = -2.4F;
 
     public PaperSword() {
-        super("paper_sword", ItemTiers.PAPER_TIER, DAMAGE, SPEED);
+        super("paper_sword", ItemTiers.PAPER, DAMAGE, SPEED);
     }
 }

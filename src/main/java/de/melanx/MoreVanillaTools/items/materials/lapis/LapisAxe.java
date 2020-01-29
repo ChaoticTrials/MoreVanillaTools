@@ -9,6 +9,6 @@ public class LapisAxe extends AxeBase {
     private static final float ATTACK_SPEED = 2.8F;
 
     public LapisAxe() {
-        super("lapis_axe", ItemTiers.LAPIS_TIER, ATTACK_DAMAGE, ATTACK_SPEED);
+        super("lapis_axe", ItemTiers.LAPIS, ATTACK_DAMAGE, ATTACK_SPEED);
     }
 }

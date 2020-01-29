@@ -24,7 +24,7 @@ public class CoalPickaxe extends PickaxeBase {
     private static final int SPEED = -3;
 
     public CoalPickaxe() {
-        super("coal_pickaxe", ItemTiers.COAL_TIER, DAMAGE, SPEED);
+        super("coal_pickaxe", ItemTiers.COAL, DAMAGE, SPEED);
     }
 
     @SubscribeEvent

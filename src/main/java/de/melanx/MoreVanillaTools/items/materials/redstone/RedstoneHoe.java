@@ -8,6 +8,6 @@ public class RedstoneHoe extends HoeBase {
     private static final float SPEED = -1.2F;
 
     public RedstoneHoe() {
-        super("redstone_hoe", ItemTiers.REDSTONE_TIER, SPEED);
+        super("redstone_hoe", ItemTiers.REDSTONE, SPEED);
     }
 }

@@ -9,6 +9,6 @@ public class BoneShovel extends ShovelBase {
     private static final float SPEED = -3.2F;
 
     public BoneShovel() {
-        super("bone_shovel", ItemTiers.BONE_TIER, DAMAGE, SPEED);
+        super("bone_shovel", ItemTiers.BONE, DAMAGE, SPEED);
     }
 }

@@ -9,6 +9,6 @@ public class QuartzSword extends SwordBase {
     private static final float SPEED = -2.6F;
 
     public QuartzSword() {
-        super("quartz_sword", ItemTiers.QUARTZ_TIER, DAMAGE, SPEED);
+        super("quartz_sword", ItemTiers.QUARTZ, DAMAGE, SPEED);
     }
 }

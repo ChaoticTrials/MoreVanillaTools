@@ -17,7 +17,7 @@ public class ObsidianPickaxe extends PickaxeBase {
     private static final int SPEED = -3;
 
     public ObsidianPickaxe() {
-        super("obsidian_pickaxe", ItemTiers.OBSIDIAN_TIER, DAMAGE, SPEED);
+        super("obsidian_pickaxe", ItemTiers.OBSIDIAN, DAMAGE, SPEED);
     }
 
     @Override

@@ -9,6 +9,6 @@ public class ObsidianShovel extends ShovelBase {
     private static final float SPEED = -3.2F;
 
     public ObsidianShovel() {
-        super("obsidian_shovel", ItemTiers.OBSIDIAN_TIER, DAMAGE, SPEED);
+        super("obsidian_shovel", ItemTiers.OBSIDIAN, DAMAGE, SPEED);
     }
 }

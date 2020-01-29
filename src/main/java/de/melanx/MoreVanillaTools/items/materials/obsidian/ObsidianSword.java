@@ -9,6 +9,6 @@ public class ObsidianSword extends SwordBase {
     private static final float SPEED = -2.6F;
 
     public ObsidianSword() {
-        super("obsidian_sword", ItemTiers.OBSIDIAN_TIER, DAMAGE, SPEED);
+        super("obsidian_sword", ItemTiers.OBSIDIAN, DAMAGE, SPEED);
     }
 }

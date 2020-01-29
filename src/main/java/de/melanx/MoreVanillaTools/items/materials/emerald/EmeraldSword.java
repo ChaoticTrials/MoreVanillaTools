@@ -9,6 +9,6 @@ public class EmeraldSword extends SwordBase {
     private static final float SPEED = -2.4F;
 
     public EmeraldSword() {
-        super("emerald_sword", ItemTiers.EMERALD_TIER, DAMAGE, SPEED);
+        super("emerald_sword", ItemTiers.EMERALD, DAMAGE, SPEED);
     }
 }

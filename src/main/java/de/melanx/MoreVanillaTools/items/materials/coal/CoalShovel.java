@@ -9,6 +9,6 @@ public class CoalShovel extends ShovelBase {
     private static final float SPEED = -3.2F;
 
     public CoalShovel() {
-        super("coal_shovel", ItemTiers.COAL_TIER, DAMAGE, SPEED);
+        super("coal_shovel", ItemTiers.COAL, DAMAGE, SPEED);
     }
 }

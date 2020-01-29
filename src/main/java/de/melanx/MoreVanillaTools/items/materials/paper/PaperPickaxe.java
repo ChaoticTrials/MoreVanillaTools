@@ -9,6 +9,6 @@ public class PaperPickaxe extends PickaxeBase {
     private static final float SPEED = -2.8F;
 
     public PaperPickaxe() {
-        super("paper_pickaxe", ItemTiers.PAPER_TIER, DAMAGE, SPEED);
+        super("paper_pickaxe", ItemTiers.PAPER, DAMAGE, SPEED);
     }
 }

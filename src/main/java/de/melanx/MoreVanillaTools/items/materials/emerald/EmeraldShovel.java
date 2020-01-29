@@ -9,6 +9,6 @@ public class EmeraldShovel extends ShovelBase {
     private static final float SPEED = -3.0F;
 
     public EmeraldShovel() {
-        super("emerald_shovel", ItemTiers.EMERALD_TIER, DAMAGE, SPEED);
+        super("emerald_shovel", ItemTiers.EMERALD, DAMAGE, SPEED);
     }
 }
