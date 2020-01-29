@@ -14,33 +14,33 @@ import java.util.function.Supplier;
 
 public enum ItemTiers implements IItemTier {
 
-    REDSTONE(ConfigHandler.redstoneDurability.get(), 6.2F, 1.5F, ConfigHandler.redstoneHarvestlevel.get(), 20, () -> {
-        return Ingredient.fromTag(Tags.Items.DUSTS_REDSTONE);
-    }, Tags.Items.STORAGE_BLOCKS_REDSTONE),
+    BONE(ConfigHandler.boneDurability.get(), 4.9F, 2, ConfigHandler.boneHarvestlevel.get(), 17, () -> {
+        return Ingredient.fromTag(Tags.Items.BONES);
+    }, Tags.Items.BONES),
+    COAL(ConfigHandler.coalDurability.get(), 4.9F, 2, ConfigHandler.coalHarvestlevel.get(), 17, () -> {
+        return Ingredient.fromItems(Items.COAL);
+    }, Tags.Items.STORAGE_BLOCKS_COAL),
+    EMERALD(ConfigHandler.emeraldDurability.get(), 8.2F, 4, ConfigHandler.emeraldHarvestlevel.get(), 25, () -> {
+        return Ingredient.fromTag(Tags.Items.GEMS_EMERALD);
+    }, Tags.Items.GEMS_EMERALD),
+    GLOWSTONE(ConfigHandler.glowstoneDurability.get(), 5, 2.5F, ConfigHandler.glowstoneHarvestlevel.get(), 35, () -> {
+        return Ingredient.fromTag(Tags.Items.DUSTS_GLOWSTONE);
+    }, ModTags.Items.STORAGE_BLOCKS_GLOWSTONE),
     LAPIS(ConfigHandler.lapisDurability.get(), 6.2F, 1.5F, ConfigHandler.lapisHarvestlevel.get(), 20, () -> {
         return Ingredient.fromTag(Tags.Items.GEMS_LAPIS);
     }, Tags.Items.STORAGE_BLOCKS_LAPIS),
     OBSIDIAN(ConfigHandler.obsidianDurability.get(), 8.2F, 2.5F, ConfigHandler.obsidianHarvestlevel.get(), 15, () -> {
         return Ingredient.fromTag(Tags.Items.OBSIDIAN);
     }, Tags.Items.OBSIDIAN),
-    COAL(ConfigHandler.coalDurability.get(), 4.9F, 2, ConfigHandler.coalHarvestlevel.get(), 17, () -> {
-        return Ingredient.fromItems(Items.COAL);
-    }, Tags.Items.STORAGE_BLOCKS_COAL),
-    GLOWSTONE(ConfigHandler.glowstoneDurability.get(), 5, 2.5F, ConfigHandler.glowstoneHarvestlevel.get(), 35, () -> {
-        return Ingredient.fromTag(Tags.Items.DUSTS_GLOWSTONE);
-    }, ModTags.Items.STORAGE_BLOCKS_GLOWSTONE),
+    PAPER(ConfigHandler.paperDurability.get(), 1.8F, 0, ConfigHandler.paperHarvestlevel.get(), 17, () -> {
+        return Ingredient.fromItems(Items.PAPER);
+    }, ModTags.Items.PAPER),
     QUARTZ(ConfigHandler.quartzDurability.get(), 4.9F, 2, ConfigHandler.quartzHarvestlevel.get(), 18, () -> {
         return Ingredient.fromTag(Tags.Items.GEMS_QUARTZ);
     }, Tags.Items.STORAGE_BLOCKS_QUARTZ),
-    EMERALD(ConfigHandler.emeraldDurability.get(), 8.2F, 4, ConfigHandler.emeraldHarvestlevel.get(), 25, () -> {
-        return Ingredient.fromTag(Tags.Items.GEMS_EMERALD);
-    }, Tags.Items.GEMS_EMERALD),
-    BONE(ConfigHandler.boneDurability.get(), 4.9F, 2, ConfigHandler.boneHarvestlevel.get(), 17, () -> {
-        return Ingredient.fromTag(Tags.Items.BONES);
-    }, Tags.Items.BONES),
-    PAPER(ConfigHandler.paperDurability.get(), 1.8F, 0, ConfigHandler.paperHarvestlevel.get(), 17, () -> {
-        return Ingredient.fromItems(Items.PAPER);
-    }, ModTags.Items.PAPER);
+    REDSTONE(ConfigHandler.redstoneDurability.get(), 6.2F, 1.5F, ConfigHandler.redstoneHarvestlevel.get(), 20, () -> {
+        return Ingredient.fromTag(Tags.Items.DUSTS_REDSTONE);
+    }, Tags.Items.STORAGE_BLOCKS_REDSTONE);
 
     private final int durability;
     private final float efficiency;
