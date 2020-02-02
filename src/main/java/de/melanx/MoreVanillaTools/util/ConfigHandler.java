@@ -47,22 +47,32 @@ public class ConfigHandler {
     public static ForgeConfigSpec.IntValue boneDurability;
     public static ForgeConfigSpec.IntValue coalDurability;
     public static ForgeConfigSpec.IntValue emeraldDurability;
+    public static ForgeConfigSpec.IntValue enderDurability;
+    public static ForgeConfigSpec.IntValue fieryDurability;
     public static ForgeConfigSpec.IntValue glowstoneDurability;
     public static ForgeConfigSpec.IntValue lapisDurability;
+    public static ForgeConfigSpec.IntValue netherDurability;
     public static ForgeConfigSpec.IntValue obsidianDurability;
     public static ForgeConfigSpec.IntValue paperDurability;
+    public static ForgeConfigSpec.IntValue prismarineDurability;
     public static ForgeConfigSpec.IntValue quartzDurability;
     public static ForgeConfigSpec.IntValue redstoneDurability;
+    public static ForgeConfigSpec.IntValue slimeDurability;
 
     public static ForgeConfigSpec.IntValue boneHarvestlevel;
     public static ForgeConfigSpec.IntValue coalHarvestlevel;
     public static ForgeConfigSpec.IntValue emeraldHarvestlevel;
+    public static ForgeConfigSpec.IntValue enderHarvestlevel;
+    public static ForgeConfigSpec.IntValue fieryHarvestlevel;
     public static ForgeConfigSpec.IntValue glowstoneHarvestlevel;
     public static ForgeConfigSpec.IntValue lapisHarvestlevel;
+    public static ForgeConfigSpec.IntValue netherHarvestlevel;
     public static ForgeConfigSpec.IntValue obsidianHarvestlevel;
     public static ForgeConfigSpec.IntValue paperHarvestlevel;
+    public static ForgeConfigSpec.IntValue prismarineHarvestlevel;
     public static ForgeConfigSpec.IntValue quartzHarvestlevel;
     public static ForgeConfigSpec.IntValue redstoneHarvestlevel;
+    public static ForgeConfigSpec.IntValue slimeHarvestlevel;
 
     public static void init(ForgeConfigSpec.Builder builder) {
         builder.push("features");
@@ -117,24 +127,34 @@ public class ConfigHandler {
             boneHarvestlevel = builder.defineInRange("bone tools harvestlevel", 1, 0, 4);
             coalHarvestlevel = builder.defineInRange("coal tools harvestlevel", 1, 0, 4);
             emeraldHarvestlevel = builder.defineInRange("emerald tools harvestlevel", 3, 0, 4);
+            enderHarvestlevel = builder.defineInRange("ender tools harvestlevel", 3, 0, 4);
+            fieryHarvestlevel = builder.defineInRange("fiery tools harvestlevel", 3, 0, 4);
             glowstoneHarvestlevel = builder.defineInRange("glowstone tools harvestlevel", 2, 0, 4);
             lapisHarvestlevel = builder.defineInRange("lapis tools harvestlevel", 2, 0, 4);
+            netherHarvestlevel = builder.defineInRange("nether tools harvestlevel", 1, 0, 4);
             obsidianHarvestlevel = builder.defineInRange("obsidian tools harvestlevel", 4, 0, 4);
             paperHarvestlevel = builder.defineInRange("paper tools harvestlevel", 0, 0, 4);
+            prismarineHarvestlevel = builder.defineInRange("prismarine tools harvestlevel", 3, 0, 4);
             quartzHarvestlevel = builder.defineInRange("quartz tools harvestlevel", 2, 0, 4);
             redstoneHarvestlevel = builder.defineInRange("redstone tools harvestlevel", 2, 0, 4);
+            slimeHarvestlevel = builder.defineInRange("slime tools harvestlevel", 2, 0, 4);
             builder.pop();
 
             builder.push("durabilities").comment("The durability of the tools");
             boneDurability = builder.defineInRange("bone tools durability", 206, 1, Integer.MAX_VALUE);
             coalDurability = builder.defineInRange("coal tools durability", 155, 1, Integer.MAX_VALUE);
             emeraldDurability = builder.defineInRange("emerald tools durability", 1859, 1, Integer.MAX_VALUE);
+            enderDurability = builder.defineInRange("ender tools durability", 1859, 1, Integer.MAX_VALUE);
+            fieryDurability = builder.defineInRange("fiery tools durability", 750, 1, Integer.MAX_VALUE);
             glowstoneDurability = builder.defineInRange("glowstone tools durability", 193, 1, Integer.MAX_VALUE);
             lapisDurability = builder.defineInRange("lapis tools durability", 193, 1, Integer.MAX_VALUE);
+            netherDurability = builder.defineInRange("nether tools durability", 280, 1, Integer.MAX_VALUE);
             obsidianDurability = builder.defineInRange("obsidian tools durability", 1337 * 2, 1, Integer.MAX_VALUE);
             paperDurability = builder.defineInRange("paper tools durability", 13, 1, Integer.MAX_VALUE);
+            prismarineDurability = builder.defineInRange("prismarine tools durability", 750, 1, Integer.MAX_VALUE);
             quartzDurability = builder.defineInRange("quartz tools durability", 155, 1, Integer.MAX_VALUE);
             redstoneDurability = builder.defineInRange("redstone tools durability", 193, 1, Integer.MAX_VALUE);
+            slimeDurability = builder.defineInRange("slime tools durability", 1500, 1, Integer.MAX_VALUE);
             builder.pop();
 
         builder.pop();
