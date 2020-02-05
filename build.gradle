@@ -73,6 +73,10 @@ minecraft {
     }
 }
 
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+}
+
 repositories {
     maven {
         // location of the maven that hosts JEI files

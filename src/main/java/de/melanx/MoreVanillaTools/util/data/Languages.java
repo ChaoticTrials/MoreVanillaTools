@@ -21,7 +21,7 @@ public class Languages {
             for (RegistryObject<Item> object : Registry.ITEMS.getEntries()) {
                 Item item = object.get();
                 String name = item.getRegistryName().getPath().split("_")[0];
-                add(item, Languages.capitalize(name) + getToolTypeName(item));
+                add(item, Languages.capitalize(name) + " " + getToolTypeName(item));
             }
         }
 
@@ -72,18 +72,28 @@ public class Languages {
                     return "Kohle";
                 case EMERALD:
                     return "Smaragd";
+                case ENDER:
+                    return "Ender";
+                case FIERY:
+                    return "Feuer";
                 case GLOWSTONE:
                     return "Glowstone";
                 case LAPIS:
                     return "Lapis";
+                case NETHER:
+                    return "Nether";
                 case OBSIDIAN:
                     return "Obsidian";
                 case PAPER:
                     return "Papier";
+                case PRISMARINE:
+                    return "Prismarin";
                 case QUARTZ:
                     return "Netherquartz";
                 case REDSTONE:
                     return "Redstone";
+                case SLIME:
+                    return "Schleim";
                 default:
                     return null;
             }
@@ -105,7 +115,7 @@ public class Languages {
     }
 
     private static String capitalize(String string) {
-        return string.substring(0, 1).toLowerCase() + string.substring(1);
+        return string.substring(0, 1).toUpperCase() + string.substring(1);
     }
 
 }
