@@ -18,6 +18,7 @@ public class Languages {
 
         @Override
         protected void addTranslations() {
+            add("itemGroup.morevanillatools", "MoreVanillaTools");
             for (RegistryObject<Item> object : Registry.ITEMS.getEntries()) {
                 Item item = object.get();
                 String name = item.getRegistryName().getPath().split("_")[0];
