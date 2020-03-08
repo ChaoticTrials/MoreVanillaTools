@@ -17,8 +17,8 @@ public class AxeBase extends AxeItem {
 
     private final ItemTiers mat;
 
-    public AxeBase(ItemTiers mat, float ATTACK_DAMAGE, float ATTACK_SPEED) {
-        super(mat, ATTACK_DAMAGE, ATTACK_SPEED, new Item.Properties().group(MoreVanillaTools.creativeTab));
+    public AxeBase(ItemTiers mat, float damage, float speed) {
+        super(mat, damage, speed, new Item.Properties().group(MoreVanillaTools.creativeTab));
 
         this.mat = mat;
     }
