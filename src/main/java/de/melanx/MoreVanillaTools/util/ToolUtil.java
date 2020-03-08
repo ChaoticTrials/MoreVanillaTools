@@ -1,12 +1,15 @@
 package de.melanx.MoreVanillaTools.util;
 
 import de.melanx.MoreVanillaTools.items.ItemTiers;
+import de.melanx.MoreVanillaTools.items.base.*;
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.monster.AbstractSkeletonEntity;
+import net.minecraft.entity.monster.MagmaCubeEntity;
+import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraft.entity.monster.WitherSkeletonEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -16,19 +19,47 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.Random;
 
 public class ToolUtil {
 
+    @SubscribeEvent
     public static void moreDamage(LivingDamageEvent event) {
-        LivingEntity entity = event.getEntityLiving();
-        Random rand = event.getEntityLiving().world.rand;
+        PlayerEntity player = (PlayerEntity) event.getSource().getTrueSource();
+        if (player != null) {
+            ItemTiers toolType = null;
+            Item heldItem = player.getHeldItemMainhand().getItem();
+            if (heldItem instanceof SwordBase) toolType = ((SwordBase) heldItem).getToolType();
+            if (heldItem instanceof AxeBase) toolType = ((AxeBase) heldItem).getToolType();
+            if (heldItem instanceof PickaxeBase) toolType = ((PickaxeBase) heldItem).getToolType();
+            if (heldItem instanceof ShovelBase) toolType = ((ShovelBase) heldItem).getToolType();
+            if (heldItem instanceof HoeBase) toolType = ((HoeBase) heldItem).getToolType();
+            if (toolType != null) {
+                LivingEntity entity = event.getEntityLiving();
+                Random rand = event.getEntityLiving().world.rand;
 
-        int chance = ConfigHandler.extraDamageChance.get();
-        if (chance == -1) chance = 200;
-        if (entity instanceof AbstractSkeletonEntity && rand.nextInt(1000) < chance && ConfigHandler.extraDamage.get()) {
-            event.setAmount(event.getAmount() * (rand.nextInt(26) / 10 + 1));
+                int chance = ConfigHandler.extraDamageChance.get();
+                if (chance == -1) chance = 200;
+                if (rand.nextInt(1000) < chance && ConfigHandler.extraDamage.get()) {
+                    float multiplier = rand.nextInt(26) / 10 + 1;
+                    switch (toolType) {
+                        case BONE:
+                            if (entity instanceof AbstractSkeletonEntity) {
+                                event.setAmount(event.getAmount() * multiplier);
+                            }
+                        case FIERY:
+                            if (entity instanceof MagmaCubeEntity) {
+                                event.setAmount(event.getAmount() * multiplier);
+                            }
+                        case SLIME:
+                            if (entity instanceof SlimeEntity) {
+                                event.setAmount(event.getAmount() * multiplier);
+                            }
+                    }
+                }
+            }
         }
     }
 

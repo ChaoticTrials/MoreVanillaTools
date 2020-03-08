@@ -37,7 +37,7 @@ public class Registry {
     public static final RegistryObject<Item> ENDER_SHOVEL = ITEMS.register("ender_shovel", () -> new ShovelBase(ItemTiers.ENDER, -0.5F, -3));
     public static final RegistryObject<Item> ENDER_HOE = ITEMS.register("ender_hoe", () -> new HoeBase(ItemTiers.ENDER, -2));
 
-    public static final RegistryObject<Item> FIERY_SWORD = ITEMS.register("fiery_sword", () -> new SwordBase(ItemTiers.FIERY, 2, -2.4F)); // TODO add custom sword for killing magma cubes
+    public static final RegistryObject<Item> FIERY_SWORD = ITEMS.register("fiery_sword", () -> new SwordBase(ItemTiers.FIERY, 2, -2.4F));
     public static final RegistryObject<Item> FIERY_AXE = ITEMS.register("fiery_axe", () -> new AxeBase(ItemTiers.FIERY, 5, -3.1F));
     public static final RegistryObject<Item> FIERY_PICKAXE = ITEMS.register("fiery_pickaxe", () -> new PickaxeBase(ItemTiers.FIERY, 1, -2.8F)); // TODO add custom pickaxe with auto-smelt
     public static final RegistryObject<Item> FIERY_SHOVEL = ITEMS.register("fiery_shovel", () -> new ShovelBase(ItemTiers.FIERY, 1.5F, -3));
@@ -91,7 +91,7 @@ public class Registry {
     public static final RegistryObject<Item> REDSTONE_SHOVEL = ITEMS.register("redstone_shovel", () -> new ShovelBase(ItemTiers.REDSTONE, 1.5F, -3));
     public static final RegistryObject<Item> REDSTONE_HOE = ITEMS.register("redstone_hoe", () -> new HoeBase(ItemTiers.REDSTONE, -1.2F));
 
-    public static final RegistryObject<Item> SLIME_SWORD = ITEMS.register("slime_sword", () -> new SwordBase(ItemTiers.SLIME, 2, -2.4F)); // TODO add custom sword for killing slimes
+    public static final RegistryObject<Item> SLIME_SWORD = ITEMS.register("slime_sword", () -> new SwordBase(ItemTiers.SLIME, 2, -2.4F));
     public static final RegistryObject<Item> SLIME_AXE = ITEMS.register("slime_axe", () -> new AxeBase(ItemTiers.SLIME, 5, -2.9F));
     public static final RegistryObject<Item> SLIME_PICKAXE = ITEMS.register("slime_pickaxe", () -> new PickaxeBase(ItemTiers.SLIME, 1, -2.6F));
     public static final RegistryObject<Item> SLIME_SHOVEL = ITEMS.register("slime_shovel", () -> new ShovelBase(ItemTiers.SLIME, 1.3F, -3));

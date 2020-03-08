@@ -4,6 +4,7 @@ import de.melanx.MoreVanillaTools.enchantments.LuckOfCheapRepairing;
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
 import de.melanx.MoreVanillaTools.util.CreativeTab;
 import de.melanx.MoreVanillaTools.util.Registry;
+import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
@@ -37,6 +38,7 @@ public class MoreVanillaTools {
         ConfigHandler.loadConfig(ConfigHandler.SERVER_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID + "-server.toml"));
 
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.addListener(ToolUtil::moreDamage);
         Registry.registerTools();
     }
 
