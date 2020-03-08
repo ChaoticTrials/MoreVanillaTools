@@ -23,10 +23,10 @@ public enum ItemTiers implements IItemTier {
     EMERALD(ConfigHandler.emeraldDurability.get(), 8.2F, 4, ConfigHandler.emeraldHarvestlevel.get(), 25, () -> {
         return Ingredient.fromTag(Tags.Items.GEMS_EMERALD);
     }, Tags.Items.GEMS_EMERALD),
-    ENDER(ConfigHandler.enderDurability.get(), 10, 10, ConfigHandler.enderHarvestlevel.get(), 10, () -> {
+    ENDER(ConfigHandler.enderDurability.get(), 5.7F, 5, ConfigHandler.enderHarvestlevel.get(), 10, () -> {
         return Ingredient.fromTag(Tags.Items.ENDER_PEARLS);
     }, Tags.Items.END_STONES),
-    FIERY(ConfigHandler.fieryDurability.get(), 7, 6, ConfigHandler.fieryHarvestlevel.get(), 15, () -> {
+    FIERY(ConfigHandler.fieryDurability.get(), 7, 2, ConfigHandler.fieryHarvestlevel.get(), 15, () -> {
         return Ingredient.fromTag(ModTags.Items.MAGMA_BLOCK);
     }, ModTags.Items.MAGMA_BLOCK),
     GLOWSTONE(ConfigHandler.glowstoneDurability.get(), 5, 2.5F, ConfigHandler.glowstoneHarvestlevel.get(), 35, () -> {
@@ -35,7 +35,7 @@ public enum ItemTiers implements IItemTier {
     LAPIS(ConfigHandler.lapisDurability.get(), 6.2F, 1.5F, ConfigHandler.lapisHarvestlevel.get(), 20, () -> {
         return Ingredient.fromTag(Tags.Items.GEMS_LAPIS);
     }, Tags.Items.STORAGE_BLOCKS_LAPIS),
-    NETHER(ConfigHandler.netherDurability.get(), 4.9F, 4, ConfigHandler.netherHarvestlevel.get(), 66, () -> {
+    NETHER(ConfigHandler.netherDurability.get(), 4.9F, 2, ConfigHandler.netherHarvestlevel.get(), 66, () -> {
         return Ingredient.fromTag(ModTags.Items.NETHER_BRICKS);
     }, ModTags.Items.NETHER_BRICKS),
     OBSIDIAN(ConfigHandler.obsidianDurability.get(), 8.2F, 2.5F, ConfigHandler.obsidianHarvestlevel.get(), 15, () -> {
@@ -44,7 +44,7 @@ public enum ItemTiers implements IItemTier {
     PAPER(ConfigHandler.paperDurability.get(), 1.8F, 0, ConfigHandler.paperHarvestlevel.get(), 17, () -> {
         return Ingredient.fromItems(Items.PAPER);
     }, ModTags.Items.PAPER),
-    PRISMARINE(ConfigHandler.prismarineDurability.get(), 7, 6, ConfigHandler.prismarineHarvestlevel.get(), 20, () -> {
+    PRISMARINE(ConfigHandler.prismarineDurability.get(), 7, 3, ConfigHandler.prismarineHarvestlevel.get(), 20, () -> {
         return Ingredient.fromTag(Tags.Items.DUSTS_PRISMARINE);
     }, ModTags.Items.PRISMARINE),
     QUARTZ(ConfigHandler.quartzDurability.get(), 4.9F, 2, ConfigHandler.quartzHarvestlevel.get(), 18, () -> {
@@ -53,7 +53,7 @@ public enum ItemTiers implements IItemTier {
     REDSTONE(ConfigHandler.redstoneDurability.get(), 6.2F, 1.5F, ConfigHandler.redstoneHarvestlevel.get(), 20, () -> {
         return Ingredient.fromTag(Tags.Items.DUSTS_REDSTONE);
     }, Tags.Items.STORAGE_BLOCKS_REDSTONE),
-    SLIME(ConfigHandler.slimeDurability.get(), 6.2F, 7, ConfigHandler.slimeHarvestlevel.get(), 20, () -> {
+    SLIME(ConfigHandler.slimeDurability.get(), 6.2F, 2, ConfigHandler.slimeHarvestlevel.get(), 20, () -> {
         return Ingredient.fromTag(Tags.Items.SLIMEBALLS);
     }, ModTags.Items.SLIME_BLOCK);
 
