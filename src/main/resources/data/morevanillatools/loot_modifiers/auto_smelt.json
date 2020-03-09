@@ -1,0 +1,11 @@
+{
+  "type": "morevanillatools:auto_smelt",
+  "conditions": [
+    {
+      "condition": "minecraft:match_tool",
+      "predicate": {
+        "item": "morevanillatools:fiery_pickaxe"
+      }
+    }
+  ]
+}

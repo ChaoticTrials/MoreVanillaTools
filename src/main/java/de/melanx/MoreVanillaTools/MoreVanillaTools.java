@@ -1,23 +1,23 @@
 package de.melanx.MoreVanillaTools;
 
 import de.melanx.MoreVanillaTools.enchantments.LuckOfCheapRepairing;
-import de.melanx.MoreVanillaTools.util.ConfigHandler;
-import de.melanx.MoreVanillaTools.util.CreativeTab;
-import de.melanx.MoreVanillaTools.util.Registry;
-import de.melanx.MoreVanillaTools.util.ToolUtil;
+import de.melanx.MoreVanillaTools.util.*;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import javax.annotation.Nonnull;
 
 @Mod(MoreVanillaTools.MODID)
 public class MoreVanillaTools {
@@ -32,9 +32,6 @@ public class MoreVanillaTools {
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ConfigHandler.SERVER_CONFIG);
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Enchantment.class, this::registerEnchantments);
-
         ConfigHandler.loadConfig(ConfigHandler.SERVER_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID + "-server.toml"));
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -42,14 +39,20 @@ public class MoreVanillaTools {
         Registry.registerTools();
     }
 
-    private void setup(final FMLCommonSetupEvent event) {
-        LOGGER.info("Setup method registered.");
-    }
+    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class EventHandlers {
 
-    private void registerEnchantments(RegistryEvent.Register<Enchantment> event) {
-        if (ConfigHandler.enchantments.get()) {
-            final IForgeRegistry<Enchantment> registry = event.getRegistry();
-            registry.register(new LuckOfCheapRepairing());
+        @SubscribeEvent
+        public static void registerEnchantments(RegistryEvent.Register<Enchantment> event) {
+            if (ConfigHandler.enchantments.get()) {
+                final IForgeRegistry<Enchantment> registry = event.getRegistry();
+                registry.register(new LuckOfCheapRepairing());
+            }
+        }
+
+        @SubscribeEvent
+        public static void registerModifierSerializiers(@Nonnull final RegistryEvent.Register<GlobalLootModifierSerializer<?>> event) {
+            event.getRegistry().register(new AutoSmeltModifier.Serializer().setRegistryName(new ResourceLocation(MODID, "auto_smelt")));
         }
     }
 }
