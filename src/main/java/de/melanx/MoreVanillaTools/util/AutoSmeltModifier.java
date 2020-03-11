@@ -13,8 +13,8 @@ import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.items.ItemHandlerHelper;
 
 import javax.annotation.Nonnull;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AutoSmeltModifier extends LootModifier {
 
@@ -25,9 +25,7 @@ public class AutoSmeltModifier extends LootModifier {
     @Nonnull
     @Override
     protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
-        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-        generatedLoot.forEach((stack) -> ret.add(smelt(stack, context)));
-        return ret;
+        return generatedLoot.stream().map(stack -> smelt(stack, context)).collect(Collectors.toList());
     }
 
     private static ItemStack smelt(ItemStack stack, LootContext context) {
