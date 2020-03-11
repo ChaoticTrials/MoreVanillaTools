@@ -27,8 +27,8 @@ public class ToolUtil {
 
     @SubscribeEvent
     public static void moreDamage(LivingDamageEvent event) {
-        PlayerEntity player = (PlayerEntity) event.getSource().getTrueSource();
-        if (player != null) {
+        if (event.getSource().getTrueSource() instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) event.getSource().getTrueSource();
             ItemTiers toolType = null;
             Item heldItem = player.getHeldItemMainhand().getItem();
             if (heldItem instanceof SwordBase) toolType = ((SwordBase) heldItem).getToolType();
