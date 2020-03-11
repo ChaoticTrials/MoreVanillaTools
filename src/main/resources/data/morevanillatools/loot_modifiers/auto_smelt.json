@@ -1,5 +1,5 @@
 {
-  "type": "morevanillatools:auto_smelt",
+  "function": "morevanillatools:auto_smelt",
   "conditions": [
     {
       "condition": "minecraft:match_tool",
