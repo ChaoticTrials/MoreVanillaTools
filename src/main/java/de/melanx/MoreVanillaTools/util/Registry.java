@@ -13,8 +13,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class Registry {
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, MoreVanillaTools.MODID);
 
-    public static final RegistryObject<Item> BONE_SWORD = ITEMS.register("bone_sword", BoneSword::new);
-    public static final RegistryObject<Item> BONE_AXE = ITEMS.register("bone_axe", BoneAxe::new);
+    public static final RegistryObject<Item> BONE_SWORD = ITEMS.register("bone_sword", () -> new SwordBase(ItemTiers.BONE, 2, -2.6F));
+    public static final RegistryObject<Item> BONE_AXE = ITEMS.register("bone_axe", () -> new AxeBase(ItemTiers.BONE, 6, -3.4F));
     public static final RegistryObject<Item> BONE_PICKAXE = ITEMS.register("bone_pickaxe", () -> new PickaxeBase(ItemTiers.BONE, 0, -3));
     public static final RegistryObject<Item> BONE_SHOVEL = ITEMS.register("bone_shovel", () -> new ShovelBase(ItemTiers.BONE, 1.5F, -3.2F));
     public static final RegistryObject<Item> BONE_HOE = ITEMS.register("bone_hoe", () -> new HoeBase(ItemTiers.BONE, -2));
@@ -39,7 +39,7 @@ public class Registry {
 
     public static final RegistryObject<Item> FIERY_SWORD = ITEMS.register("fiery_sword", () -> new SwordBase(ItemTiers.FIERY, 2, -2.4F));
     public static final RegistryObject<Item> FIERY_AXE = ITEMS.register("fiery_axe", () -> new AxeBase(ItemTiers.FIERY, 5, -3.1F));
-    public static final RegistryObject<Item> FIERY_PICKAXE = ITEMS.register("fiery_pickaxe", () -> new PickaxeBase(ItemTiers.FIERY, 1, -2.8F)); // TODO add custom pickaxe with auto-smelt
+    public static final RegistryObject<Item> FIERY_PICKAXE = ITEMS.register("fiery_pickaxe", () -> new PickaxeBase(ItemTiers.FIERY, 1, -2.8F));
     public static final RegistryObject<Item> FIERY_SHOVEL = ITEMS.register("fiery_shovel", () -> new ShovelBase(ItemTiers.FIERY, 1.5F, -3));
     public static final RegistryObject<Item> FIERY_HOE = ITEMS.register("fiery_hoe", () -> new HoeBase(ItemTiers.FIERY, -2));
 

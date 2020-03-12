@@ -5,12 +5,11 @@ import de.melanx.MoreVanillaTools.items.base.*;
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.monster.AbstractSkeletonEntity;
-import net.minecraft.entity.monster.MagmaCubeEntity;
-import net.minecraft.entity.monster.SlimeEntity;
-import net.minecraft.entity.monster.WitherSkeletonEntity;
+import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
@@ -49,8 +48,16 @@ public class ToolUtil {
                             if (entity instanceof AbstractSkeletonEntity) {
                                 event.setAmount(event.getAmount() * multiplier);
                             }
+                        case ENDER:
+                            if (entity instanceof EndermanEntity || entity instanceof EndermiteEntity) {
+                                event.setAmount(event.getAmount() * multiplier);
+                            }
                         case FIERY:
                             if (entity instanceof MagmaCubeEntity) {
+                                event.setAmount(event.getAmount() * multiplier);
+                            }
+                        case PRISMARINE:
+                            if (entity instanceof GuardianEntity) {
                                 event.setAmount(event.getAmount() * multiplier);
                             }
                         case SLIME:
@@ -63,17 +70,34 @@ public class ToolUtil {
         }
     }
 
-    public static void headDrop(LivingDropsEvent event, Item item) {
+    @SubscribeEvent
+    public static void headDrop(LivingDropsEvent event) {
         if (event.isRecentlyHit() && event.getSource().getTrueSource() != null && event.getSource().getTrueSource() instanceof PlayerEntity) {
             ItemStack weapon = ((PlayerEntity) event.getSource().getTrueSource()).getHeldItemMainhand();
-            if (!weapon.isEmpty() && weapon.getItem() == item) {
+            if (!weapon.isEmpty()) {
                 Random rand = event.getEntityLiving().world.rand;
                 int looting = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, weapon);
 
                 int chance = ConfigHandler.headDropChance.get();
                 if (chance == -1) chance = 50;
-                if (ConfigHandler.headDrop.get() && event.getEntityLiving() instanceof AbstractSkeletonEntity && rand.nextInt(1000) < chance + looting)
-                    addDrop(event, new ItemStack(event.getEntity() instanceof WitherSkeletonEntity ? Items.WITHER_SKELETON_SKULL : Items.SKELETON_SKULL));
+                if (ConfigHandler.headDrop.get() && rand.nextInt(1000) < chance + looting) {
+                    ItemTiers toolType = null;
+                    if (weapon.getItem() instanceof SwordBase) toolType = ((SwordBase) weapon.getItem()).getToolType();
+                    if (weapon.getItem() instanceof AxeBase) toolType = ((AxeBase) weapon.getItem()).getToolType();
+                    Entity mob = event.getEntityLiving();
+                    if (toolType != null) {
+                        switch (toolType) {
+                            case BONE:
+                                if (mob instanceof AbstractSkeletonEntity) {
+                                    addDrop(event, new ItemStack(event.getEntity() instanceof WitherSkeletonEntity ? Items.WITHER_SKELETON_SKULL : Items.SKELETON_SKULL));
+                                }
+                            case ENDER:
+                                if (mob instanceof EnderDragonEntity) {
+                                    addDrop(event, new ItemStack(Items.DRAGON_HEAD));
+                                }
+                        }
+                    }
+                }
             }
         }
     }
