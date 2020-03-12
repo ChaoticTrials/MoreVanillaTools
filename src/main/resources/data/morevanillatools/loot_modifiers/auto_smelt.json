@@ -2,10 +2,39 @@
   "function": "morevanillatools:auto_smelt",
   "conditions": [
     {
-      "condition": "minecraft:match_tool",
-      "predicate": {
-        "item": "morevanillatools:fiery_pickaxe"
-      }
+      "condition": "minecraft:alternative",
+      "terms": [
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "item": "morevanillatools:fiery_sword"
+          }
+        },
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "item": "morevanillatools:fiery_axe"
+          }
+        },
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "item": "morevanillatools:fiery_pickaxe"
+          }
+        },
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "item": "morevanillatools:fiery_shovel"
+          }
+        },
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "item": "morevanillatools:fiery_hoe"
+          }
+        }
+      ]
     },
     {
       "condition": "minecraft:inverted",
