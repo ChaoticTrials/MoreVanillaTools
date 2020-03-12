@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[29,)"
+loaderVersion="[31,)"
 
 [[mods]]
 modId="morevanillatools"
@@ -13,13 +13,13 @@ A mod which adds more tools in the vanilla way.
 [[dependencies.morevanillatools]]
     modId="forge"
     mandatory=true
-    versionRange="[29,)"
+    versionRange="[31.1.18,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.morevanillatools]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15,1.16)"
+    versionRange="[1.15.2,1.16)"
     ordering="NONE"
     side="BOTH"
