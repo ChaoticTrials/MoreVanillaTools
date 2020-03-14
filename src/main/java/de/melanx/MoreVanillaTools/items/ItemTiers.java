@@ -1,7 +1,7 @@
 package de.melanx.MoreVanillaTools.items;
 
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
-import de.melanx.MoreVanillaTools.util.data.ModTags;
+import de.melanx.morevanillalib.data.ModTags;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;

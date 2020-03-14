@@ -42,17 +42,13 @@ public class MoreVanillaTools {
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class EventHandlers {
 
+        // TODO move to lib in 1.16
         @SubscribeEvent
         public static void registerEnchantments(RegistryEvent.Register<Enchantment> event) {
             if (ConfigHandler.enchantments.get()) {
                 final IForgeRegistry<Enchantment> registry = event.getRegistry();
                 registry.register(new LuckOfCheapRepairing());
             }
-        }
-
-        @SubscribeEvent
-        public static void registerModifierSerializiers(@Nonnull final RegistryEvent.Register<GlobalLootModifierSerializer<?>> event) {
-            event.getRegistry().register(new AutoSmeltModifier.Serializer().setRegistryName(new ResourceLocation(MODID, "auto_smelt")));
         }
     }
 }
