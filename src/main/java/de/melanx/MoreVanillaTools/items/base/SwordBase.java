@@ -4,10 +4,8 @@ import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
 import de.melanx.MoreVanillaTools.util.ModDamageSource;
-import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
@@ -29,7 +27,6 @@ public class SwordBase extends SwordItem {
     @Override
     public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         int chance = ConfigHandler.extraDropChance.get();
-        if (chance == -1) chance = 5;
         if (new Random().nextInt(1000) < chance) {
             World world = target.getEntityWorld().getWorld();
             BlockPos pos = target.getPosition();
@@ -37,13 +34,11 @@ public class SwordBase extends SwordItem {
             world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
         }
 
-        if (ToolUtil.paperDamage(mat))
+        int cutChance = ConfigHandler.damageByPaperToolsChance.get();
+        if (this.getToolType() == ItemTiers.PAPER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < cutChance)
             attacker.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
 
-        stack.damageItem(1, attacker, (e) -> {
-            e.sendBreakAnimation(EquipmentSlotType.MAINHAND);
-        });
-        return true;
+        return super.hitEntity(stack, target, attacker);
     }
 
     public ItemTiers getToolType() {

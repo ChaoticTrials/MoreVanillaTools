@@ -2,20 +2,20 @@ package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.items.ItemTiers;
-import de.melanx.MoreVanillaTools.util.ToolUtil;
+import de.melanx.MoreVanillaTools.util.ConfigHandler;
+import de.melanx.MoreVanillaTools.util.ModDamageSource;
+import de.melanx.morevanillalib.util.ToolUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class HoeBase extends HoeItem {
 
@@ -29,25 +29,24 @@ public class HoeBase extends HoeItem {
 
     @Override
     public ActionResultType onItemUse(ItemUseContext context) {
-        World world = context.getWorld();
-        BlockPos pos = context.getPos();
-        int hook = net.minecraftforge.event.ForgeEventFactory.onHoeUse(context);
-        if (hook != 0) return hook > 0 ? ActionResultType.SUCCESS : ActionResultType.FAIL;
-        if (context.getFace() != Direction.DOWN && world.isAirBlock(pos.up())) {
-            BlockState blockstate = HOE_LOOKUP.get(world.getBlockState(pos).getBlock());
-            if (blockstate != null) {
-                PlayerEntity playerentity = context.getPlayer();
-                world.playSound(playerentity, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                return ToolUtil.itemUsed(context, world, pos, blockstate, playerentity, mat);
-            }
+        ActionResultType result = super.onItemUse(context);
+        if (result == ActionResultType.SUCCESS) {
+            int chance = ConfigHandler.damageByPaperToolsChance.get();
+            if (this.getToolType() == ItemTiers.PAPER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance)
+                context.getPlayer().attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
         }
-
-        return ActionResultType.PASS;
+        return result;
     }
 
     @Override
     public boolean onBlockDestroyed(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entityLiving) {
-        return ToolUtil.damageItem(stack, world, state, pos, entityLiving, mat);
+        if (!world.isRemote && state.getBlockHardness(world, pos) != 0.0F) {
+            ToolUtil.extraDrop(world, pos, mat);
+            int chance = ConfigHandler.damageByPaperToolsChance.get();
+            if (this.getToolType() == ItemTiers.PAPER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance)
+                entityLiving.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
+        }
+        return super.onBlockDestroyed(stack, world, state, pos, entityLiving);
     }
 
     public ItemTiers getToolType() {

@@ -3,20 +3,15 @@ package de.melanx.MoreVanillaTools.items.base;
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
-import de.melanx.MoreVanillaTools.util.ModDamageSource;
-import de.melanx.MoreVanillaTools.util.ToolUtil;
+import de.melanx.morevanillalib.util.LibDamageSource;
+import de.melanx.morevanillalib.util.ToolUtil;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.CampfireBlock;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -34,36 +29,24 @@ public class ShovelBase extends ShovelItem {
 
     @Override
     public boolean onBlockDestroyed(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entityLiving) {
-        return ToolUtil.damageItem(stack, world, state, pos, entityLiving, mat);
+        if (!world.isRemote && state.getBlockHardness(world, pos) != 0.0F) {
+            ToolUtil.extraDrop(world, pos, mat);
+            int chance = ConfigHandler.damageByPaperToolsChance.get();
+            if (this.getToolType() == ItemTiers.PAPER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance)
+                entityLiving.attackEntityFrom(LibDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
+        }
+        return super.onBlockDestroyed(stack, world, state, pos, entityLiving);
     }
 
     @Override
     public ActionResultType onItemUse(ItemUseContext context) {
-        World world = context.getWorld();
-        BlockPos pos = context.getPos();
-        BlockState blockstate = world.getBlockState(pos);
-        if (context.getFace() == Direction.DOWN) {
-            return ActionResultType.PASS;
-        } else {
-            PlayerEntity playerentity = context.getPlayer();
-            BlockState blockstate1 = SHOVEL_LOOKUP.get(blockstate.getBlock());
-            BlockState blockstate2 = null;
-            if (blockstate1 != null && world.isAirBlock(pos.up())) {
-                world.playSound(playerentity, pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                blockstate2 = blockstate1;
-            } else if (blockstate.getBlock() instanceof CampfireBlock && blockstate.get(CampfireBlock.LIT)) {
-                world.playEvent(null, 1009, pos, 0);
-                blockstate2 = blockstate.with(CampfireBlock.LIT, Boolean.valueOf(false));
-            }
-
-            if (blockstate2 != null) {
-                if (ToolUtil.paperDamage(mat))
-                    playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
-                return ToolUtil.itemUsed(context, world, pos, blockstate, playerentity, mat);
-            } else {
-                return ActionResultType.PASS;
-            }
+        ActionResultType result = super.onItemUse(context);
+        if (result == ActionResultType.SUCCESS) {
+            int chance = ConfigHandler.damageByPaperToolsChance.get();
+            if (this.getToolType() == ItemTiers.PAPER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance)
+                context.getPlayer().attackEntityFrom(LibDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
         }
+        return result;
     }
 
     public ItemTiers getToolType() {

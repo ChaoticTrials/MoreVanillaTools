@@ -3,7 +3,6 @@ package de.melanx.MoreVanillaTools.items.materials;
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
-import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -35,7 +34,6 @@ public class CoalPickaxe extends PickaxeBase {
             if (block == Blocks.COAL_ORE) {
                 ItemStack drop = new ItemStack(Items.COAL);
                 int chance = ConfigHandler.coalDoubleDropChance.get();
-                chance = ToolUtil.getDefaultChance(chance, 500);
                 if (worldIn.rand.nextInt(1000) < chance && ConfigHandler.coalDoubleDrop.get())
                     worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
             }
