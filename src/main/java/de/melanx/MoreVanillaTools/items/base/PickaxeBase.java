@@ -3,7 +3,7 @@ package de.melanx.MoreVanillaTools.items.base;
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
-import de.melanx.MoreVanillaTools.util.ModDamageSource;
+import de.melanx.morevanillalib.util.LibDamageSource;
 import de.melanx.morevanillalib.util.ToolUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
@@ -31,7 +31,7 @@ public class PickaxeBase extends PickaxeItem {
             ToolUtil.extraDrop(world, pos, mat);
             int chance = ConfigHandler.damageByPaperToolsChance.get();
             if (this.getToolType() == ItemTiers.PAPER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance)
-                entityLiving.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
+                entityLiving.attackEntityFrom(LibDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
         }
         return super.onBlockDestroyed(stack, world, state, pos, entityLiving);
     }

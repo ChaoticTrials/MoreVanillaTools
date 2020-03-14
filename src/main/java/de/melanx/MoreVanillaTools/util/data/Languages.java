@@ -21,7 +21,6 @@ public class Languages {
             add("itemGroup.morevanillatools", "MoreVanillaTools");
             add("enchantment.morevanillatools.repairing_luck.repairing_luck", "Luck of Cheap Repairing");
             add("enchantment.morevanillatools.repairing_luck.desc", "Reduces the repair costs in the anvil to a minimum.");
-            add("death.attack.paperCut", "%1$s was struck down by paper.");
             for (RegistryObject<Item> object : Registry.ITEMS.getEntries()) {
                 Item item = object.get();
                 String name = item.getRegistryName().getPath().split("_")[0];
@@ -53,7 +52,6 @@ public class Languages {
         protected void addTranslations() {
             add("enchantment.morevanillatools.repairing_luck", "Gl\u00FCck der billigen Reparatur");
             add("enchantment.morevanillatools.repairing_luck.desc", "Verringert die Reperaturkosten im Amboss auf ein Minimum.");
-            add("death.attack.paperCut", "%1$s wurde durch Papier niedergestreckt.");
             for (RegistryObject<Item> object : Registry.ITEMS.getEntries()) {
                 Item item = object.get();
                 add(item, getGermanMaterialName(item) + getToolTypeName(item));

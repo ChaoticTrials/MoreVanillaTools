@@ -3,7 +3,7 @@ package de.melanx.MoreVanillaTools.items.base;
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
-import de.melanx.MoreVanillaTools.util.ModDamageSource;
+import de.melanx.morevanillalib.util.LibDamageSource;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.Item;
@@ -36,7 +36,7 @@ public class SwordBase extends SwordItem {
 
         int cutChance = ConfigHandler.damageByPaperToolsChance.get();
         if (this.getToolType() == ItemTiers.PAPER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < cutChance)
-            attacker.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
+            attacker.attackEntityFrom(LibDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
 
         return super.hitEntity(stack, target, attacker);
     }
