@@ -1,9 +1,9 @@
 package de.melanx.MoreVanillaTools.util.data;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
-import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.*;
 import de.melanx.MoreVanillaTools.util.Registry;
+import de.melanx.morevanillalib.util.TranslationHelper;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -23,23 +23,11 @@ public class Languages {
             add("enchantment.morevanillatools.repairing_luck.desc", "Reduces the repair costs in the anvil to a minimum.");
             for (RegistryObject<Item> object : Registry.ITEMS.getEntries()) {
                 Item item = object.get();
-                String name = item.getRegistryName().getPath().split("_")[0];
-                add(item, Languages.capitalize(name) + " " + getToolTypeName(item));
+                String path = item.getRegistryName().getPath();
+                String name = path.split("_")[0];
+                String tool = path.split("_")[1];
+                add(item, TranslationHelper.capitalize(name) + " " + TranslationHelper.capitalize(tool));
             }
-        }
-
-        private static String getToolTypeName(Item item) {
-            if (item instanceof SwordBase)
-                return "Sword";
-            else if (item instanceof AxeBase)
-                return "Axe";
-            else if (item instanceof PickaxeBase)
-                return "Pickaxe";
-            else if (item instanceof ShovelBase)
-                return "Shovel";
-            else if (item instanceof HoeBase)
-                return "Hoe";
-            return null;
         }
     }
 
@@ -54,53 +42,8 @@ public class Languages {
             add("enchantment.morevanillatools.repairing_luck.desc", "Verringert die Reperaturkosten im Amboss auf ein Minimum.");
             for (RegistryObject<Item> object : Registry.ITEMS.getEntries()) {
                 Item item = object.get();
-                add(item, getGermanMaterialName(item) + getToolTypeName(item));
-            }
-        }
-
-        private static String getGermanMaterialName(Item item) {
-            ItemTiers type = null;
-            if (item instanceof SwordBase)
-                type = ((SwordBase) item).getToolType();
-            else if (item instanceof AxeBase)
-                type = ((AxeBase) item).getToolType();
-            else if (item instanceof PickaxeBase)
-                type = ((PickaxeBase) item).getToolType();
-            else if (item instanceof ShovelBase)
-                type = ((ShovelBase) item).getToolType();
-            else if (item instanceof HoeBase)
-                type = ((HoeBase) item).getToolType();
-            switch (type) {
-                case BONE:
-                    return "Knochen";
-                case COAL:
-                    return "Kohle";
-                case EMERALD:
-                    return "Smaragd";
-                case ENDER:
-                    return "Ender";
-                case FIERY:
-                    return "Feuer";
-                case GLOWSTONE:
-                    return "Glowstone";
-                case LAPIS:
-                    return "Lapis";
-                case NETHER:
-                    return "Nether";
-                case OBSIDIAN:
-                    return "Obsidian";
-                case PAPER:
-                    return "Papier";
-                case PRISMARINE:
-                    return "Prismarin";
-                case QUARTZ:
-                    return "Netherquartz";
-                case REDSTONE:
-                    return "Redstone";
-                case SLIME:
-                    return "Schleim";
-                default:
-                    return null;
+                String path = item.getRegistryName().getPath();
+                add(item, TranslationHelper.getGermanMaterial(path) + getToolTypeName(item));
             }
         }
 
@@ -117,10 +60,6 @@ public class Languages {
                 return "hacke";
             return null;
         }
-    }
-
-    private static String capitalize(String string) {
-        return string.substring(0, 1).toUpperCase() + string.substring(1);
     }
 
 }
