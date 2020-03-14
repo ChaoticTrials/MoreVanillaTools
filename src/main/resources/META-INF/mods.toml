@@ -18,6 +18,13 @@ A mod which adds more tools in the vanilla way.
     side="BOTH"
 
 [[dependencies.morevanillatools]]
+    modId="morevanillalib"
+    mandatory=true
+    versionRange="[1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.morevanillatools]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.15.2,1.16)"
