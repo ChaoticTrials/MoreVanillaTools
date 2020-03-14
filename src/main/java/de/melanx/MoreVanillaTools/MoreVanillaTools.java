@@ -1,10 +1,7 @@
 package de.melanx.MoreVanillaTools;
 
 import de.melanx.MoreVanillaTools.enchantments.LuckOfCheapRepairing;
-import de.melanx.MoreVanillaTools.util.AutoSmeltModifier;
-import de.melanx.MoreVanillaTools.util.ConfigHandler;
-import de.melanx.MoreVanillaTools.util.CreativeTab;
-import de.melanx.MoreVanillaTools.util.Registry;
+import de.melanx.MoreVanillaTools.util.*;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
@@ -37,6 +34,7 @@ public class MoreVanillaTools {
 
         ConfigHandler.loadConfig(ConfigHandler.SERVER_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MODID + "-server.toml"));
 
+        new Events();
         MinecraftForge.EVENT_BUS.register(this);
         Registry.registerTools();
     }
