@@ -2,7 +2,7 @@ package de.melanx.MoreVanillaTools.items.materials;
 
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
-import de.melanx.MoreVanillaTools.util.ConfigHandler;
+import de.melanx.morevanillalib.LibConfigHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -33,8 +33,8 @@ public class RedstonePickaxe extends PickaxeBase {
             Block block = state.getBlock();
             if (block == Blocks.REDSTONE_ORE) {
                 ItemStack drop = new ItemStack(Items.REDSTONE);
-                int chance = ConfigHandler.redstoneDoubleDropChance.get();
-                if (worldIn.rand.nextInt(1000) < chance && ConfigHandler.redstoneDoubleDrop.get()) {
+                int chance = LibConfigHandler.redstoneDoubleDropChance.get();
+                if (worldIn.rand.nextInt(1000) < chance && LibConfigHandler.redstoneDoubleDrop.get()) {
                     int i = worldIn.rand.nextInt(3);
                     for (int x = 0; x <= i; x++)
                         worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));

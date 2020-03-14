@@ -2,7 +2,7 @@ package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.items.ItemTiers;
-import de.melanx.MoreVanillaTools.util.ConfigHandler;
+import de.melanx.morevanillalib.LibConfigHandler;
 import de.melanx.morevanillalib.util.LibDamageSource;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
@@ -26,7 +26,7 @@ public class SwordBase extends SwordItem {
 
     @Override
     public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        int chance = ConfigHandler.extraDropChance.get();
+        int chance = LibConfigHandler.extraDropChance.get();
         if (new Random().nextInt(1000) < chance) {
             World world = target.getEntityWorld().getWorld();
             BlockPos pos = target.getPosition();
@@ -34,9 +34,9 @@ public class SwordBase extends SwordItem {
             world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
         }
 
-        int cutChance = ConfigHandler.damageByPaperToolsChance.get();
-        if (this.getToolType() == ItemTiers.PAPER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < cutChance)
-            attacker.attackEntityFrom(LibDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
+        int cutChance = LibConfigHandler.damageByPaperToolsChance.get();
+        if (this.getToolType() == ItemTiers.PAPER && LibConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < cutChance)
+            attacker.attackEntityFrom(LibDamageSource.PAPER_CUT, new Random().nextInt(LibConfigHandler.maxPaperDamage.get() + 1) + LibConfigHandler.minPaperDamage.get());
 
         return super.hitEntity(stack, target, attacker);
     }
