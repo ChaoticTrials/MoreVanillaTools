@@ -5,10 +5,7 @@ import de.melanx.MoreVanillaTools.items.base.*;
 import de.melanx.morevanillalib.util.ToolUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.monster.AbstractSkeletonEntity;
-import net.minecraft.entity.monster.MagmaCubeEntity;
-import net.minecraft.entity.monster.SlimeEntity;
-import net.minecraft.entity.monster.WitherSkeletonEntity;
+import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -36,8 +33,14 @@ public class Events {
                     case BONE:
                         if (entity instanceof AbstractSkeletonEntity)
                             ToolUtil.moreDamage(event);
+                    case ENDER:
+                        if (entity instanceof EndermanEntity || entity instanceof EndermiteEntity)
+                            ToolUtil.moreDamage(event);
                     case FIERY:
                         if (entity instanceof MagmaCubeEntity)
+                            ToolUtil.moreDamage(event);
+                    case PRISMARINE:
+                        if (entity instanceof GuardianEntity)
                             ToolUtil.moreDamage(event);
                     case SLIME:
                         if (entity instanceof SlimeEntity && !(entity instanceof MagmaCubeEntity))
@@ -58,7 +61,7 @@ public class Events {
         }
     }
 
-    private static ItemTiers getItemTiers(Item heldItem) {
+    public static ItemTiers getItemTiers(Item heldItem) {
         ItemTiers toolType = null;
         if (heldItem instanceof SwordBase) toolType = ((SwordBase) heldItem).getToolType();
         if (heldItem instanceof AxeBase) toolType = ((AxeBase) heldItem).getToolType();
