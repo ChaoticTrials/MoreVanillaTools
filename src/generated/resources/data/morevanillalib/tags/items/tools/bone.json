@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "morevanillatools:bone_sword",
+    "morevanillatools:bone_axe",
+    "morevanillatools:bone_pickaxe",
+    "morevanillatools:bone_shovel",
+    "morevanillatools:bone_hoe"
+  ]
+}

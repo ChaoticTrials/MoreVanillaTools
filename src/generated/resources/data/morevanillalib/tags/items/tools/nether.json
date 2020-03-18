@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "morevanillatools:nether_sword",
+    "morevanillatools:nether_axe",
+    "morevanillatools:nether_pickaxe",
+    "morevanillatools:nether_shovel",
+    "morevanillatools:nether_hoe"
+  ]
+}

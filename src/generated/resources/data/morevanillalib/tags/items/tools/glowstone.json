@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "morevanillatools:glowstone_sword",
+    "morevanillatools:glowstone_axe",
+    "morevanillatools:glowstone_pickaxe",
+    "morevanillatools:glowstone_shovel",
+    "morevanillatools:glowstone_hoe"
+  ]
+}
