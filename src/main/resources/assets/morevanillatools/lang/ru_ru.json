@@ -1,0 +1,62 @@
+{
+  "itemGroup.morevanillatools": "MoreVanillaTools",
+
+  "item.morevanillatools.bone_sword": "Костяной меч",
+  "item.morevanillatools.bone_axe": "Костяной топор",
+  "item.morevanillatools.bone_pickaxe": "Костяная кирка",
+  "item.morevanillatools.bone_shovel": "Костяная лопата",
+  "item.morevanillatools.bone_hoe": "Костяная мотыга",
+
+  "item.morevanillatools.coal_sword": "Угольный меч",
+  "item.morevanillatools.coal_axe": "Угольный топор",
+  "item.morevanillatools.coal_pickaxe": "Угольная кирка",
+  "item.morevanillatools.coal_shovel": "Угольная лопата",
+  "item.morevanillatools.coal_hoe": "Угольная мотыга",
+
+  "item.morevanillatools.emerald_sword": "Изумрудный меч",
+  "item.morevanillatools.emerald_axe": "Изумрудный топор",
+  "item.morevanillatools.emerald_pickaxe": "Изумрудная кирка",
+  "item.morevanillatools.emerald_shovel": "Изумрудная лопата",
+  "item.morevanillatools.emerald_hoe": "Изумрудная мотыга",
+
+  "item.morevanillatools.glowstone_sword": "Светокаменный меч",
+  "item.morevanillatools.glowstone_axe": "Светокаменный топор",
+  "item.morevanillatools.glowstone_pickaxe": "Светокаменная кирка",
+  "item.morevanillatools.glowstone_shovel": "Светокаменная лопата",
+  "item.morevanillatools.glowstone_hoe": "Светокаменная мотыга",
+
+  "item.morevanillatools.lapis_sword": "Лазуритовый меч",
+  "item.morevanillatools.lapis_axe": "Лазуритовый топор",
+  "item.morevanillatools.lapis_pickaxe": "Лазуритовая кирка",
+  "item.morevanillatools.lapis_shovel": "Лазуритовая лопата",
+  "item.morevanillatools.lapis_hoe": "Лазуритовая мотыга",
+
+  "item.morevanillatools.obsidian_sword": "Обсидиановый меч",
+  "item.morevanillatools.obsidian_axe": "Обсидиановый топор",
+  "item.morevanillatools.obsidian_pickaxe": "Обсидиановая кирка",
+  "item.morevanillatools.obsidian_shovel": "Обсидиановая лопата",
+  "item.morevanillatools.obsidian_hoe": "Обсидиановая мотыга",
+
+  "item.morevanillatools.paper_sword": "Бумажный меч",
+  "item.morevanillatools.paper_axe": "Бумажный топор",
+  "item.morevanillatools.paper_pickaxe": "Бумажная кирка",
+  "item.morevanillatools.paper_shovel": "Бумажная лопата",
+  "item.morevanillatools.paper_hoe": "Бумажная мотыга",
+
+  "item.morevanillatools.quartz_sword": "Незер-кварцевый меч",
+  "item.morevanillatools.quartz_axe": "Незер-кварцевый топор",
+  "item.morevanillatools.quartz_pickaxe": "Незер-кварцевая кирка",
+  "item.morevanillatools.quartz_shovel": "Незер-кварцевая лопата",
+  "item.morevanillatools.quartz_hoe": "Незер-кварцевая мотыга",
+
+  "item.morevanillatools.redstone_sword": "Редстоуновый меч",
+  "item.morevanillatools.redstone_axe": "Редстоуновый топор",
+  "item.morevanillatools.redstone_pickaxe": "Редстоуновая кирка",
+  "item.morevanillatools.redstone_shovel": "Редстоуновая лопата",
+  "item.morevanillatools.redstone_hoe": "Редстоуновая мотыга",
+
+  "death.attack.paperCut": "%1$s был изрезан до смерти бумагой",
+
+  "enchantment.morevanillatools.repairing_luck": "Удача дешёвого ремонта",
+  "enchantment.morevanillatools.repairing_luck.desc": "Снижает затраты на ремонт в наковальне до минимума."
+}
