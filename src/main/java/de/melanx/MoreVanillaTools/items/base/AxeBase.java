@@ -10,6 +10,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUseContext;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -34,6 +36,17 @@ public class AxeBase extends AxeItem {
                 entityLiving.attackEntityFrom(LibDamageSource.PAPER_CUT, new Random().nextInt(LibConfigHandler.maxPaperDamage.get()) + LibConfigHandler.minPaperDamage.get());
         }
         return super.onBlockDestroyed(stack, world, state, pos, entityLiving);
+    }
+
+
+
+    @Override
+    public ActionResultType onItemUse(ItemUseContext context) {
+        ActionResultType result = super.onItemUse(context);
+        if (result == ActionResultType.SUCCESS) {
+            ToolUtil.extraDrop(context.getWorld(), context.getPos(), mat);
+        }
+        return result;
     }
 
     public ItemTiers getToolType() {

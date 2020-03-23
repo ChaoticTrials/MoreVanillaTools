@@ -4,6 +4,7 @@ import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.morevanillalib.LibConfigHandler;
 import de.melanx.morevanillalib.util.LibDamageSource;
+import de.melanx.morevanillalib.util.ToolUtil;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.Item;
@@ -38,6 +39,7 @@ public class SwordBase extends SwordItem {
         if (this.getToolType() == ItemTiers.PAPER && LibConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < cutChance)
             attacker.attackEntityFrom(LibDamageSource.PAPER_CUT, new Random().nextInt(LibConfigHandler.maxPaperDamage.get() + 1) + LibConfigHandler.minPaperDamage.get());
 
+        ToolUtil.extraDrop(target.getEntityWorld(), target.getPosition(), mat);
         return super.hitEntity(stack, target, attacker);
     }
 

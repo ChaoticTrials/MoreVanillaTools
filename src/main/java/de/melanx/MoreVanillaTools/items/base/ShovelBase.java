@@ -42,6 +42,7 @@ public class ShovelBase extends ShovelItem {
     public ActionResultType onItemUse(ItemUseContext context) {
         ActionResultType result = super.onItemUse(context);
         if (result == ActionResultType.SUCCESS) {
+            ToolUtil.extraDrop(context.getWorld(), context.getPos(), mat);
             int chance = LibConfigHandler.damageByPaperToolsChance.get();
             if (this.getToolType() == ItemTiers.PAPER && LibConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance)
                 context.getPlayer().attackEntityFrom(LibDamageSource.PAPER_CUT, new Random().nextInt(LibConfigHandler.maxPaperDamage.get()) + LibConfigHandler.minPaperDamage.get());
