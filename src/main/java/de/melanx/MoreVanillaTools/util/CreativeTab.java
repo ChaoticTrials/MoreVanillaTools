@@ -12,6 +12,6 @@ public class CreativeTab extends ItemGroup {
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(Registry.REDSTONE_PICKAXE.get());
+        return new ItemStack(Registry.Items.redstone_pickaxe);
     }
 }
