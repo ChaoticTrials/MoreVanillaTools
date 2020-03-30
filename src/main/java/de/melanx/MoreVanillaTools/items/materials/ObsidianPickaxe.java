@@ -4,7 +4,6 @@ import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.item.ItemStack;
@@ -26,8 +25,7 @@ public class ObsidianPickaxe extends PickaxeBase {
             int efficiencyLevel = EnchantmentHelper.getEnchantmentLevel(Enchantment.getEnchantmentByID(18), stack);
             return 15.0F * (efficiencyLevel / 3.5F + 1);
         } else {
-            Material material = state.getMaterial();
-            return material != Material.IRON && material != Material.ANVIL && material != Material.ROCK ? super.getDestroySpeed(stack, state) : this.efficiency;
+            return super.getDestroySpeed(stack, state);
         }
     }
 

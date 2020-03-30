@@ -10,7 +10,6 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
@@ -38,9 +37,6 @@ public class EmeraldPickaxe extends PickaxeBase {
                     worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
             }
         }
-        stack.damageItem(1, entityLiving, e -> {
-            e.sendBreakAnimation(EquipmentSlotType.MAINHAND);
-        });
-        return true;
+        return super.onBlockDestroyed(stack, worldIn, state, pos, entityLiving);
     }
 }
