@@ -14,7 +14,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class CoalPickaxe extends PickaxeBase {
 
@@ -25,7 +24,6 @@ public class CoalPickaxe extends PickaxeBase {
         super(ItemTiers.COAL, DAMAGE, SPEED);
     }
 
-    @SubscribeEvent
     @Override
     public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
         if (EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) < 1) {

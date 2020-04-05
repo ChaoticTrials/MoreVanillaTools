@@ -2,6 +2,7 @@ package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.items.ItemTiers;
+import de.melanx.MoreVanillaTools.util.Util;
 import de.melanx.morevanillalib.LibConfigHandler;
 import de.melanx.morevanillalib.util.LibDamageSource;
 import de.melanx.morevanillalib.util.ToolUtil;
@@ -34,6 +35,12 @@ public class PickaxeBase extends PickaxeItem {
                 entityLiving.attackEntityFrom(LibDamageSource.PAPER_CUT, new Random().nextInt(LibConfigHandler.maxPaperDamage.get()) + LibConfigHandler.minPaperDamage.get());
         }
         return super.onBlockDestroyed(stack, world, state, pos, entityLiving);
+    }
+
+    @Override
+    public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        Util.hitEntityUtil(target, attacker, this.getToolType());
+        return super.hitEntity(stack, target, attacker);
     }
 
     public ItemTiers getToolType() {

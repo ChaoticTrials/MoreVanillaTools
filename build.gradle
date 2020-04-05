@@ -91,7 +91,7 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
-    compile fg.deobf("de.melanx.morevanillalib:morevanillalib:1.15.2-1.0")
+    compile fg.deobf("de.melanx.morevanillalib:morevanillalib:1.15.2-1.1")
 }
 
 jar {
