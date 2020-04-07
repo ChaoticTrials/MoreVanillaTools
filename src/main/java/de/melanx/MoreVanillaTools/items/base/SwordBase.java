@@ -3,10 +3,13 @@ package de.melanx.MoreVanillaTools.items.base;
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.Util;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class SwordBase extends SwordItem {
 
@@ -16,6 +19,11 @@ public class SwordBase extends SwordItem {
         super(mat, damage, speed, new Item.Properties().group(MoreVanillaTools.creativeTab));
 
         this.mat = mat;
+    }
+
+    @Override
+    public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
+        return super.onBlockDestroyed(stack, worldIn, state, pos, entityLiving);
     }
 
     @Override
