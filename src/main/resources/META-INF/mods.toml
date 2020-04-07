@@ -20,7 +20,7 @@ A mod which adds more tools in the vanilla way.
 [[dependencies.morevanillatools]]
     modId="morevanillalib"
     mandatory=true
-    versionRange="[1.1,)"
+    versionRange="[1.1.1,)"
     ordering="AFTER"
     side="BOTH"
 
