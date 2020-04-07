@@ -45,7 +45,7 @@ public class Registry {
 
     public static final RegistryObject<Item> GLOWSTONE_SWORD = ITEMS.register("glowstone_sword", () -> new SwordBase(ItemTiers.GLOWSTONE, 2, -2.2F));
     public static final RegistryObject<Item> GLOWSTONE_AXE = ITEMS.register("glowstone_axe", () -> new AxeBase(ItemTiers.GLOWSTONE, 6, -3));
-    public static final RegistryObject<Item> GLOWSTONE_PICKAXE = ITEMS.register("glowstone_pickaxe", GlowstonePickaxe::new);
+    public static final RegistryObject<Item> GLOWSTONE_PICKAXE = ITEMS.register("glowstone_pickaxe", () -> new PickaxeBase(ItemTiers.GLOWSTONE, 0, -2.6F));
     public static final RegistryObject<Item> GLOWSTONE_SHOVEL = ITEMS.register("glowstone_shovel", () -> new ShovelBase(ItemTiers.GLOWSTONE, 0.5F, -2.8F));
     public static final RegistryObject<Item> GLOWSTONE_HOE = ITEMS.register("glowstone_hoe", () -> new HoeBase(ItemTiers.GLOWSTONE, -2));
 
