@@ -6,8 +6,8 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.util.ResourceLocation;
 
-import static de.melanx.morevanillalib.compat.JeiCompat.addValueInfoPage;
 import static de.melanx.morevanillalib.compat.JeiCompat.PLUGIN_UID;
+import static de.melanx.morevanillalib.compat.JeiCompat.addValueInfoPage;
 
 @JeiPlugin
 public class JeiCompat implements IModPlugin {

@@ -3,9 +3,6 @@ package de.melanx.MoreVanillaTools.items.base;
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.Util;
-import de.melanx.morevanillalib.LibConfigHandler;
-import de.melanx.morevanillalib.util.LibDamageSource;
-import de.melanx.morevanillalib.util.ToolUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
@@ -13,8 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class PickaxeBase extends PickaxeItem {
 
