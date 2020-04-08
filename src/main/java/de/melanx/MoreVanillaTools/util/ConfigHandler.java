@@ -9,14 +9,8 @@ import java.nio.file.Path;
 
 public class ConfigHandler {
 
-    private static final ForgeConfigSpec.Builder SERVER_BUILDER = new ForgeConfigSpec.Builder();
     public static final ForgeConfigSpec SERVER_CONFIG;
-
-    static {
-        init(SERVER_BUILDER);
-
-        SERVER_CONFIG = SERVER_BUILDER.build();
-    }
+    private static final ForgeConfigSpec.Builder SERVER_BUILDER = new ForgeConfigSpec.Builder();
 
     public static ForgeConfigSpec.BooleanValue enchantments;
     public static ForgeConfigSpec.IntValue extraDropChance;
@@ -63,6 +57,12 @@ public class ConfigHandler {
     public static ForgeConfigSpec.IntValue paperHarvestlevel;
     public static ForgeConfigSpec.IntValue quartzHarvestlevel;
     public static ForgeConfigSpec.IntValue redstoneHarvestlevel;
+
+    static {
+        init(SERVER_BUILDER);
+
+        SERVER_CONFIG = SERVER_BUILDER.build();
+    }
 
     public static void init(ForgeConfigSpec.Builder builder) {
         builder.push("features");
