@@ -1,21 +1,16 @@
 package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
-import de.melanx.MoreVanillaTools.util.ConfigHandler;
-import de.melanx.MoreVanillaTools.util.ModDamageSource;
 import de.melanx.MoreVanillaTools.util.Registry;
 import de.melanx.MoreVanillaTools.util.ToolUtil;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class SwordBase extends SwordItem {
 
@@ -31,22 +26,13 @@ public class SwordBase extends SwordItem {
 
     @Override
     public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        int chance = ConfigHandler.extraDropChance.get();
-        if (chance == -1) chance = 5;
-        if (new Random().nextInt(1000) < chance) {
-            World world = target.getEntityWorld().getWorld();
-            BlockPos pos = target.getPosition();
-            ItemStack itemStack = mat.getRepairMaterial().getMatchingStacks()[0];
-            world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
-        }
-
-        if (ToolUtil.paperDamage(mat))
-            attacker.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
-
-        stack.damageItem(1, attacker, (e) -> {
-            e.sendBreakAnimation(EquipmentSlotType.MAINHAND);
-        });
-        return true;
+        ToolUtil.hitEntityUtil(target, attacker, mat);
+        return super.hitEntity(stack, target, attacker);
     }
 
+    @Override
+    public boolean onBlockDestroyed(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entityLiving) {
+        ToolUtil.blockDestroyUtil(world, state, pos, entityLiving, mat);
+        return super.onBlockDestroyed(stack, world, state, pos, entityLiving);
+    }
 }

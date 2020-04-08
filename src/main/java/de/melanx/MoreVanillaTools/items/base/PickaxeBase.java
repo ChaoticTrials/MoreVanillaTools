@@ -26,7 +26,14 @@ public class PickaxeBase extends PickaxeItem {
 
     @Override
     public boolean onBlockDestroyed(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entityLiving) {
-        return ToolUtil.damageItem(stack, world, state, pos, entityLiving, mat);
+        ToolUtil.blockDestroyUtil(world, state, pos, entityLiving, mat);
+        return super.onBlockDestroyed(stack, world, state, pos, entityLiving);
+    }
+
+    @Override
+    public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        ToolUtil.hitEntityUtil(target, attacker, mat);
+        return super.hitEntity(stack, target, attacker);
     }
 
 }

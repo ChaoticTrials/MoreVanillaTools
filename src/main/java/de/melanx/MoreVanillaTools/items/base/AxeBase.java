@@ -5,10 +5,8 @@ import de.melanx.MoreVanillaTools.util.Registry;
 import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -26,6 +24,20 @@ public class AxeBase extends AxeItem {
 
     @Override
     public boolean onBlockDestroyed(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entityLiving) {
-        return ToolUtil.damageItem(stack, world, state, pos, entityLiving, mat);
+        ToolUtil.blockDestroyUtil(world, state, pos, entityLiving, mat);
+        return super.onBlockDestroyed(stack, world, state, pos, entityLiving);
+    }
+
+    @Override
+    public ActionResultType onItemUse(ItemUseContext context) {
+        ActionResultType result = super.onItemUse(context);
+        ToolUtil.itemUseUtil(context, result, mat);
+        return result;
+    }
+
+    @Override
+    public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        ToolUtil.hitEntityUtil(target, attacker, mat);
+        return super.hitEntity(stack, target, attacker);
     }
 }

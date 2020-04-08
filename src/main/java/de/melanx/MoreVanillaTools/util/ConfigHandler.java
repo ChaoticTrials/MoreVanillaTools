@@ -89,20 +89,20 @@ public class ConfigHandler {
 
         builder.push("chances");
         extraDropChance = builder.comment("Sets the chance of an extra drop when using a tool. If set to -1, the default (5 = 0.5%) will be used.")
-                .defineInRange("dropChance", 5, -1, 1000);
+                .defineInRange("dropChance", 5, 0, 1000);
         extraDamageChance = builder.comment("Sets the chance of extra damage when using bone axe or sword on a (wither) skeleton. If set to -1, the default (200 = 20%) will be used.")
-                .defineInRange("extraDamageChance", 200, -1, 1000);
+                .defineInRange("extraDamageChance", 200, 0, 1000);
         headDropChance = builder.comment("Sets the chance of an head drop when using bone axe or sword. If set to -1, the default (50 = 5%) will be used.")
-                .defineInRange("headDropChance", 50, -1, 1000);
+                .defineInRange("headDropChance", 50, 0, 1000);
         damageByPaperToolsChance = builder.comment("Sets the chance to take an half heart damage if using paper tools. If set to -1, the default (100 = 10%) will be used.")
-                .defineInRange("damageByPaperTools", 100, -1, Integer.MAX_VALUE);
+                .defineInRange("damageByPaperTools", 100, 0, Integer.MAX_VALUE);
 
             builder.push("ore double chance").comment("The chance for dropping an additional resource of their corresponding ore. If set to -1, the default (500 = 50%) will be used.");
-            coalDoubleDropChance = builder.defineInRange("coal double drop chance", 500, -1, 1000);
-            emeraldDoubleDropChance = builder.comment("Default 1 = 0.1%").defineInRange("emerald double drop chance", 1, -1, 1000);
-            lapisDoubleDropChance = builder.defineInRange("lapis double drop chance", 500, -1, 1000);
-            quartzDoubleDropChance = builder.defineInRange("quartz double drop chance", 500, -1, 1000);
-            redstoneDoubleDropChance = builder.defineInRange("redstone double drop chance", 500, -1, 1000);
+            coalDoubleDropChance = builder.defineInRange("coal double drop chance", 500, 0, 1000);
+            emeraldDoubleDropChance = builder.comment("Default 1 = 0.1%").defineInRange("emerald double drop chance", 1, 0, 1000);
+            lapisDoubleDropChance = builder.defineInRange("lapis double drop chance", 500, 0, 1000);
+            quartzDoubleDropChance = builder.defineInRange("quartz double drop chance", 500, 0, 1000);
+            redstoneDoubleDropChance = builder.defineInRange("redstone double drop chance", 500, 0, 1000);
             builder.pop();
 
         builder.pop();

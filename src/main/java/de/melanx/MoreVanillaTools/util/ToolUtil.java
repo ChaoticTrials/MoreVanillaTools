@@ -9,7 +9,6 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.monster.WitherSkeletonEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.math.BlockPos;
@@ -26,7 +25,6 @@ public class ToolUtil {
         Random rand = event.getEntityLiving().world.rand;
 
         int chance = ConfigHandler.extraDamageChance.get();
-        if (chance == -1) chance = 200;
         if (entity instanceof AbstractSkeletonEntity && rand.nextInt(1000) < chance && ConfigHandler.extraDamage.get()) {
             event.setAmount(event.getAmount() * (rand.nextInt(26) / 10 + 1));
         }
@@ -40,7 +38,6 @@ public class ToolUtil {
                 int looting = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, weapon);
 
                 int chance = ConfigHandler.headDropChance.get();
-                if (chance == -1) chance = 50;
                 if (ConfigHandler.headDrop.get() && event.getEntityLiving() instanceof AbstractSkeletonEntity && rand.nextInt(1000) < chance + looting)
                     addDrop(event, new ItemStack(event.getEntity() instanceof WitherSkeletonEntity ? Items.WITHER_SKELETON_SKULL : Items.SKELETON_SKULL));
             }
@@ -53,56 +50,40 @@ public class ToolUtil {
         event.getDrops().add(entityitem);
     }
 
-    public static boolean damageItem(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity entityLiving, IItemTier mat) {
-        if (!world.isRemote && state.getBlockHardness(world, pos) != 0.0F) {
-
-            extraDrop(world, pos, mat);
-            if (paperDamage(mat))
-                entityLiving.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
-
-            stack.damageItem(1, entityLiving, (e) -> {
-                e.sendBreakAnimation(EquipmentSlotType.MAINHAND);
-            });
+    public static void itemUseUtil(ItemUseContext context, ActionResultType result, IItemTier mat) {
+        if (result == ActionResultType.SUCCESS) {
+            extraDrop(context.getWorld(), context.getPos(), mat);
+            int chance = ConfigHandler.damageByPaperToolsChance.get();
+            if (mat == ItemTiers.PAPER_TIER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance)
+                context.getPlayer().attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
         }
-        return true;
     }
 
-    public static ActionResultType itemUsed(ItemUseContext context, World world, BlockPos pos, BlockState blockstate, PlayerEntity playerentity, IItemTier mat) {
-        if (!world.isRemote) {
-            world.setBlockState(pos, blockstate, 11);
-            if (playerentity != null) {
-                extraDrop(world, pos, mat);
-
-                if (paperDamage(mat))
-                    playerentity.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
-
-                context.getItem().damageItem(1, playerentity, (e) -> {
-                    e.sendBreakAnimation(context.getHand());
-                });
-            }
+    public static void blockDestroyUtil(World world, BlockState state, BlockPos pos, LivingEntity entityLiving, IItemTier mat) {
+        if (!world.isRemote && state.getBlockHardness(world, pos) != 0.0F) {
+            extraDrop(world, pos, mat);
+            int chance = ConfigHandler.damageByPaperToolsChance.get();
+            if (mat == ItemTiers.PAPER_TIER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance)
+                entityLiving.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get()) + ConfigHandler.minPaperDamage.get());
         }
-
-        return ActionResultType.SUCCESS;
     }
 
     private static void extraDrop(World world, BlockPos pos, IItemTier mat) {
         int chance = ConfigHandler.extraDropChance.get();
-        if (chance == -1) chance = 5;
         if (new Random().nextInt(1000) < chance && ConfigHandler.extraDrop.get()) {
             ItemStack itemStack = mat.getRepairMaterial().getMatchingStacks()[0];
             world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
         }
     }
 
-    public static boolean paperDamage(IItemTier mat) {
-        int chance = ConfigHandler.damageByPaperToolsChance.get();
-        if (chance == -1) chance = 100;
-        return mat == ItemTiers.PAPER_TIER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance;
-    }
+    public static void hitEntityUtil(LivingEntity target, LivingEntity attacker, IItemTier mat) {
+        extraDrop(target.getEntityWorld().getWorld(), target.getPosition(), mat);
 
-    public static int getDefaultChance(int chance, int defaultChance) {
-        if (chance == -1) chance = defaultChance;
-        return chance;
+        int cutChance = ConfigHandler.damageByPaperToolsChance.get();
+        if (mat == ItemTiers.PAPER_TIER && ConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < cutChance)
+            attacker.attackEntityFrom(ModDamageSource.PAPER_CUT, new Random().nextInt(ConfigHandler.maxPaperDamage.get() + 1) + ConfigHandler.minPaperDamage.get());
+
+        ToolUtil.extraDrop(target.getEntityWorld(), target.getPosition(), mat);
     }
 
 }

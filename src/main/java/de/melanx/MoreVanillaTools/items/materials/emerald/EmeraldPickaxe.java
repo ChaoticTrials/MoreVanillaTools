@@ -3,7 +3,6 @@ package de.melanx.MoreVanillaTools.items.materials.emerald;
 import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
 import de.melanx.MoreVanillaTools.util.ConfigHandler;
-import de.melanx.MoreVanillaTools.util.ToolUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -35,7 +34,6 @@ public class EmeraldPickaxe extends PickaxeBase {
             if (block == Blocks.EMERALD_ORE) {
                 ItemStack drop = new ItemStack(Items.EMERALD);
                 int chance = ConfigHandler.emeraldDoubleDropChance.get();
-                chance = ToolUtil.getDefaultChance(chance, 1);
                 if (worldIn.rand.nextInt(1000) < chance && ConfigHandler.emeraldDoubleDrop.get())
                     worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
             }
