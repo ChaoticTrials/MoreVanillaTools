@@ -128,10 +128,10 @@ public class ConfigHandler {
             builder.push("durabilities").comment("The durability of the tools");
             boneDurability = builder.defineInRange("bone tools durability", 206, 1, Integer.MAX_VALUE);
             coalDurability = builder.defineInRange("coal tools durability", 155, 1, Integer.MAX_VALUE);
-            emeraldDurability = builder.defineInRange("emerald tools durability", 3197, 1, Integer.MAX_VALUE);
+            emeraldDurability = builder.defineInRange("emerald tools durability", 1859, 1, Integer.MAX_VALUE);
             glowstoneDurability = builder.defineInRange("glowstone tools durability", 193, 1, Integer.MAX_VALUE);
             lapisDurability = builder.defineInRange("lapis tools durability", 193, 1, Integer.MAX_VALUE);
-            obsidianDurability = builder.defineInRange("obsidian tools durability", (int) (1337 * 3.14F), 1, Integer.MAX_VALUE);
+            obsidianDurability = builder.defineInRange("obsidian tools durability", 1337 * 2, 1, Integer.MAX_VALUE);
             paperDurability = builder.defineInRange("paper tools durability", 13, 1, Integer.MAX_VALUE);
             quartzDurability = builder.defineInRange("quartz tools durability", 155, 1, Integer.MAX_VALUE);
             redstoneDurability = builder.defineInRange("redstone tools durability", 193, 1, Integer.MAX_VALUE);
