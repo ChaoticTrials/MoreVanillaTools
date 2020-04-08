@@ -5,8 +5,8 @@
     "1.15.1-recommended": "1.3.2",
     "1.15-latest": "1.3",
     "1.15-recommended": "1.3",
-    "1.14.4-latest": "1.3.2",
-    "1.14.4-recommended": "1.3.2"
+    "1.14.4-latest": "1.3.3",
+    "1.14.4-recommended": "1.3.3"
   },
   "1.15.1": {
     "1.3.2": "Added enchantment description for other mods",
@@ -17,6 +17,7 @@
     "1.3": "Port to 1.15"
   },
   "1.14.4": {
+    "1.3.3": "Added russian translation (TheDirectorX)\nFixed server crash with obsidian pickaxe\nFixed extra drop cases\nChanged obsidian/emerald durability\nChanged using tags for repairing\nChanged a few config values (-1 stuff was changed to 0)",
     "1.3.2": "Fixed efficiency not working on Obsidian with Obsidian Pickaxe\nAdded enchantment description for other mods",
     "1.3": "Added enchantment \"Luck of Cheap Repairing\"",
     "1.2": "Fixed every hoe type makes damage",
