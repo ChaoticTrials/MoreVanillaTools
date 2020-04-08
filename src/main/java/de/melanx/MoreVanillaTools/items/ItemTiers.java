@@ -4,6 +4,7 @@ import de.melanx.MoreVanillaTools.util.ConfigHandler;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraftforge.common.Tags;
 
 public class ItemTiers {
 
@@ -35,7 +36,7 @@ public class ItemTiers {
 
         @Override
         public Ingredient getRepairMaterial() {
-            return Ingredient.fromItems(Items.REDSTONE);
+            return Ingredient.fromTag(Tags.Items.DUSTS_REDSTONE);
         }
     };
 
@@ -67,7 +68,7 @@ public class ItemTiers {
 
         @Override
         public Ingredient getRepairMaterial() {
-            return Ingredient.fromItems(Items.LAPIS_LAZULI);
+            return Ingredient.fromTag(Tags.Items.GEMS_LAPIS);
         }
     };
 
@@ -99,7 +100,7 @@ public class ItemTiers {
 
         @Override
         public Ingredient getRepairMaterial() {
-            return Ingredient.fromItems(Items.OBSIDIAN);
+            return Ingredient.fromTag(Tags.Items.OBSIDIAN);
         }
     };
 
@@ -163,7 +164,7 @@ public class ItemTiers {
 
         @Override
         public Ingredient getRepairMaterial() {
-            return Ingredient.fromItems(Items.GLOWSTONE_DUST);
+            return Ingredient.fromTag(Tags.Items.DUSTS_GLOWSTONE);
         }
     };
 
@@ -195,7 +196,7 @@ public class ItemTiers {
 
         @Override
         public Ingredient getRepairMaterial() {
-            return Ingredient.fromItems(Items.QUARTZ);
+            return Ingredient.fromTag(Tags.Items.GEMS_QUARTZ);
         }
     };
 
@@ -227,7 +228,7 @@ public class ItemTiers {
 
         @Override
         public Ingredient getRepairMaterial() {
-            return Ingredient.fromItems(Items.EMERALD);
+            return Ingredient.fromTag(Tags.Items.GEMS_EMERALD);
         }
     };
 
@@ -259,7 +260,7 @@ public class ItemTiers {
 
         @Override
         public Ingredient getRepairMaterial() {
-            return Ingredient.fromItems(Items.BONE);
+            return Ingredient.fromTag(Tags.Items.BONES);
         }
     };
 
