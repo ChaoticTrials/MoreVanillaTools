@@ -1,7 +1,7 @@
 package de.melanx.MoreVanillaTools.items.materials;
 
-import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
+import de.melanx.morevanillalib.api.ToolMaterials;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -16,7 +16,7 @@ public class ObsidianPickaxe extends PickaxeBase {
     private static final int SPEED = -3;
 
     public ObsidianPickaxe() {
-        super(ItemTiers.OBSIDIAN, DAMAGE, SPEED);
+        super(ToolMaterials.OBSIDIAN, DAMAGE, SPEED);
     }
 
     @Override

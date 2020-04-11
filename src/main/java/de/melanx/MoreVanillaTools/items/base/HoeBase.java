@@ -1,8 +1,8 @@
 package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
-import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.Util;
+import de.melanx.morevanillalib.api.ToolMaterials;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.HoeItem;
@@ -15,9 +15,9 @@ import net.minecraft.world.World;
 
 public class HoeBase extends HoeItem {
 
-    private final ItemTiers mat;
+    private final ToolMaterials mat;
 
-    public HoeBase(ItemTiers mat, float speed) {
+    public HoeBase(ToolMaterials mat, float speed) {
         super(mat, speed, new Item.Properties().group(MoreVanillaTools.creativeTab));
 
         this.mat = mat;
@@ -42,7 +42,7 @@ public class HoeBase extends HoeItem {
         return super.hitEntity(stack, target, attacker);
     }
 
-    public ItemTiers getToolType() {
+    public ToolMaterials getToolType() {
         return this.mat;
     }
 

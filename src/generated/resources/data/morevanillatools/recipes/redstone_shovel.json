@@ -7,7 +7,7 @@
   ],
   "key": {
     "M": {
-      "tag": "forge:storage_blocks/redstone"
+      "tag": "forge:dusts/redstone"
     },
     "S": {
       "item": "minecraft:stick"

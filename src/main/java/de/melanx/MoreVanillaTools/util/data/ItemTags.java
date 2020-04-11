@@ -1,8 +1,8 @@
 package de.melanx.MoreVanillaTools.util.data;
 
-import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.Events;
 import de.melanx.MoreVanillaTools.util.Registry;
+import de.melanx.morevanillalib.api.ToolMaterials;
 import de.melanx.morevanillalib.data.ModTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
@@ -19,7 +19,7 @@ public class ItemTags extends ItemTagsProvider {
     protected void registerTags() {
         for (RegistryObject<Item> registryObject : Registry.ITEMS.getEntries()) {
             Item item = registryObject.get();
-            ItemTiers itemTier = Events.getItemTiers(item);
+            ToolMaterials itemTier = Events.getToolMaterials(item);
             switch (itemTier) {
                 case BONE:
                     getBuilder(ModTags.Items.BONE_TOOLS).add(item);

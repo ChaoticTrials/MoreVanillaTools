@@ -1,7 +1,7 @@
 package de.melanx.MoreVanillaTools.util;
 
-import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.*;
+import de.melanx.morevanillalib.api.ToolMaterials;
 import de.melanx.morevanillalib.util.ToolUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -26,7 +26,7 @@ public class Events {
         Entity player = event.getSource().getTrueSource();
         if (player instanceof PlayerEntity) {
             Item heldItem = ((PlayerEntity) player).getHeldItemMainhand().getItem();
-            ItemTiers toolType = getItemTiers(heldItem);
+            ToolMaterials toolType = getToolMaterials(heldItem);
             if (toolType != null) {
                 LivingEntity entity = event.getEntityLiving();
                 switch (toolType) {
@@ -54,15 +54,15 @@ public class Events {
     public void livingDrops(LivingDropsEvent event) {
         if (ToolUtil.isPlayerKill(event)) {
             Item weapon = ((PlayerEntity) event.getSource().getTrueSource()).getHeldItemMainhand().getItem();
-            ItemTiers toolType = getItemTiers(weapon);
+            ToolMaterials toolType = getToolMaterials(weapon);
 
-            if (toolType == ItemTiers.BONE)
+            if (toolType == ToolMaterials.BONE)
                 ToolUtil.headDrop(event, event.getEntity() instanceof WitherSkeletonEntity ? Items.WITHER_SKELETON_SKULL : Items.SKELETON_SKULL);
         }
     }
 
-    public static ItemTiers getItemTiers(Item heldItem) {
-        ItemTiers toolType = null;
+    public static ToolMaterials getToolMaterials(Item heldItem) {
+        ToolMaterials toolType = null;
         if (heldItem instanceof SwordBase) toolType = ((SwordBase) heldItem).getToolType();
         if (heldItem instanceof AxeBase) toolType = ((AxeBase) heldItem).getToolType();
         if (heldItem instanceof PickaxeBase) toolType = ((PickaxeBase) heldItem).getToolType();

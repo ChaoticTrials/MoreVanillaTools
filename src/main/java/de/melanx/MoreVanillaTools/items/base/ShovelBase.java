@@ -1,8 +1,8 @@
 package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
-import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.Util;
+import de.melanx.morevanillalib.api.ToolMaterials;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
@@ -15,9 +15,9 @@ import net.minecraft.world.World;
 
 public class ShovelBase extends ShovelItem {
 
-    private final ItemTiers mat;
+    private final ToolMaterials mat;
 
-    public ShovelBase(ItemTiers mat, float damage, float speed) {
+    public ShovelBase(ToolMaterials mat, float damage, float speed) {
         super(mat, damage, speed, new Item.Properties().group(MoreVanillaTools.creativeTab));
 
         this.mat = mat;
@@ -42,7 +42,7 @@ public class ShovelBase extends ShovelItem {
         return super.hitEntity(stack, target, attacker);
     }
 
-    public ItemTiers getToolType() {
+    public ToolMaterials getToolType() {
         return this.mat;
     }
 

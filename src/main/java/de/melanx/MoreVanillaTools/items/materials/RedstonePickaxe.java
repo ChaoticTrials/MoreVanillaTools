@@ -1,8 +1,8 @@
 package de.melanx.MoreVanillaTools.items.materials;
 
-import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.items.base.PickaxeBase;
 import de.melanx.morevanillalib.LibConfigHandler;
+import de.melanx.morevanillalib.api.ToolMaterials;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -21,7 +21,7 @@ public class RedstonePickaxe extends PickaxeBase {
     private static final float SPEED = -2.8F;
 
     public RedstonePickaxe() {
-        super(ItemTiers.REDSTONE, DAMAGE, SPEED);
+        super(ToolMaterials.REDSTONE, DAMAGE, SPEED);
     }
 
     @Override

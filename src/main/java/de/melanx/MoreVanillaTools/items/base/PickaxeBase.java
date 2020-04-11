@@ -1,8 +1,8 @@
 package de.melanx.MoreVanillaTools.items.base;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
-import de.melanx.MoreVanillaTools.items.ItemTiers;
 import de.melanx.MoreVanillaTools.util.Util;
+import de.melanx.morevanillalib.api.ToolMaterials;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
@@ -13,9 +13,9 @@ import net.minecraft.world.World;
 
 public class PickaxeBase extends PickaxeItem {
 
-    private final ItemTiers mat;
+    private final ToolMaterials mat;
 
-    public PickaxeBase(ItemTiers mat, int damage, float speed) {
+    public PickaxeBase(ToolMaterials mat, int damage, float speed) {
         super(mat, damage, speed, new Item.Properties().group(MoreVanillaTools.creativeTab));
 
         this.mat = mat;
@@ -33,7 +33,7 @@ public class PickaxeBase extends PickaxeItem {
         return super.hitEntity(stack, target, attacker);
     }
 
-    public ItemTiers getToolType() {
+    public ToolMaterials getToolType() {
         return this.mat;
     }
 
