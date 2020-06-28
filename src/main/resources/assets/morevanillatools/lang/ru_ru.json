@@ -83,8 +83,5 @@
   "item.morevanillatools.slime_axe": "Слизневый топор",
   "item.morevanillatools.slime_pickaxe": "Слизневая кирка",
   "item.morevanillatools.slime_shovel": "Слизневая лопата",
-  "item.morevanillatools.slime_hoe": "Слизневая мотыга",
-
-  "enchantment.morevanillatools.repairing_luck": "Удача дешёвого ремонта",
-  "enchantment.morevanillatools.repairing_luck.desc": "Снижает затраты на ремонт в наковальне до минимума."
+  "item.morevanillatools.slime_hoe": "Слизневая мотыга"
 }

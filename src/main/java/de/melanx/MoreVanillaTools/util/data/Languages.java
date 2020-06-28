@@ -19,8 +19,6 @@ public class Languages {
         @Override
         protected void addTranslations() {
             add("itemGroup.morevanillatools", "MoreVanillaTools");
-            add("enchantment.morevanillatools.repairing_luck", "Luck of Cheap Repairing");
-            add("enchantment.morevanillatools.repairing_luck.desc", "Reduces the repair costs in the anvil to a minimum.");
             for (RegistryObject<Item> object : Registry.ITEMS.getEntries()) {
                 Item item = object.get();
                 String path = item.getRegistryName().getPath();
@@ -38,8 +36,6 @@ public class Languages {
 
         @Override
         protected void addTranslations() {
-            add("enchantment.morevanillatools.repairing_luck", "Gl\u00FCck der billigen Reparatur");
-            add("enchantment.morevanillatools.repairing_luck.desc", "Verringert die Reperaturkosten im Amboss auf ein Minimum.");
             for (RegistryObject<Item> object : Registry.ITEMS.getEntries()) {
                 Item item = object.get();
                 String path = item.getRegistryName().getPath();
