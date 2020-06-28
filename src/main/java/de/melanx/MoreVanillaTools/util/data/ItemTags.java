@@ -4,6 +4,7 @@ import de.melanx.MoreVanillaTools.util.Events;
 import de.melanx.MoreVanillaTools.util.Registry;
 import de.melanx.morevanillalib.api.ToolMaterials;
 import de.melanx.morevanillalib.data.ModTags;
+import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
 import net.minecraft.item.Item;
@@ -11,8 +12,8 @@ import net.minecraftforge.fml.RegistryObject;
 
 public class ItemTags extends ItemTagsProvider {
 
-    public ItemTags(DataGenerator generator) {
-        super(generator);
+    public ItemTags(DataGenerator generator, BlockTagsProvider blockTags) {
+        super(generator, blockTags);
     }
 
     @Override
@@ -22,46 +23,46 @@ public class ItemTags extends ItemTagsProvider {
             ToolMaterials itemTier = Events.getToolMaterials(item);
             switch (itemTier) {
                 case BONE:
-                    getBuilder(ModTags.Items.BONE_TOOLS).add(item);
+                    func_240522_a_(ModTags.Items.BONE_TOOLS).func_240534_a_(item);
                     break;
                 case COAL:
-                    getBuilder(ModTags.Items.COAL_TOOLS).add(item);
+                    func_240522_a_(ModTags.Items.COAL_TOOLS).func_240534_a_(item);
                     break;
                 case EMERALD:
-                    getBuilder(ModTags.Items.EMERALD_TOOLS).add(item);
+                    func_240522_a_(ModTags.Items.EMERALD_TOOLS).func_240534_a_(item);
                     break;
                 case ENDER:
-                    getBuilder(ModTags.Items.ENDER_TOOLS).add(item);
+                    func_240522_a_(ModTags.Items.ENDER_TOOLS).func_240534_a_(item);
                     break;
                 case FIERY:
-                    getBuilder(ModTags.Items.FIERY_TOOLS).add(item);
+                    func_240522_a_(ModTags.Items.FIERY_TOOLS).func_240534_a_(item);
                     break;
                 case GLOWSTONE:
-                    getBuilder(ModTags.Items.GLOWSTONE_TOOLS).add(item);
+                    func_240522_a_(ModTags.Items.GLOWSTONE_TOOLS).func_240534_a_(item);
                     break;
                 case LAPIS:
-                    getBuilder(ModTags.Items.LAPIS_TOOLS).add(item);
+                    func_240522_a_(ModTags.Items.LAPIS_TOOLS).func_240534_a_(item);
                     break;
                 case NETHER:
-                    getBuilder(ModTags.Items.NETHER_TOOLS).add(item);
+                    func_240522_a_(ModTags.Items.NETHER_TOOLS).func_240534_a_(item);
                     break;
                 case OBSIDIAN:
-                    getBuilder(ModTags.Items.OBSIDIAN_TOOLS).add(item);
+                    func_240522_a_(ModTags.Items.OBSIDIAN_TOOLS).func_240534_a_(item);
                     break;
                 case PAPER:
-                    getBuilder(ModTags.Items.PAPER_TOOLS).add(item);
+                    func_240522_a_(ModTags.Items.PAPER_TOOLS).func_240534_a_(item);
                     break;
                 case PRISMARINE:
-                    getBuilder(ModTags.Items.PRISMARINE_TOOLS).add(item);
+                    func_240522_a_(ModTags.Items.PRISMARINE_TOOLS).func_240534_a_(item);
                     break;
                 case QUARTZ:
-                    getBuilder(ModTags.Items.QUARTZ_TOOLS).add(item);
+                    func_240522_a_(ModTags.Items.QUARTZ_TOOLS).func_240534_a_(item);
                     break;
                 case REDSTONE:
-                    getBuilder(ModTags.Items.REDSTONE_TOOLS).add(item);
+                    func_240522_a_(ModTags.Items.REDSTONE_TOOLS).func_240534_a_(item);
                     break;
                 case SLIME:
-                    getBuilder(ModTags.Items.SLIME_TOOLS).add(item);
+                    func_240522_a_(ModTags.Items.SLIME_TOOLS).func_240534_a_(item);
                     break;
             }
         }

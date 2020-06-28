@@ -1,6 +1,7 @@
 package de.melanx.MoreVanillaTools.util.data;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
+import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -16,7 +17,7 @@ public class DataCreator {
         ExistingFileHelper helper = event.getExistingFileHelper();
 
         if (event.includeServer()) {
-            generator.addProvider(new ItemTags(generator));
+            generator.addProvider(new ItemTags(generator, new BlockTagsProvider(generator)));
             generator.addProvider(new Recipes(generator));
         }
         if (event.includeClient()) {

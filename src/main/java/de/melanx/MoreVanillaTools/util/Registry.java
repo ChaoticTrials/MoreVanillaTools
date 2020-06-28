@@ -11,7 +11,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class Registry {
-    public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, MoreVanillaTools.MODID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MoreVanillaTools.MODID);
 
     public static final RegistryObject<Item> BONE_SWORD = ITEMS.register("bone_sword", () -> new SwordBase(ToolMaterials.BONE, 2, -2.6F));
     public static final RegistryObject<Item> BONE_AXE = ITEMS.register("bone_axe", () -> new AxeBase(ToolMaterials.BONE, 6, -3.4F));
