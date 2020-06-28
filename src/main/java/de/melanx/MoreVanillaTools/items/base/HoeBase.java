@@ -18,7 +18,7 @@ public class HoeBase extends HoeItem {
     private final ToolMaterials mat;
 
     public HoeBase(ToolMaterials mat, float speed) {
-        super(mat, 0, speed,new Item.Properties().group(MoreVanillaTools.creativeTab));
+        super(mat, -mat.getHarvestLevel(), speed, new Item.Properties().group(MoreVanillaTools.creativeTab));
 
         this.mat = mat;
     }
