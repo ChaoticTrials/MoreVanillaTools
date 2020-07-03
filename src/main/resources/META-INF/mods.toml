@@ -5,7 +5,7 @@ loaderVersion="[32,)"
 modId="morevanillatools"
 version="${file.jarVersion}"
 displayName="MoreVanillaTools"
-updateJSONURL="https://raw.githubusercontent.com/MelanX/MoreVanillaTools/master/update/Update.json"
+updateJSONURL="https://raw.githubusercontent.com/MelanX/mod-updatechecker-files/master/morevanillatools.json"
 authors="MelanX"
 description='''
 A mod which adds more tools in the vanilla way.
