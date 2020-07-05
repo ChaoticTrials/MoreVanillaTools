@@ -97,7 +97,7 @@ dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
-    compile fg.deobf("de.melanx.morevanillalib:morevanillalib-1.16.1:1.2.6+29")
+    compile fg.deobf("de.melanx.morevanillalib:morevanillalib-1.16.1:1.2.7+33")
 }
 
 jar {
