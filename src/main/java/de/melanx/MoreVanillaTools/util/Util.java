@@ -38,8 +38,8 @@ public class Util {
     public static void hitEntityUtil(LivingEntity target, LivingEntity attacker, ToolMaterials mat) {
         int chance = LibConfigHandler.extraDropChance.get();
         if (new Random().nextInt(1000) < chance) {
-            World world = target.getEntityWorld().getWorld();
-            BlockPos pos = target.func_233580_cy_();
+            World world = target.getEntityWorld();
+            BlockPos pos = target.getPosition();
             ItemStack itemStack = mat.getRepairMaterial().getMatchingStacks()[0];
             world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
         }
@@ -48,6 +48,6 @@ public class Util {
         if (mat == ToolMaterials.PAPER && LibConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < cutChance)
             attacker.attackEntityFrom(LibDamageSource.PAPER_CUT, new Random().nextInt(LibConfigHandler.maxPaperDamage.get() + 1) + LibConfigHandler.minPaperDamage.get());
 
-        ToolUtil.extraDrop(target.getEntityWorld(), target.func_233580_cy_(), mat);
+        ToolUtil.extraDrop(target.getEntityWorld(), target.getPosition(), mat);
     }
 }

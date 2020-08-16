@@ -1,5 +1,6 @@
 modLoader="javafml"
-loaderVersion="[32,)"
+loaderVersion="[33,)"
+license="MIT License"
 
 [[mods]]
 modId="morevanillatools"
@@ -10,23 +11,24 @@ authors="MelanX"
 description='''
 A mod which adds more tools in the vanilla way.
 '''
+
 [[dependencies.morevanillatools]]
     modId="forge"
     mandatory=true
-    versionRange="[32,)"
+    versionRange="[33,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.morevanillatools]]
     modId="morevanillalib"
     mandatory=true
-    versionRange="[1.2.5,)"
+    versionRange="[1.2.9,)"
     ordering="AFTER"
     side="BOTH"
 
 [[dependencies.morevanillatools]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.1,)"
+    versionRange="[1.16.2,)"
     ordering="NONE"
     side="BOTH"

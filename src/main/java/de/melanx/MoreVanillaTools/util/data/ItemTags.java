@@ -23,46 +23,46 @@ public class ItemTags extends ItemTagsProvider {
             ToolMaterials itemTier = Events.getToolMaterials(item);
             switch (itemTier) {
                 case BONE:
-                    func_240522_a_(ModTags.Items.BONE_TOOLS).func_240534_a_(item);
+                    getOrCreateBuilder(ModTags.Items.BONE_TOOLS).add(item);
                     break;
                 case COAL:
-                    func_240522_a_(ModTags.Items.COAL_TOOLS).func_240534_a_(item);
+                    getOrCreateBuilder(ModTags.Items.COAL_TOOLS).add(item);
                     break;
                 case EMERALD:
-                    func_240522_a_(ModTags.Items.EMERALD_TOOLS).func_240534_a_(item);
+                    getOrCreateBuilder(ModTags.Items.EMERALD_TOOLS).add(item);
                     break;
                 case ENDER:
-                    func_240522_a_(ModTags.Items.ENDER_TOOLS).func_240534_a_(item);
+                    getOrCreateBuilder(ModTags.Items.ENDER_TOOLS).add(item);
                     break;
                 case FIERY:
-                    func_240522_a_(ModTags.Items.FIERY_TOOLS).func_240534_a_(item);
+                    getOrCreateBuilder(ModTags.Items.FIERY_TOOLS).add(item);
                     break;
                 case GLOWSTONE:
-                    func_240522_a_(ModTags.Items.GLOWSTONE_TOOLS).func_240534_a_(item);
+                    getOrCreateBuilder(ModTags.Items.GLOWSTONE_TOOLS).add(item);
                     break;
                 case LAPIS:
-                    func_240522_a_(ModTags.Items.LAPIS_TOOLS).func_240534_a_(item);
+                    getOrCreateBuilder(ModTags.Items.LAPIS_TOOLS).add(item);
                     break;
                 case NETHER:
-                    func_240522_a_(ModTags.Items.NETHER_TOOLS).func_240534_a_(item);
+                    getOrCreateBuilder(ModTags.Items.NETHER_TOOLS).add(item);
                     break;
                 case OBSIDIAN:
-                    func_240522_a_(ModTags.Items.OBSIDIAN_TOOLS).func_240534_a_(item);
+                    getOrCreateBuilder(ModTags.Items.OBSIDIAN_TOOLS).add(item);
                     break;
                 case PAPER:
-                    func_240522_a_(ModTags.Items.PAPER_TOOLS).func_240534_a_(item);
+                    getOrCreateBuilder(ModTags.Items.PAPER_TOOLS).add(item);
                     break;
                 case PRISMARINE:
-                    func_240522_a_(ModTags.Items.PRISMARINE_TOOLS).func_240534_a_(item);
+                    getOrCreateBuilder(ModTags.Items.PRISMARINE_TOOLS).add(item);
                     break;
                 case QUARTZ:
-                    func_240522_a_(ModTags.Items.QUARTZ_TOOLS).func_240534_a_(item);
+                    getOrCreateBuilder(ModTags.Items.QUARTZ_TOOLS).add(item);
                     break;
                 case REDSTONE:
-                    func_240522_a_(ModTags.Items.REDSTONE_TOOLS).func_240534_a_(item);
+                    getOrCreateBuilder(ModTags.Items.REDSTONE_TOOLS).add(item);
                     break;
                 case SLIME:
-                    func_240522_a_(ModTags.Items.SLIME_TOOLS).func_240534_a_(item);
+                    getOrCreateBuilder(ModTags.Items.SLIME_TOOLS).add(item);
                     break;
             }
         }
