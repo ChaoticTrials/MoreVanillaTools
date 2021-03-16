@@ -15,6 +15,8 @@ import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
+
 public class EmeraldPickaxe extends PickaxeBase {
 
     private static final int DAMAGE = 0;
@@ -25,13 +27,13 @@ public class EmeraldPickaxe extends PickaxeBase {
     }
 
     @Override
-    public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
+    public boolean onBlockDestroyed(@Nonnull ItemStack stack, @Nonnull World worldIn, @Nonnull BlockState state, @Nonnull BlockPos pos, @Nonnull LivingEntity entityLiving) {
         if (EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) < 1) {
             Block block = state.getBlock();
             if (block == Blocks.EMERALD_ORE) {
                 ItemStack drop = new ItemStack(Items.EMERALD);
-                int chance = LibConfigHandler.emeraldDoubleDropChance.get();
-                if (worldIn.rand.nextInt(1000) < chance && LibConfigHandler.emeraldDoubleDrop.get())
+                double chance = LibConfigHandler.emeraldDoubleDropChance.get();
+                if (worldIn.rand.nextDouble() < chance && LibConfigHandler.emeraldDoubleDrop.get())
                     worldIn.addEntity(new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), drop));
             }
         }

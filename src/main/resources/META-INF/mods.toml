@@ -1,6 +1,6 @@
-modLoader="javafml"
-loaderVersion="[33,)"
-license="MIT License"
+modLoader = "javafml"
+loaderVersion = "[35,)"
+license = "MIT License"
 
 [[mods]]
 modId="morevanillatools"
@@ -14,21 +14,21 @@ A mod which adds more tools in the vanilla way.
 
 [[dependencies.morevanillatools]]
     modId="forge"
-    mandatory=true
-    versionRange="[33,)"
-    ordering="NONE"
+mandatory = true
+versionRange = "[35,)"
+ordering = "NONE"
     side="BOTH"
 
 [[dependencies.morevanillatools]]
     modId="morevanillalib"
-    mandatory=true
-    versionRange="[1.2.9,)"
-    ordering="AFTER"
+mandatory = true
+versionRange = "[1.4,)"
+ordering = "AFTER"
     side="BOTH"
 
 [[dependencies.morevanillatools]]
     modId="minecraft"
-    mandatory=true
-    versionRange="[1.16.2,)"
-    ordering="NONE"
+mandatory = true
+versionRange = "[1.16.4,)"
+ordering = "NONE"
     side="BOTH"

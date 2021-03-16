@@ -6,19 +6,22 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.util.ResourceLocation;
 
+import javax.annotation.Nonnull;
+
 import static de.melanx.morevanillalib.compat.JeiCompat.PLUGIN_UID;
 import static de.melanx.morevanillalib.compat.JeiCompat.addValueInfoPage;
 
 @JeiPlugin
 public class JeiCompat implements IModPlugin {
 
+    @Nonnull
     @Override
     public ResourceLocation getPluginUid() {
         return PLUGIN_UID;
     }
 
     @Override
-    public void registerRecipes(IRecipeRegistration registration) {
+    public void registerRecipes(@Nonnull IRecipeRegistration registration) {
         if (LibConfigHandler.doubleDrop.get()) {
             if (LibConfigHandler.coalDoubleDrop.get())
                 addValueInfoPage(registration, Registry.COAL_PICKAXE.get(), "coal_double_drop", LibConfigHandler.coalDoubleDropChance.get() / 10);

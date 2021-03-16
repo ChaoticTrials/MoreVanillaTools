@@ -8,6 +8,8 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.RegistryObject;
 
+import javax.annotation.Nonnull;
+
 public class ItemModels extends ItemModelProvider {
     public ItemModels(DataGenerator generator, ExistingFileHelper helper) {
         super(generator, MoreVanillaTools.MODID, helper);
@@ -20,11 +22,13 @@ public class ItemModels extends ItemModelProvider {
     }
 
     private void generateItem(Item item) {
+        //noinspection ConstantConditions
         String path = item.getRegistryName().getPath();
         getBuilder(path).parent(getExistingFile(mcLoc("item/handheld")))
                 .texture("layer0", "item/" + path);
     }
 
+    @Nonnull
     @Override
     public String getName() {
         return MoreVanillaTools.MODID + " item models";

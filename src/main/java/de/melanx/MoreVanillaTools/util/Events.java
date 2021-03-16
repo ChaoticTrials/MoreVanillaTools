@@ -53,6 +53,7 @@ public class Events {
     @SubscribeEvent
     public void livingDrops(LivingDropsEvent event) {
         if (ToolUtil.isPlayerKill(event)) {
+            //noinspection ConstantConditions
             Item weapon = ((PlayerEntity) event.getSource().getTrueSource()).getHeldItemMainhand().getItem();
             ToolMaterials toolType = getToolMaterials(weapon);
 

@@ -21,6 +21,7 @@ public class Languages {
             add("itemGroup.morevanillatools", "MoreVanillaTools");
             for (RegistryObject<Item> object : Registry.ITEMS.getEntries()) {
                 Item item = object.get();
+                //noinspection ConstantConditions
                 String path = item.getRegistryName().getPath();
                 String name = path.split("_")[0];
                 String tool = path.split("_")[1];
@@ -38,6 +39,7 @@ public class Languages {
         protected void addTranslations() {
             for (RegistryObject<Item> object : Registry.ITEMS.getEntries()) {
                 Item item = object.get();
+                //noinspection ConstantConditions
                 String path = item.getRegistryName().getPath();
                 add(item, TranslationHelper.getGermanMaterial(path) + getToolTypeName(item));
             }

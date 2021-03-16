@@ -19,34 +19,39 @@ public class Util {
 
     public static void itemUseUtil(ItemUseContext context, ActionResultType result, ToolMaterials mat) {
         if (result == ActionResultType.SUCCESS) {
-            ToolUtil.extraDrop(context.getWorld(), context.getPos(), mat);
-            int chance = LibConfigHandler.damageByPaperToolsChance.get();
-            if (mat == ToolMaterials.PAPER && LibConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance)
+            World world = context.getWorld();
+            ToolUtil.extraDrop(world, context.getPos(), mat);
+            double chance = LibConfigHandler.damageByPaperToolsChance.get();
+            if (mat == ToolMaterials.PAPER && LibConfigHandler.damageByPaperTools.get() && world.rand.nextDouble() < chance) {
+                //noinspection ConstantConditions
                 context.getPlayer().attackEntityFrom(LibDamageSource.PAPER_CUT, new Random().nextInt(LibConfigHandler.maxPaperDamage.get()) + LibConfigHandler.minPaperDamage.get());
+            }
         }
     }
 
     public static void blockDestroyUtil(World world, BlockState state, BlockPos pos, LivingEntity entityLiving, ToolMaterials mat) {
         if (!world.isRemote && state.getBlockHardness(world, pos) != 0.0F) {
             ToolUtil.extraDrop(world, pos, mat);
-            int chance = LibConfigHandler.damageByPaperToolsChance.get();
-            if (mat == ToolMaterials.PAPER && LibConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < chance)
+            double chance = LibConfigHandler.damageByPaperToolsChance.get();
+            if (mat == ToolMaterials.PAPER && LibConfigHandler.damageByPaperTools.get() && world.rand.nextDouble() < chance) {
                 entityLiving.attackEntityFrom(LibDamageSource.PAPER_CUT, new Random().nextInt(LibConfigHandler.maxPaperDamage.get()) + LibConfigHandler.minPaperDamage.get());
+            }
         }
     }
 
     public static void hitEntityUtil(LivingEntity target, LivingEntity attacker, ToolMaterials mat) {
-        int chance = LibConfigHandler.extraDropChance.get();
-        if (new Random().nextInt(1000) < chance) {
-            World world = target.getEntityWorld();
+        double chance = LibConfigHandler.extraDropChance.get();
+        World world = target.getEntityWorld();
+        if (world.rand.nextDouble() < chance) {
             BlockPos pos = target.getPosition();
             ItemStack itemStack = mat.getRepairMaterial().getMatchingStacks()[0];
             world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack));
         }
 
-        int cutChance = LibConfigHandler.damageByPaperToolsChance.get();
-        if (mat == ToolMaterials.PAPER && LibConfigHandler.damageByPaperTools.get() && new Random().nextInt(1000) < cutChance)
+        double cutChance = LibConfigHandler.damageByPaperToolsChance.get();
+        if (mat == ToolMaterials.PAPER && LibConfigHandler.damageByPaperTools.get() && world.rand.nextDouble() < cutChance) {
             attacker.attackEntityFrom(LibDamageSource.PAPER_CUT, new Random().nextInt(LibConfigHandler.maxPaperDamage.get() + 1) + LibConfigHandler.minPaperDamage.get());
+        }
 
         ToolUtil.extraDrop(target.getEntityWorld(), target.getPosition(), mat);
     }
