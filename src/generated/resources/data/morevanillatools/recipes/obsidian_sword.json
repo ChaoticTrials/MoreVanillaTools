@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "M",
-    "M",
-    "S"
+    "m",
+    "m",
+    "s"
   ],
   "key": {
-    "M": {
+    "m": {
       "tag": "forge:dusts/obsidian"
     },
-    "S": {
-      "item": "minecraft:stick"
+    "s": {
+      "tag": "forge:rods/wooden"
     }
   },
   "result": {

@@ -1,34 +1,41 @@
 modLoader = "javafml"
-loaderVersion = "[35,)"
+loaderVersion = "[37,)"
 license = "MIT License"
 
 [[mods]]
-modId="morevanillatools"
-version="${file.jarVersion}"
-displayName="MoreVanillaTools"
-updateJSONURL="https://raw.githubusercontent.com/MelanX/mod-updatechecker-files/master/morevanillatools.json"
-authors="MelanX"
-description='''
+modId = "morevanillatools"
+version = "${file.jarVersion}"
+displayName = "MoreVanillaTools"
+updateJSONURL = "https://raw.githubusercontent.com/MelanX/mod-updatechecker-files/master/morevanillatools.json"
+authors = "MelanX"
+description = '''
 A mod which adds more tools in the vanilla way.
 '''
 
 [[dependencies.morevanillatools]]
-    modId="forge"
+modId = "forge"
 mandatory = true
-versionRange = "[35,)"
+versionRange = "[37,)"
 ordering = "NONE"
-    side="BOTH"
+side = "BOTH"
 
 [[dependencies.morevanillatools]]
-    modId="morevanillalib"
+modId = "minecraft"
 mandatory = true
-versionRange = "[1.4,)"
+versionRange = "[1.17.1, 1.18)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.morevanillatools]]
+modId = "morevanillalib"
+mandatory = true
+versionRange = "[1.17.1-2.0.1,)"
 ordering = "AFTER"
-    side="BOTH"
+side = "BOTH"
 
 [[dependencies.morevanillatools]]
-    modId="minecraft"
+modId = "libx"
 mandatory = true
-versionRange = "[1.16.4,)"
-ordering = "NONE"
-    side="BOTH"
+versionRange = "[1.17.1-2.0.0,)"
+ordering = "AFTER"
+side = "BOTH"

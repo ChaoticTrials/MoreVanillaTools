@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "MM",
-    "MS",
-    " S"
+    "mm",
+    "sm",
+    "s "
   ],
   "key": {
-    "M": {
-      "tag": "forge:paper"
+    "m": {
+      "item": "minecraft:paper"
     },
-    "S": {
-      "item": "minecraft:stick"
+    "s": {
+      "tag": "forge:rods/wooden"
     }
   },
   "result": {

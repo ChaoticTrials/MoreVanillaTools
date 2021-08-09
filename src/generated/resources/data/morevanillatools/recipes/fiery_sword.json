@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "M",
-    "M",
-    "S"
+    "m",
+    "m",
+    "s"
   ],
   "key": {
-    "M": {
-      "tag": "forge:magma_cream"
+    "m": {
+      "item": "minecraft:magma_cream"
     },
-    "S": {
-      "item": "minecraft:stick"
+    "s": {
+      "tag": "forge:rods/wooden"
     }
   },
   "result": {

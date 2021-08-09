@@ -1,27 +1,52 @@
 package de.melanx.MoreVanillaTools;
 
-import de.melanx.MoreVanillaTools.util.CreativeTab;
 import de.melanx.MoreVanillaTools.util.Events;
-import de.melanx.MoreVanillaTools.util.Registry;
-import net.minecraft.item.ItemGroup;
+import de.melanx.MoreVanillaTools.util.ModItems;
+import io.github.noeppi_noeppi.libx.mod.registration.ModXRegistration;
+import io.github.noeppi_noeppi.libx.mod.registration.RegistrationBuilder;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
-@Mod(MoreVanillaTools.MODID)
-public class MoreVanillaTools {
+import javax.annotation.Nonnull;
 
-    public static final String MODID = "morevanillatools";
-    public static final Logger LOGGER = LogManager.getLogger(MODID);
-    public static final ItemGroup creativeTab = new CreativeTab();
-    public static MoreVanillaTools instance;
+@Mod("morevanillatools")
+public class MoreVanillaTools extends ModXRegistration {
+
+    private static MoreVanillaTools instance;
 
     public MoreVanillaTools() {
+        super("morevanillatools", new CreativeModeTab("morevanillatools") {
+            @Nonnull
+            @Override
+            public ItemStack makeIcon() {
+                return new ItemStack(ModItems.redstonePickaxe);
+            }
+        });
         instance = this;
 
-        new Events();
-        MinecraftForge.EVENT_BUS.register(this);
-        Registry.registerTools();
+        MinecraftForge.EVENT_BUS.register(new Events());
+    }
+
+    @Override
+    protected void setup(FMLCommonSetupEvent event) {
+
+    }
+
+    @Override
+    protected void clientSetup(FMLClientSetupEvent event) {
+
+    }
+
+    public static MoreVanillaTools getInstance() {
+        return instance;
+    }
+
+    @Override
+    protected void initRegistration(RegistrationBuilder builder) {
+        builder.setVersion(1);
     }
 }

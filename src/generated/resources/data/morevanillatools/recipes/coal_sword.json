@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "M",
-    "M",
-    "S"
+    "m",
+    "m",
+    "s"
   ],
   "key": {
-    "M": {
-      "tag": "forge:gems/coal"
+    "m": {
+      "item": "minecraft:coal"
     },
-    "S": {
-      "item": "minecraft:stick"
+    "s": {
+      "tag": "forge:rods/wooden"
     }
   },
   "result": {

@@ -1,87 +1,99 @@
 package de.melanx.MoreVanillaTools.util.data;
 
-import de.melanx.MoreVanillaTools.items.base.*;
-import de.melanx.MoreVanillaTools.util.Registry;
+import de.melanx.MoreVanillaTools.MoreVanillaTools;
+import de.melanx.MoreVanillaTools.util.ModItems;
+import de.melanx.morevanillalib.api.normal.ToolMaterials;
+import io.github.noeppi_noeppi.libx.data.provider.recipe.RecipeProviderBase;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.data.RecipeProvider;
-import net.minecraft.data.ShapedRecipeBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.Tags;
 
-import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.function.Consumer;
 
-public class Recipes extends RecipeProvider {
+public class Recipes extends RecipeProviderBase {
+
     public Recipes(DataGenerator generator) {
-        super(generator);
+        super(MoreVanillaTools.getInstance(), generator);
     }
 
     @Override
-    protected void registerRecipes(@Nonnull Consumer<IFinishedRecipe> consumer) {
-        for (RegistryObject<Item> object : Registry.ITEMS.getEntries()) {
-            Item item = object.get();
-            if (item instanceof SwordBase)
-                registerSwordRecipe((SwordBase) item).build(consumer);
-            else if (item instanceof AxeBase)
-                registerAxeplateRecipe((AxeBase) item).build(consumer);
-            else if (item instanceof PickaxeBase)
-                registerPickaxeRecipe((PickaxeBase) item).build(consumer);
-            else if (item instanceof ShovelBase)
-                registerShovelRecipe((ShovelBase) item).build(consumer);
-            else if (item instanceof HoeBase)
-                registerHoeRecipe((HoeBase) item).build(consumer);
+    protected void setup() {
+        this.makeTools(ToolMaterials.BONE.getCraftingIngredient(), ModItems.boneSword, ModItems.boneAxe, ModItems.bonePickaxe, ModItems.boneShovel, ModItems.boneHoe);
+        this.makeTools(ToolMaterials.COAL.getCraftingIngredient(), ModItems.coalSword, ModItems.coalAxe, ModItems.coalPickaxe, ModItems.coalShovel, ModItems.coalHoe);
+        this.makeTools(ToolMaterials.EMERALD.getCraftingIngredient(), ModItems.emeraldSword, ModItems.emeraldAxe, ModItems.emeraldPickaxe, ModItems.emeraldShovel, ModItems.emeraldHoe);
+        this.makeTools(ToolMaterials.ENDER.getCraftingIngredient(), ModItems.enderSword, ModItems.enderAxe, ModItems.enderPickaxe, ModItems.enderShovel, ModItems.enderHoe);
+        this.makeTools(ToolMaterials.FIERY.getCraftingIngredient(), ModItems.fierySword, ModItems.fieryAxe, ModItems.fieryPickaxe, ModItems.fieryShovel, ModItems.fieryHoe);
+        this.makeTools(ToolMaterials.GLOWSTONE.getCraftingIngredient(), ModItems.glowstoneSword, ModItems.glowstoneAxe, ModItems.glowstonePickaxe, ModItems.glowstoneShovel, ModItems.glowstoneHoe);
+        this.makeTools(ToolMaterials.LAPIS.getCraftingIngredient(), ModItems.lapisSword, ModItems.lapisAxe, ModItems.lapisPickaxe, ModItems.lapisShovel, ModItems.lapisHoe);
+        this.makeTools(ToolMaterials.NETHER.getCraftingIngredient(), ModItems.netherSword, ModItems.netherAxe, ModItems.netherPickaxe, ModItems.netherShovel, ModItems.netherHoe);
+        this.makeTools(ToolMaterials.OBSIDIAN.getCraftingIngredient(), ModItems.obsidianSword, ModItems.obsidianAxe, ModItems.obsidianPickaxe, ModItems.obsidianShovel, ModItems.obsidianHoe);
+        this.makeTools(ToolMaterials.PAPER.getCraftingIngredient(), ModItems.paperSword, ModItems.paperAxe, ModItems.paperPickaxe, ModItems.paperShovel, ModItems.paperHoe);
+        this.makeTools(ToolMaterials.PRISMARINE.getCraftingIngredient(), ModItems.prismarineSword, ModItems.prismarineAxe, ModItems.prismarinePickaxe, ModItems.prismarineShovel, ModItems.prismarineHoe);
+        this.makeTools(ToolMaterials.QUARTZ.getCraftingIngredient(), ModItems.quartzSword, ModItems.quartzAxe, ModItems.quartzPickaxe, ModItems.quartzShovel, ModItems.quartzHoe);
+        this.makeTools(ToolMaterials.REDSTONE.getCraftingIngredient(), ModItems.redstoneSword, ModItems.redstoneAxe, ModItems.redstonePickaxe, ModItems.redstoneShovel, ModItems.redstoneHoe);
+        this.makeTools(ToolMaterials.SLIME.getCraftingIngredient(), ModItems.slimeSword, ModItems.slimeAxe, ModItems.slimePickaxe, ModItems.slimeShovel, ModItems.slimeHoe);
+    }
+
+    private void makeTools(Ingredient material, @Nullable ItemLike sword, @Nullable ItemLike axe,
+                           @Nullable ItemLike pickaxe, @Nullable ItemLike shovel, @Nullable ItemLike hoe) {
+        Consumer<FinishedRecipe> consumer = this.consumer();
+        if (sword != null) {
+            ShapedRecipeBuilder.shaped(sword)
+                    .define('m', material)
+                    .define('s', Tags.Items.RODS_WOODEN)
+                    .pattern("m")
+                    .pattern("m")
+                    .pattern("s")
+                    .unlockedBy("has_item", has(Tags.Items.RODS_WOODEN))
+                    .save(consumer);
         }
-    }
 
-    private ShapedRecipeBuilder registerSwordRecipe(SwordBase item) {
-        return ShapedRecipeBuilder.shapedRecipe(item)
-                .key('M', item.getToolType().getIngredient())
-                .key('S', Items.STICK)
-                .patternLine("M")
-                .patternLine("M")
-                .patternLine("S")
-                .addCriterion("has_material", hasItem(item.getToolType().getIngredient()));
-    }
+        if (axe != null) {
+            ShapedRecipeBuilder.shaped(axe)
+                    .define('m', material)
+                    .define('s', Tags.Items.RODS_WOODEN)
+                    .pattern("mm")
+                    .pattern("sm")
+                    .pattern("s ")
+                    .unlockedBy("has_item", has(Tags.Items.RODS_WOODEN))
+                    .save(consumer);
+        }
 
-    private ShapedRecipeBuilder registerAxeplateRecipe(AxeBase item) {
-        return ShapedRecipeBuilder.shapedRecipe(item)
-                .key('M', item.getToolType().getIngredient())
-                .key('S', Items.STICK)
-                .patternLine("MM")
-                .patternLine("MS")
-                .patternLine(" S")
-                .addCriterion("has_material", hasItem(item.getToolType().getIngredient()));
-    }
+        if (pickaxe != null) {
+            ShapedRecipeBuilder.shaped(pickaxe)
+                    .define('m', material)
+                    .define('s', Tags.Items.RODS_WOODEN)
+                    .pattern("mmm")
+                    .pattern(" s ")
+                    .pattern(" s ")
+                    .unlockedBy("has_item", has(Tags.Items.RODS_WOODEN))
+                    .save(consumer);
+        }
 
-    private ShapedRecipeBuilder registerPickaxeRecipe(PickaxeBase item) {
-        return ShapedRecipeBuilder.shapedRecipe(item)
-                .key('M', item.getToolType().getIngredient())
-                .key('S', Items.STICK)
-                .patternLine("MMM")
-                .patternLine(" S ")
-                .patternLine(" S ")
-                .addCriterion("has_material", hasItem(item.getToolType().getIngredient()));
-    }
+        if (shovel != null) {
+            ShapedRecipeBuilder.shaped(shovel)
+                    .define('m', material)
+                    .define('s', Tags.Items.RODS_WOODEN)
+                    .pattern("m")
+                    .pattern("s")
+                    .pattern("s")
+                    .unlockedBy("has_item", has(Tags.Items.RODS_WOODEN))
+                    .save(consumer);
+        }
 
-    private ShapedRecipeBuilder registerShovelRecipe(ShovelBase item) {
-        return ShapedRecipeBuilder.shapedRecipe(item)
-                .key('M', item.getToolType().getIngredient())
-                .key('S', Items.STICK)
-                .patternLine("M")
-                .patternLine("S")
-                .patternLine("S")
-                .addCriterion("has_material", hasItem(item.getToolType().getIngredient()));
-    }
-
-    private ShapedRecipeBuilder registerHoeRecipe(HoeBase item) {
-        return ShapedRecipeBuilder.shapedRecipe(item)
-                .key('M', item.getToolType().getIngredient())
-                .key('S', Items.STICK)
-                .patternLine("MM")
-                .patternLine(" S")
-                .patternLine(" S")
-                .addCriterion("has_material", hasItem(item.getToolType().getIngredient()));
+        if (hoe != null) {
+            ShapedRecipeBuilder.shaped(hoe)
+                    .define('m', material)
+                    .define('s', Tags.Items.RODS_WOODEN)
+                    .pattern("mm")
+                    .pattern("s ")
+                    .pattern("s ")
+                    .unlockedBy("has_item", has(Tags.Items.RODS_WOODEN))
+                    .save(consumer);
+        }
     }
 }
