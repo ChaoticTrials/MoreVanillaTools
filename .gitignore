@@ -19,9 +19,8 @@ build
 
 # other
 eclipse
-run*
-classes
-templates
-Sphaxify*
-.cache
-libs*
+/run*
+
+# Files from Forge MDK
+forge*changelog.txt
+/src/generated/resources/.cache

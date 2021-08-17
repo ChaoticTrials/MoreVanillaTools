@@ -8,6 +8,7 @@ labels: bug assignees: 'MelanX'
 <!-- Versions used for the bug -->
 Minecraft:
 Forge:
+LibX:
 MoreVanillaLib:
 MoreVanillaTools:  
 Modpack:
