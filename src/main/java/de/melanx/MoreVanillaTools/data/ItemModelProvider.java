@@ -1,14 +1,16 @@
-package de.melanx.MoreVanillaTools.util.data;
+package de.melanx.MoreVanillaTools.data;
 
-import de.melanx.MoreVanillaTools.MoreVanillaTools;
+import io.github.noeppi_noeppi.libx.annotation.data.Datagen;
 import io.github.noeppi_noeppi.libx.data.provider.ItemModelProviderBase;
+import io.github.noeppi_noeppi.libx.mod.ModX;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
+@Datagen
 public class ItemModelProvider extends ItemModelProviderBase {
 
-    public ItemModelProvider(DataGenerator generator, ExistingFileHelper helper) {
-        super(MoreVanillaTools.getInstance(), generator, helper);
+    public ItemModelProvider(ModX mod, DataGenerator generator, ExistingFileHelper helper) {
+        super(mod, generator, helper);
     }
 
     @Override

@@ -1,19 +1,21 @@
-package de.melanx.MoreVanillaTools.util.data;
+package de.melanx.MoreVanillaTools.data;
 
-import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.items.SwordBase;
 import de.melanx.morevanillalib.api.BaseToolItem;
 import de.melanx.morevanillalib.api.normal.ToolMaterials;
 import de.melanx.morevanillalib.data.ModTags;
+import io.github.noeppi_noeppi.libx.annotation.data.Datagen;
 import io.github.noeppi_noeppi.libx.data.provider.CommonTagsProviderBase;
+import io.github.noeppi_noeppi.libx.mod.ModX;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
+@Datagen
 public class MoreTags extends CommonTagsProviderBase {
 
-    public MoreTags(DataGenerator generator, ExistingFileHelper helper) {
-        super(MoreVanillaTools.getInstance(), generator, helper);
+    public MoreTags(ModX mod, DataGenerator generator, ExistingFileHelper helper) {
+        super(mod, generator, helper);
     }
 
     @Override

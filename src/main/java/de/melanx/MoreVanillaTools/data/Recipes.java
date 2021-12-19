@@ -1,9 +1,10 @@
-package de.melanx.MoreVanillaTools.util.data;
+package de.melanx.MoreVanillaTools.data;
 
-import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.util.ModItems;
 import de.melanx.morevanillalib.api.normal.ToolMaterials;
+import io.github.noeppi_noeppi.libx.annotation.data.Datagen;
 import io.github.noeppi_noeppi.libx.data.provider.recipe.RecipeProviderBase;
+import io.github.noeppi_noeppi.libx.mod.ModX;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -14,10 +15,11 @@ import net.minecraftforge.common.Tags;
 import javax.annotation.Nullable;
 import java.util.function.Consumer;
 
+@Datagen
 public class Recipes extends RecipeProviderBase {
 
-    public Recipes(DataGenerator generator) {
-        super(MoreVanillaTools.getInstance(), generator);
+    public Recipes(ModX mod, DataGenerator generator) {
+        super(mod, generator);
     }
 
     @Override

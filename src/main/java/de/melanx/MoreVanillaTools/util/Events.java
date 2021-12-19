@@ -23,20 +23,25 @@ public class Events {
             if (toolType != null) {
                 LivingEntity entity = event.getEntityLiving();
                 if (toolType == ToolMaterials.BONE) {
-                    if (entity instanceof AbstractSkeleton)
+                    if (entity instanceof AbstractSkeleton) {
                         ToolUtil.moreDamage(event);
+                    }
                 } else if (toolType == ToolMaterials.ENDER) {
-                    if (entity instanceof EnderMan || entity instanceof Endermite)
+                    if (entity instanceof EnderMan || entity instanceof Endermite) {
                         ToolUtil.moreDamage(event);
+                    }
                 } else if (toolType == ToolMaterials.FIERY) {
-                    if (entity instanceof MagmaCube)
+                    if (entity instanceof MagmaCube) {
                         ToolUtil.moreDamage(event);
+                    }
                 } else if (toolType == ToolMaterials.PRISMARINE) {
-                    if (entity instanceof Guardian)
+                    if (entity instanceof Guardian) {
                         ToolUtil.moreDamage(event);
+                    }
                 } else if (toolType == ToolMaterials.SLIME) {
-                    if (entity instanceof Slime && !(entity instanceof MagmaCube))
+                    if (entity instanceof Slime && !(entity instanceof MagmaCube)) {
                         ToolUtil.moreDamage(event);
+                    }
                 }
             }
         }
