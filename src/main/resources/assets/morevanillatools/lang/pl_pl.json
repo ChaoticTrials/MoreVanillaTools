@@ -1,0 +1,87 @@
+{
+  "itemGroup.morevanillatools": "MoreVanillaTools",
+  
+  "item.morevanillatools.bone_axe": "Siekiera z kości",
+  "item.morevanillatools.bone_hoe": "Motyka z kości",
+  "item.morevanillatools.bone_pickaxe": "Kilof z kości",
+  "item.morevanillatools.bone_shovel": "Łopata z kości",
+  "item.morevanillatools.bone_sword": "Miecz z kości",
+  
+  "item.morevanillatools.coal_axe": "Węglowa siekiera",
+  "item.morevanillatools.coal_hoe": "Węglowa motyka",
+  "item.morevanillatools.coal_pickaxe": "Węglowy kilof",
+  "item.morevanillatools.coal_shovel": "Węglowa łopata",
+  "item.morevanillatools.coal_sword": "Węglowy miecz",
+  
+  "item.morevanillatools.emerald_axe": "Szmaragdowa siekiera",
+  "item.morevanillatools.emerald_hoe": "Szmaragdowa motyka",
+  "item.morevanillatools.emerald_pickaxe": "Szmaragdowy kilof",
+  "item.morevanillatools.emerald_shovel": "Szmaragdowa łopata",
+  "item.morevanillatools.emerald_sword": "Szmaragdowy miecz",
+  
+  "item.morevanillatools.ender_axe": "Enderowa siekiera",
+  "item.morevanillatools.ender_hoe": "Enderowa motyka",
+  "item.morevanillatools.ender_pickaxe": "Enderowy kilof",
+  "item.morevanillatools.ender_shovel": "Enderowa łopata",
+  "item.morevanillatools.ender_sword": "Enderowy miecz",
+  
+  "item.morevanillatools.fiery_axe": "Ognista siekiera",
+  "item.morevanillatools.fiery_hoe": "Ognista motyka",
+  "item.morevanillatools.fiery_pickaxe": "Ognisty kilof",
+  "item.morevanillatools.fiery_shovel": "Ognista łopata",
+  "item.morevanillatools.fiery_sword": "Ognisty miecz",
+  
+  "item.morevanillatools.glowstone_axe": "Jasnogłazowa siekiera",
+  "item.morevanillatools.glowstone_hoe": "Jasnogłazowa motyka",
+  "item.morevanillatools.glowstone_pickaxe": "Jasnogłazowy kilof",
+  "item.morevanillatools.glowstone_shovel": "Jasnogłazowa łopata",
+  "item.morevanillatools.glowstone_sword": "Jasnogłazowy miecz",
+  
+  "item.morevanillatools.lapis_axe": "Lazurytowa siekiera",
+  "item.morevanillatools.lapis_hoe": "Lazurytowa motyka",
+  "item.morevanillatools.lapis_pickaxe": "Lazurytowy kilof",
+  "item.morevanillatools.lapis_shovel": "Lazurytowa łopata",
+  "item.morevanillatools.lapis_sword": "Lazurytowy miecz",
+  
+  "item.morevanillatools.nether_axe": "Netherowa siekiera",
+  "item.morevanillatools.nether_hoe": "Netherowa motyka",
+  "item.morevanillatools.nether_pickaxe": "Netherowy kilof",
+  "item.morevanillatools.nether_shovel": "Netherowa łopata",
+  "item.morevanillatools.nether_sword": "Netherowy miecz",
+  
+  "item.morevanillatools.obsidian_axe": "Obsydianowa siekiera",
+  "item.morevanillatools.obsidian_hoe": "Obsydianowa motyka",
+  "item.morevanillatools.obsidian_pickaxe": "Obsydianowy kilof",
+  "item.morevanillatools.obsidian_shovel": "Obsydianowa łopata",
+  "item.morevanillatools.obsidian_sword": "Obsydianowy miecz",
+  
+  "item.morevanillatools.paper_axe": "Papierowa siekiera",
+  "item.morevanillatools.paper_hoe": "Papierowa motyka",
+  "item.morevanillatools.paper_pickaxe": "Papierowy kilof",
+  "item.morevanillatools.paper_shovel": "Papierowa łopata",
+  "item.morevanillatools.paper_sword": "Papierowy miecz",
+  
+  "item.morevanillatools.prismarine_axe": "Pryzmarynowa siekiera",
+  "item.morevanillatools.prismarine_hoe": "Pryzmarynowa motyka",
+  "item.morevanillatools.prismarine_pickaxe": "Pryzmarynowy kilof",
+  "item.morevanillatools.prismarine_shovel": "Przymarynowa łopata",
+  "item.morevanillatools.prismarine_sword": "Pryzmarynowy miecz",
+  
+  "item.morevanillatools.quartz_axe": "Kwarcowa siekiera",
+  "item.morevanillatools.quartz_hoe": "Kwarcowa motyka",
+  "item.morevanillatools.quartz_pickaxe": "Kwarcowy kilof",
+  "item.morevanillatools.quartz_shovel": "Kwarcowa łopata",
+  "item.morevanillatools.quartz_sword": "Kwarcowy miecz",
+  
+  "item.morevanillatools.redstone_axe": "Redstonowa siekiera",
+  "item.morevanillatools.redstone_hoe": "Redstonowa motyka",
+  "item.morevanillatools.redstone_pickaxe": "Redstonowy kilof",
+  "item.morevanillatools.redstone_shovel": "Redstonowa łopata",
+  "item.morevanillatools.redstone_sword": "Redstonowy miecz",
+  
+  "item.morevanillatools.slime_axe": "Szlamowa siekiera",
+  "item.morevanillatools.slime_hoe": "Szlamowa motyka",
+  "item.morevanillatools.slime_pickaxe": "Szlamowy kilof",
+  "item.morevanillatools.slime_shovel": "Szlamowa łopata",
+  "item.morevanillatools.slime_sword": "Szlamowy miecz"
+}
