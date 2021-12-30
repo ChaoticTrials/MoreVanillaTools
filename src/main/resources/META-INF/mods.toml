@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[39,)"
-license = "MIT License"
+license = "Apache License 2.0"
 
 [[mods]]
 modId = "morevanillatools"

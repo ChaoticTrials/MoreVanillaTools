@@ -13,7 +13,7 @@ body:
     id: mod-version
     attributes:
       label: MoreVanillaTools version
-      placeholder: eg. 1.18.1-1.0.0
+      placeholder: eg. 1.18.1-4.0.0
     validations:
       required: true
   - type: input
