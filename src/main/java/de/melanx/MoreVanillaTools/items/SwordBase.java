@@ -33,7 +33,7 @@ public class SwordBase extends SwordItem {
     public boolean hurtEnemy(@Nonnull ItemStack stack, @Nonnull LivingEntity target, @Nonnull LivingEntity attacker) {
         boolean result = super.hurtEnemy(stack, target, attacker);
 
-        if (!target.level.isClientSide && ModTags.Items.PAPER_TOOLS.contains(this) && FeatureConfig.PaperDamage.enabled
+        if (!target.level.isClientSide && stack.is(ModTags.Items.PAPER_TOOLS) && FeatureConfig.PaperDamage.enabled
                 && target.level.random.nextDouble() < FeatureConfig.PaperDamage.chance) {
             ToolUtil.paperDamage(attacker);
         }
