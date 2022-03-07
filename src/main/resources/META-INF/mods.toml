@@ -31,7 +31,7 @@ A mod which adds more tools in the vanilla way.
     modId="libx"
     mandatory=true
     versionRange="[1.18.2,)"
-    ordering="NONE"
+    ordering="AFTER"
     side="BOTH"
 
 [[dependencies.morevanillatools]]
