@@ -21,13 +21,6 @@ A mod which adds more tools in the vanilla way.
     side="BOTH"
 
 [[dependencies.morevanillatools]]
-    modId="morevanillalib"
-    mandatory=true
-    versionRange="[1.18.2-3.1.0,)"
-    ordering="NONE"
-    side="BOTH"
-
-[[dependencies.morevanillatools]]
     modId="libx"
     mandatory=true
     versionRange="[1.18.2,)"
@@ -38,5 +31,12 @@ A mod which adds more tools in the vanilla way.
     modId="minecraft"
     mandatory=true
     versionRange="[1.18.2, 1.19)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.morevanillatools]]
+    modId="morevanillalib"
+    mandatory=false
+    versionRange="[1.18.2-3.1.0,)"
     ordering="NONE"
     side="BOTH"

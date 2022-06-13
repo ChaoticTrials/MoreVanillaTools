@@ -6,7 +6,19 @@
     ]
   },
   "criteria": {
-    "has_item": {
+    "criterion0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:paper"
+            ]
+          }
+        ]
+      }
+    },
+    "criterion1": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -25,7 +37,8 @@
   },
   "requirements": [
     [
-      "has_item",
+      "criterion0",
+      "criterion1",
       "has_the_recipe"
     ]
   ]

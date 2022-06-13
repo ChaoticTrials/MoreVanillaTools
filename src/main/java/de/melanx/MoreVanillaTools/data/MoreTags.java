@@ -1,8 +1,7 @@
 package de.melanx.MoreVanillaTools.data;
 
-import de.melanx.MoreVanillaTools.items.SwordBase;
-import de.melanx.morevanillalib.api.BaseToolItem;
-import de.melanx.morevanillalib.api.normal.ToolMaterials;
+import de.melanx.MoreVanillaTools.items.BaseTool;
+import de.melanx.MoreVanillaTools.items.ToolMaterials;
 import de.melanx.morevanillalib.data.ModTags;
 import io.github.noeppi_noeppi.libx.annotation.data.Datagen;
 import io.github.noeppi_noeppi.libx.data.provider.CommonTagsProviderBase;
@@ -26,10 +25,8 @@ public class MoreTags extends CommonTagsProviderBase {
     @Override
     public void defaultItemTags(Item toCheck) {
         ToolMaterials material = null;
-        if (toCheck instanceof BaseToolItem item) {
-            material = (ToolMaterials) item.getToolMaterial();
-        } else if (toCheck instanceof SwordBase item) {
-            material = (ToolMaterials) item.getToolType();
+        if (toCheck instanceof BaseTool item) {
+            material = item.getTier();
         }
 
         if (material == null) {

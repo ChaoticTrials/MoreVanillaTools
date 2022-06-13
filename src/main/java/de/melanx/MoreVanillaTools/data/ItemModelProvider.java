@@ -1,5 +1,6 @@
 package de.melanx.MoreVanillaTools.data;
 
+import de.melanx.MoreVanillaTools.util.ModItems;
 import io.github.noeppi_noeppi.libx.annotation.data.Datagen;
 import io.github.noeppi_noeppi.libx.data.provider.ItemModelProviderBase;
 import io.github.noeppi_noeppi.libx.mod.ModX;
@@ -17,11 +18,15 @@ public class ItemModelProvider extends ItemModelProviderBase {
 
     @Override
     protected void setup() {
-
+        // NO-OP
     }
 
     @Override
     protected void defaultItem(ResourceLocation id, Item item) {
-        this.withExistingParent(id.getPath(), HANDHELD).texture("layer0", new ResourceLocation(id.getNamespace(), "item/" + id.getPath()));
+        if (item == ModItems.obsidianShard) {
+            super.defaultItem(id, item);
+        } else {
+            this.withExistingParent(id.getPath(), HANDHELD).texture("layer0", new ResourceLocation(id.getNamespace(), "item/" + id.getPath()));
+        }
     }
 }

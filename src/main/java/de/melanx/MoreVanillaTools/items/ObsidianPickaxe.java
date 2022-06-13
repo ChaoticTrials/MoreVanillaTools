@@ -1,8 +1,5 @@
 package de.melanx.MoreVanillaTools.items;
 
-import de.melanx.morevanillalib.api.BaseToolItem;
-import de.melanx.morevanillalib.api.IConfigurableTier;
-import de.melanx.morevanillalib.api.ToolType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -11,10 +8,10 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nonnull;
 
-public class ObsidianPickaxe extends BaseToolItem {
+public class ObsidianPickaxe extends PickaxeBase {
 
-    public ObsidianPickaxe(IConfigurableTier tier, ToolType toolType, Properties properties) {
-        super(tier, toolType, properties);
+    public ObsidianPickaxe(ToolMaterials tier, float attackDamageModifier, float attackSpeedModifier, Properties properties) {
+        super(tier, attackDamageModifier, attackSpeedModifier, properties);
     }
 
     @Override

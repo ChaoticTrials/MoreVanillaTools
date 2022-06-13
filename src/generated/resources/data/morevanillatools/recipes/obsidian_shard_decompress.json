@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "morevanillatools:obsidian_shard"
+    }
+  ],
+  "result": {
+    "item": "minecraft:obsidian",
+    "count": 9
+  }
+}
