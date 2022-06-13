@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "morevanillatools:fiery_sword",
+    "morevanillatools:fiery_shovel",
+    "morevanillatools:fiery_pickaxe",
+    "morevanillatools:fiery_axe",
+    "morevanillatools:fiery_hoe"
+  ]
+}

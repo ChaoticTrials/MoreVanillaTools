@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "morevanillatools:quartz_sword",
+    "morevanillatools:quartz_shovel",
+    "morevanillatools:quartz_pickaxe",
+    "morevanillatools:quartz_axe",
+    "morevanillatools:quartz_hoe"
+  ]
+}

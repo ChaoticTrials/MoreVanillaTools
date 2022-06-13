@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "morevanillatools:slime_sword",
+    "morevanillatools:slime_shovel",
+    "morevanillatools:slime_pickaxe",
+    "morevanillatools:slime_axe",
+    "morevanillatools:slime_hoe"
+  ]
+}
