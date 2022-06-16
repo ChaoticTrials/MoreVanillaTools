@@ -38,6 +38,15 @@ public class ShovelBase extends ShovelItem implements BaseTool {
     }
 
     @Override
+    public int getEnchantmentLevel(ItemStack stack, Enchantment enchantment) {
+        if (enchantment == Enchantments.KNOCKBACK && stack.getItem() instanceof ShovelBase item && item.tier == ToolMaterials.SLIME) {
+            return 3;
+        }
+
+        return super.getEnchantmentLevel(stack, enchantment);
+    }
+
+    @Override
     public void appendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag isAdvanced) {
         if (LibCompat.isMoreVanillaLibLoaded()) {
             LibCompat.editHoverText(this, stack, level, tooltip, isAdvanced);

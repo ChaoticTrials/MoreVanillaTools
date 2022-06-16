@@ -5,6 +5,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.Nonnull;
@@ -24,6 +26,15 @@ public class SwordBase extends SwordItem implements BaseTool {
     @Nonnull
     public ToolMaterials getTier() {
         return this.tier;
+    }
+
+    @Override
+    public int getEnchantmentLevel(ItemStack stack, Enchantment enchantment) {
+        if (enchantment == Enchantments.KNOCKBACK && stack.getItem() instanceof SwordBase item && item.tier == ToolMaterials.SLIME) {
+            return 3;
+        }
+
+        return super.getEnchantmentLevel(stack, enchantment);
     }
 
     @Override
