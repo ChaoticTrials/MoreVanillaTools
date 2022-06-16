@@ -1,7 +1,6 @@
 package de.melanx.MoreVanillaTools.items;
 
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -17,7 +16,7 @@ public class ObsidianPickaxe extends PickaxeBase {
     @Override
     public float getDestroySpeed(@Nonnull ItemStack stack, BlockState state) {
         if (state.getBlock() == Blocks.OBSIDIAN) {
-            int efficiencyLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.BLOCK_EFFICIENCY, stack);
+            int efficiencyLevel = stack.getEnchantmentLevel(Enchantments.BLOCK_EFFICIENCY);
             return 15.0F * (efficiencyLevel / 3.5F + 1);
         } else {
             return super.getDestroySpeed(stack, state);
