@@ -45,4 +45,13 @@ public class AxeBase extends AxeItem implements BaseTool {
 
         super.appendHoverText(stack, level, tooltip, isAdvanced);
     }
+
+    @Override
+    public int getEnchantmentLevel(ItemStack stack, Enchantment enchantment) {
+        if (enchantment == Enchantments.KNOCKBACK && stack.getItem() instanceof AxeBase item && item.tier == ToolMaterials.SLIME) {
+            return 3;
+        }
+
+        return super.getEnchantmentLevel(stack, enchantment);
+    }
 }
