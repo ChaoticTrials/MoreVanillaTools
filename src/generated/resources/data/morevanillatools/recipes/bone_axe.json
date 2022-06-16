@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "mm",
-    "sm",
-    "s "
-  ],
   "key": {
     "m": {
       "tag": "forge:bones"
@@ -13,6 +8,11 @@
       "tag": "forge:rods/wooden"
     }
   },
+  "pattern": [
+    "mm",
+    "sm",
+    "s "
+  ],
   "result": {
     "item": "morevanillatools:bone_axe"
   }

@@ -2,17 +2,16 @@ package de.melanx.MoreVanillaTools.items;
 
 import de.melanx.MoreVanillaTools.config.ConfigurableMaterial;
 import de.melanx.MoreVanillaTools.config.ModConfig;
-import io.github.noeppi_noeppi.libx.util.LazyValue;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
+import org.moddingx.libx.util.lazy.LazyValue;
 
 import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 
 public enum ToolMaterials implements Tier {
-
     BONE(ModConfig.ToolValues.bone, 176, () -> Ingredient.of(Tags.Items.BONES)),
     COAL(ModConfig.ToolValues.coal, 145, () -> Ingredient.of(Items.COAL)),
     EMERALD(ModConfig.ToolValues.emerald, 1171, () -> Ingredient.of(Tags.Items.GEMS_EMERALD)),

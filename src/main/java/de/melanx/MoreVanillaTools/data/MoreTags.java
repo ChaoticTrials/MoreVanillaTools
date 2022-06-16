@@ -3,12 +3,12 @@ package de.melanx.MoreVanillaTools.data;
 import de.melanx.MoreVanillaTools.items.BaseTool;
 import de.melanx.MoreVanillaTools.items.ToolMaterials;
 import de.melanx.morevanillalib.data.ModTags;
-import io.github.noeppi_noeppi.libx.annotation.data.Datagen;
-import io.github.noeppi_noeppi.libx.data.provider.CommonTagsProviderBase;
-import io.github.noeppi_noeppi.libx.mod.ModX;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.moddingx.libx.annotation.data.Datagen;
+import org.moddingx.libx.datagen.provider.CommonTagsProviderBase;
+import org.moddingx.libx.mod.ModX;
 
 @Datagen
 public class MoreTags extends CommonTagsProviderBase {

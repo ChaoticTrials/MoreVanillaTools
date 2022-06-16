@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "mmm",
-    " s ",
-    " s "
-  ],
   "key": {
     "m": {
-      "tag": "forge:dusts/redstone"
+      "tag": "forge:storage_blocks/redstone"
     },
     "s": {
       "tag": "forge:rods/wooden"
     }
   },
+  "pattern": [
+    "mmm",
+    " s ",
+    " s "
+  ],
   "result": {
     "item": "morevanillatools:redstone_pickaxe"
   }

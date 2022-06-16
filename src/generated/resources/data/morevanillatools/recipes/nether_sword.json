@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "m",
-    "m",
-    "s"
-  ],
   "key": {
     "m": {
       "item": "minecraft:nether_bricks"
@@ -13,6 +8,11 @@
       "tag": "forge:rods/wooden"
     }
   },
+  "pattern": [
+    "m",
+    "m",
+    "s"
+  ],
   "result": {
     "item": "morevanillatools:nether_sword"
   }

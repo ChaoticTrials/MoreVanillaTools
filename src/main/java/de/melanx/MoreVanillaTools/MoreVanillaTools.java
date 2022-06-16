@@ -1,15 +1,13 @@
 package de.melanx.MoreVanillaTools;
 
-import de.melanx.MoreVanillaTools.util.Events;
 import de.melanx.MoreVanillaTools.util.ModItems;
-import io.github.noeppi_noeppi.libx.mod.registration.ModXRegistration;
-import io.github.noeppi_noeppi.libx.mod.registration.RegistrationBuilder;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import org.moddingx.libx.mod.ModXRegistration;
+import org.moddingx.libx.registration.RegistrationBuilder;
 
 import javax.annotation.Nonnull;
 
@@ -27,8 +25,6 @@ public final class MoreVanillaTools extends ModXRegistration {
             }
         });
         instance = this;
-
-        MinecraftForge.EVENT_BUS.register(new Events());
     }
 
     @Override
@@ -47,6 +43,6 @@ public final class MoreVanillaTools extends ModXRegistration {
 
     @Override
     protected void initRegistration(RegistrationBuilder builder) {
-        builder.setVersion(1);
+
     }
 }

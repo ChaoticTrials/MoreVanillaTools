@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "mm",
-    "sm",
-    "s "
-  ],
   "key": {
     "m": {
-      "tag": "forge:dusts/glowstone"
+      "item": "minecraft:glowstone"
     },
     "s": {
       "tag": "forge:rods/wooden"
     }
   },
+  "pattern": [
+    "mm",
+    "sm",
+    "s "
+  ],
   "result": {
     "item": "morevanillatools:glowstone_axe"
   }

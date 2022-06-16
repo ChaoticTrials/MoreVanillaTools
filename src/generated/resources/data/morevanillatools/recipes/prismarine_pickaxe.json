@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "mmm",
-    " s ",
-    " s "
-  ],
   "key": {
     "m": {
       "tag": "forge:dusts/prismarine"
@@ -13,6 +8,11 @@
       "tag": "forge:rods/wooden"
     }
   },
+  "pattern": [
+    "mmm",
+    " s ",
+    " s "
+  ],
   "result": {
     "item": "morevanillatools:prismarine_pickaxe"
   }

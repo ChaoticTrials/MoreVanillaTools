@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "mm",
-    "sm",
-    "s "
-  ],
   "key": {
     "m": {
-      "tag": "forge:gems/quartz"
+      "tag": "forge:storage_blocks/quartz"
     },
     "s": {
       "tag": "forge:rods/wooden"
     }
   },
+  "pattern": [
+    "mm",
+    "sm",
+    "s "
+  ],
   "result": {
     "item": "morevanillatools:quartz_axe"
   }

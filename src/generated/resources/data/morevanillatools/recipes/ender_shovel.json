@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "m",
-    "s",
-    "s"
-  ],
   "key": {
     "m": {
       "tag": "forge:end_stones"
@@ -13,6 +8,11 @@
       "tag": "forge:rods/wooden"
     }
   },
+  "pattern": [
+    "m",
+    "s",
+    "s"
+  ],
   "result": {
     "item": "morevanillatools:ender_shovel"
   }
