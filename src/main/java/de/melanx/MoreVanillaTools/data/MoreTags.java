@@ -36,6 +36,7 @@ public class MoreTags extends CommonTagsProviderBase {
         switch (material) {
             case BONE -> this.item(ModTags.Items.BONE_TOOLS).add(toCheck);
             case COAL -> this.item(ModTags.Items.COAL_TOOLS).add(toCheck);
+            case COPPER -> this.item(ModTags.Items.COPPER_TOOLS).add(toCheck);
             case EMERALD -> this.item(ModTags.Items.EMERALD_TOOLS).add(toCheck);
             case ENDER -> this.item(ModTags.Items.ENDER_TOOLS).add(toCheck);
             case FIERY -> this.item(ModTags.Items.FIERY_TOOLS).add(toCheck);

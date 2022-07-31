@@ -27,6 +27,7 @@ public class Recipes extends RecipeProviderBase implements CompressionExtension,
 
         this.makeTools(Ingredient.of(Tags.Items.BONES), ModItems.boneSword, ModItems.boneAxe, ModItems.bonePickaxe, ModItems.boneShovel, ModItems.boneHoe);
         this.makeTools(Ingredient.of(Items.COAL), ModItems.coalSword, ModItems.coalAxe, ModItems.coalPickaxe, ModItems.coalShovel, ModItems.coalHoe);
+        this.makeTools(Ingredient.of(Tags.Items.INGOTS_COPPER), ModItems.copperSword, ModItems.copperAxe, ModItems.copperPickaxe, ModItems.copperShovel, ModItems.copperHoe);
         this.makeTools(Ingredient.of(Tags.Items.GEMS_EMERALD), ModItems.emeraldSword, ModItems.emeraldAxe, ModItems.emeraldPickaxe, ModItems.emeraldShovel, ModItems.emeraldHoe);
         this.makeTools(Ingredient.of(Tags.Items.END_STONES), ModItems.enderSword, ModItems.enderAxe, ModItems.enderPickaxe, ModItems.enderShovel, ModItems.enderHoe);
         this.makeTools(Ingredient.of(Items.MAGMA_CREAM), ModItems.fierySword, ModItems.fieryAxe, ModItems.fieryPickaxe, ModItems.fieryShovel, ModItems.fieryHoe);

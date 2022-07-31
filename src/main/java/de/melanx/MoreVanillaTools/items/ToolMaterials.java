@@ -12,34 +12,33 @@ import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 
 public enum ToolMaterials implements Tier {
-    BONE(ModConfig.ToolValues.bone, 176, () -> Ingredient.of(Tags.Items.BONES)),
-    COAL(ModConfig.ToolValues.coal, 145, () -> Ingredient.of(Items.COAL)),
-    EMERALD(ModConfig.ToolValues.emerald, 1171, () -> Ingredient.of(Tags.Items.GEMS_EMERALD)),
-    ENDER(ModConfig.ToolValues.ender, 666, () -> Ingredient.of(Tags.Items.ENDER_PEARLS)),
-    FIERY(ModConfig.ToolValues.fiery, 127, () -> Ingredient.of(Items.MAGMA_BLOCK)),
-    GLOWSTONE(ModConfig.ToolValues.glowstone, 123, () -> Ingredient.of(Tags.Items.DUSTS_GLOWSTONE)),
-    LAPIS(ModConfig.ToolValues.lapis, 173, () -> Ingredient.of(Tags.Items.GEMS_LAPIS)),
-    NETHER(ModConfig.ToolValues.nether, 188, () -> Ingredient.of(Items.NETHER_BRICKS)),
-    OBSIDIAN(ModConfig.ToolValues.obsidian, 1337, () -> Ingredient.of(Tags.Items.OBSIDIAN)),
-    PAPER(ModConfig.ToolValues.paper, 13, () -> Ingredient.of(Items.PAPER)),
-    PRISMARINE(ModConfig.ToolValues.prismarine, 225, () -> Ingredient.of(Tags.Items.DUSTS_PRISMARINE)),
-    QUARTZ(ModConfig.ToolValues.quartz, 117, () -> Ingredient.of(Tags.Items.GEMS_QUARTZ)),
-    REDSTONE(ModConfig.ToolValues.redstone, 173, () -> Ingredient.of(Tags.Items.DUSTS_REDSTONE)),
-    SLIME(ModConfig.ToolValues.slime, 123, () -> Ingredient.of(Tags.Items.SLIMEBALLS));
+    BONE(ModConfig.ToolValues.bone, () -> Ingredient.of(Tags.Items.BONES)),
+    COAL(ModConfig.ToolValues.coal, () -> Ingredient.of(Items.COAL)),
+    COPPER(ModConfig.ToolValues.copper, () -> Ingredient.of(Tags.Items.INGOTS_COPPER)),
+    EMERALD(ModConfig.ToolValues.emerald, () -> Ingredient.of(Tags.Items.GEMS_EMERALD)),
+    ENDER(ModConfig.ToolValues.ender, () -> Ingredient.of(Tags.Items.ENDER_PEARLS)),
+    FIERY(ModConfig.ToolValues.fiery, () -> Ingredient.of(Items.MAGMA_BLOCK)),
+    GLOWSTONE(ModConfig.ToolValues.glowstone, () -> Ingredient.of(Tags.Items.DUSTS_GLOWSTONE)),
+    LAPIS(ModConfig.ToolValues.lapis, () -> Ingredient.of(Tags.Items.GEMS_LAPIS)),
+    NETHER(ModConfig.ToolValues.nether, () -> Ingredient.of(Items.NETHER_BRICKS)),
+    OBSIDIAN(ModConfig.ToolValues.obsidian, () -> Ingredient.of(Tags.Items.OBSIDIAN)),
+    PAPER(ModConfig.ToolValues.paper, () -> Ingredient.of(Items.PAPER)),
+    PRISMARINE(ModConfig.ToolValues.prismarine, () -> Ingredient.of(Tags.Items.DUSTS_PRISMARINE)),
+    QUARTZ(ModConfig.ToolValues.quartz, () -> Ingredient.of(Tags.Items.GEMS_QUARTZ)),
+    REDSTONE(ModConfig.ToolValues.redstone, () -> Ingredient.of(Tags.Items.DUSTS_REDSTONE)),
+    SLIME(ModConfig.ToolValues.slime, () -> Ingredient.of(Tags.Items.SLIMEBALLS));
 
     private final ConfigurableMaterial material;
-    private final int durability;
     private final LazyValue<Ingredient> repairIngredient;
 
-    ToolMaterials(ConfigurableMaterial material, int durability, Supplier<Ingredient> repairIngredient) {
+    ToolMaterials(ConfigurableMaterial material, Supplier<Ingredient> repairIngredient) {
         this.material = material;
-        this.durability = durability;
         this.repairIngredient = new LazyValue<>(repairIngredient);
     }
 
     @Override
     public int getUses() {
-        return this.durability;
+        return this.material.durability();
     }
 
     @Override

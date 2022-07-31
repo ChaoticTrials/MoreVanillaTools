@@ -17,6 +17,9 @@ public class ModConfig {
         public static ConfigurableMaterial coal = new ConfigurableMaterial(3.9f, 2.0f, 0, 145, 17);
 
         @Config
+        public static ConfigurableMaterial copper = new ConfigurableMaterial(1.9f, 1.0f, 1, 98, 10);
+
+        @Config
         public static ConfigurableMaterial emerald = new ConfigurableMaterial(8.2f, 7.0f, 2, 1171, 35);
 
         @Config

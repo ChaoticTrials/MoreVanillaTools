@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "m": {
+      "tag": "forge:ingots/copper"
+    },
+    "s": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "m",
+    "m",
+    "s"
+  ],
+  "result": {
+    "item": "morevanillatools:copper_sword"
+  }
+}

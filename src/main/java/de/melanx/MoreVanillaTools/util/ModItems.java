@@ -22,6 +22,12 @@ public class ModItems {
     public static final Item coalAxe = new AxeBase(ToolMaterials.COAL, 4.0f, -3.0f, new Item.Properties().tab(MoreVanillaTools.getInstance().tab));
     public static final Item coalHoe = new HoeBase(ToolMaterials.COAL, -2.5f, -2.8f, new Item.Properties().tab(MoreVanillaTools.getInstance().tab));
 
+    public static final Item copperSword = new SwordBase(ToolMaterials.COPPER, 0, -2.2f, new Item.Properties().tab(MoreVanillaTools.getInstance().tab));
+    public static final Item copperShovel = new ShovelBase(ToolMaterials.COPPER, -1.0f, -2.8f, new Item.Properties().tab(MoreVanillaTools.getInstance().tab));
+    public static final Item copperPickaxe = new PickaxeBase(ToolMaterials.COPPER, -0.5f, -2.6f, new Item.Properties().tab(MoreVanillaTools.getInstance().tab));
+    public static final Item copperAxe = new AxeBase(ToolMaterials.COPPER, 1.0f, -3.0f, new Item.Properties().tab(MoreVanillaTools.getInstance().tab));
+    public static final Item copperHoe = new HoeBase(ToolMaterials.COPPER, -1.0f, -1.8f, new Item.Properties().tab(MoreVanillaTools.getInstance().tab));
+
     public static final Item emeraldSword = new SwordBase(ToolMaterials.EMERALD, -2, -2.6f, new Item.Properties().tab(MoreVanillaTools.getInstance().tab));
     public static final Item emeraldShovel = new ShovelBase(ToolMaterials.EMERALD, -3.6f, -3.0f, new Item.Properties().tab(MoreVanillaTools.getInstance().tab));
     public static final Item emeraldPickaxe = new PickaxeBase(ToolMaterials.EMERALD, -4.2f, -2.9f, new Item.Properties().tab(MoreVanillaTools.getInstance().tab));
