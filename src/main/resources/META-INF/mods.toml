@@ -16,7 +16,7 @@ A mod which adds more tools in the vanilla way.
 [[dependencies.morevanillatools]]
     modId="forge"
     mandatory=true
-    versionRange="[42,)"
+    versionRange="[42.0.8,)"
     ordering="NONE"
     side="BOTH"
 

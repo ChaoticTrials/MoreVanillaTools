@@ -1,10 +1,11 @@
 package de.melanx.MoreVanillaTools.data;
 
-import de.melanx.MoreVanillaTools.items.BaseTool;
-import de.melanx.MoreVanillaTools.items.ToolMaterials;
+import de.melanx.MoreVanillaTools.items.*;
 import de.melanx.morevanillalib.data.ModTags;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.moddingx.libx.annotation.data.Datagen;
 import org.moddingx.libx.datagen.provider.CommonTagsProviderBase;
@@ -49,6 +50,32 @@ public class MoreTags extends CommonTagsProviderBase {
             case QUARTZ -> this.item(ModTags.Items.QUARTZ_TOOLS).add(toCheck);
             case REDSTONE -> this.item(ModTags.Items.REDSTONE_TOOLS).add(toCheck);
             case SLIME -> this.item(ModTags.Items.SLIME_TOOLS).add(toCheck);
+        }
+
+        TagsProvider.TagAppender<Item> swords = this.item(Tags.Items.TOOLS_SWORDS);
+        TagsProvider.TagAppender<Item> shovels = this.item(Tags.Items.TOOLS_SHOVELS);
+        TagsProvider.TagAppender<Item> pickaxes = this.item(Tags.Items.TOOLS_PICKAXES);
+        TagsProvider.TagAppender<Item> axes = this.item(Tags.Items.TOOLS_AXES);
+        TagsProvider.TagAppender<Item> hoes = this.item(Tags.Items.TOOLS_HOES);
+
+        if (toCheck instanceof SwordBase) {
+            swords.add(toCheck);
+        }
+
+        if (toCheck instanceof ShovelBase) {
+            shovels.add(toCheck);
+        }
+
+        if (toCheck instanceof PickaxeBase) {
+            pickaxes.add(toCheck);
+        }
+
+        if (toCheck instanceof AxeBase) {
+            axes.add(toCheck);
+        }
+
+        if (toCheck instanceof HoeBase) {
+            hoes.add(toCheck);
         }
     }
 }
