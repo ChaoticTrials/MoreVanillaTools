@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "m": {
       "tag": "forge:dusts/prismarine"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "morevanillatools:prismarine_pickaxe"
-  }
+  },
+  "show_notification": true
 }

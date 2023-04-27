@@ -1,9 +1,9 @@
 {
   "values": [
-    "morevanillatools:emerald_sword",
-    "morevanillatools:emerald_shovel",
-    "morevanillatools:emerald_pickaxe",
     "morevanillatools:emerald_axe",
-    "morevanillatools:emerald_hoe"
+    "morevanillatools:emerald_hoe",
+    "morevanillatools:emerald_pickaxe",
+    "morevanillatools:emerald_shovel",
+    "morevanillatools:emerald_sword"
   ]
 }

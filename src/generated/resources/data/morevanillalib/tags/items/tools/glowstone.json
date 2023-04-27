@@ -1,9 +1,9 @@
 {
   "values": [
-    "morevanillatools:glowstone_sword",
-    "morevanillatools:glowstone_shovel",
-    "morevanillatools:glowstone_pickaxe",
     "morevanillatools:glowstone_axe",
-    "morevanillatools:glowstone_hoe"
+    "morevanillatools:glowstone_hoe",
+    "morevanillatools:glowstone_pickaxe",
+    "morevanillatools:glowstone_shovel",
+    "morevanillatools:glowstone_sword"
   ]
 }

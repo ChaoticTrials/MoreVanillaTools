@@ -1,24 +1,22 @@
 package de.melanx.MoreVanillaTools.data;
 
 import de.melanx.MoreVanillaTools.util.ModItems;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.Tags;
-import org.moddingx.libx.annotation.data.Datagen;
+import org.moddingx.libx.datagen.DatagenContext;
 import org.moddingx.libx.datagen.provider.recipe.RecipeProviderBase;
 import org.moddingx.libx.datagen.provider.recipe.crafting.CompressionExtension;
 import org.moddingx.libx.datagen.provider.recipe.crafting.CraftingExtension;
-import org.moddingx.libx.mod.ModX;
 
 import javax.annotation.Nullable;
 
-@Datagen
 public class Recipes extends RecipeProviderBase implements CompressionExtension, CraftingExtension {
 
-    public Recipes(ModX mod, DataGenerator generator) {
-        super(mod, generator);
+    public Recipes(DatagenContext context) {
+        super(context);
     }
 
     @Override
@@ -44,10 +42,15 @@ public class Recipes extends RecipeProviderBase implements CompressionExtension,
 
     private void makeTools(Ingredient material, @Nullable ItemLike sword, @Nullable ItemLike axe,
                            @Nullable ItemLike pickaxe, @Nullable ItemLike shovel, @Nullable ItemLike hoe) {
-        if (sword != null) this.shaped(sword, "m", "m", "s", 'm', material, 's', Tags.Items.RODS_WOODEN);
-        if (axe != null) this.shaped(axe, "mm", "sm", "s ", 'm', material, 's', Tags.Items.RODS_WOODEN);
-        if (pickaxe != null) this.shaped(pickaxe, "mmm", " s ", " s ", 'm', material, 's', Tags.Items.RODS_WOODEN);
-        if (shovel != null) this.shaped(shovel, "m", "s", "s", 'm', material, 's', Tags.Items.RODS_WOODEN);
-        if (hoe != null) this.shaped(hoe, "mm", "s ", "s ", 'm', material, 's', Tags.Items.RODS_WOODEN);
+        if (sword != null)
+            this.shaped(RecipeCategory.TOOLS, sword, "m", "m", "s", 'm', material, 's', Tags.Items.RODS_WOODEN);
+        if (axe != null)
+            this.shaped(RecipeCategory.TOOLS, axe, "mm", "sm", "s ", 'm', material, 's', Tags.Items.RODS_WOODEN);
+        if (pickaxe != null)
+            this.shaped(RecipeCategory.TOOLS, pickaxe, "mmm", " s ", " s ", 'm', material, 's', Tags.Items.RODS_WOODEN);
+        if (shovel != null)
+            this.shaped(RecipeCategory.TOOLS, shovel, "m", "s", "s", 'm', material, 's', Tags.Items.RODS_WOODEN);
+        if (hoe != null)
+            this.shaped(RecipeCategory.TOOLS, hoe, "mm", "s ", "s ", 'm', material, 's', Tags.Items.RODS_WOODEN);
     }
 }

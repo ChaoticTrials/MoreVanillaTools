@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "a": {
       "item": "minecraft:obsidian"
@@ -12,5 +13,6 @@
   ],
   "result": {
     "item": "morevanillatools:obsidian_shard"
-  }
+  },
+  "show_notification": true
 }

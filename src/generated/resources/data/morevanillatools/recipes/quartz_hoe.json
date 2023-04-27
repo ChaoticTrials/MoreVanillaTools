@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "m": {
       "tag": "forge:storage_blocks/quartz"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "morevanillatools:quartz_hoe"
-  }
+  },
+  "show_notification": true
 }

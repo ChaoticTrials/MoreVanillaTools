@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "m": {
       "tag": "forge:storage_blocks/redstone"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "morevanillatools:redstone_shovel"
-  }
+  },
+  "show_notification": true
 }

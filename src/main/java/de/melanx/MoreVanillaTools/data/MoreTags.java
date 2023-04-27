@@ -2,25 +2,22 @@ package de.melanx.MoreVanillaTools.data;
 
 import de.melanx.MoreVanillaTools.items.*;
 import de.melanx.morevanillalib.data.ModTags;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import org.moddingx.libx.annotation.data.Datagen;
-import org.moddingx.libx.datagen.provider.CommonTagsProviderBase;
-import org.moddingx.libx.mod.ModX;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.moddingx.libx.datagen.DatagenContext;
+import org.moddingx.libx.datagen.provider.tags.CommonTagsProviderBase;
 
-@Datagen
 public class MoreTags extends CommonTagsProviderBase {
 
-    public MoreTags(ModX mod, DataGenerator generator, ExistingFileHelper helper) {
-        super(mod, generator, helper);
+    public MoreTags(DatagenContext context) {
+        super(context);
     }
 
     @Override
     public void setup() {
-
+        // NO-OP
     }
 
     @Override
@@ -52,30 +49,30 @@ public class MoreTags extends CommonTagsProviderBase {
             case SLIME -> this.item(ModTags.Items.SLIME_TOOLS).add(toCheck);
         }
 
-        TagsProvider.TagAppender<Item> swords = this.item(Tags.Items.TOOLS_SWORDS);
-        TagsProvider.TagAppender<Item> shovels = this.item(Tags.Items.TOOLS_SHOVELS);
-        TagsProvider.TagAppender<Item> pickaxes = this.item(Tags.Items.TOOLS_PICKAXES);
-        TagsProvider.TagAppender<Item> axes = this.item(Tags.Items.TOOLS_AXES);
-        TagsProvider.TagAppender<Item> hoes = this.item(Tags.Items.TOOLS_HOES);
+        TagsProvider.TagAppender<Item> swords = this.item(ItemTags.SWORDS);
+        TagsProvider.TagAppender<Item> shovels = this.item(ItemTags.SHOVELS);
+        TagsProvider.TagAppender<Item> pickaxes = this.item(ItemTags.PICKAXES);
+        TagsProvider.TagAppender<Item> axes = this.item(ItemTags.AXES);
+        TagsProvider.TagAppender<Item> hoes = this.item(ItemTags.HOES);
 
         if (toCheck instanceof SwordBase) {
-            swords.add(toCheck);
+            swords.add(ForgeRegistries.ITEMS.getResourceKey(toCheck).orElseThrow());
         }
 
         if (toCheck instanceof ShovelBase) {
-            shovels.add(toCheck);
+            shovels.add(ForgeRegistries.ITEMS.getResourceKey(toCheck).orElseThrow());
         }
 
         if (toCheck instanceof PickaxeBase) {
-            pickaxes.add(toCheck);
+            pickaxes.add(ForgeRegistries.ITEMS.getResourceKey(toCheck).orElseThrow());
         }
 
         if (toCheck instanceof AxeBase) {
-            axes.add(toCheck);
+            axes.add(ForgeRegistries.ITEMS.getResourceKey(toCheck).orElseThrow());
         }
 
         if (toCheck instanceof HoeBase) {
-            hoes.add(toCheck);
+            hoes.add(ForgeRegistries.ITEMS.getResourceKey(toCheck).orElseThrow());
         }
     }
 }

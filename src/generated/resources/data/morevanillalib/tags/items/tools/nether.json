@@ -1,9 +1,9 @@
 {
   "values": [
-    "morevanillatools:nether_sword",
-    "morevanillatools:nether_shovel",
-    "morevanillatools:nether_pickaxe",
     "morevanillatools:nether_axe",
-    "morevanillatools:nether_hoe"
+    "morevanillatools:nether_hoe",
+    "morevanillatools:nether_pickaxe",
+    "morevanillatools:nether_shovel",
+    "morevanillatools:nether_sword"
   ]
 }

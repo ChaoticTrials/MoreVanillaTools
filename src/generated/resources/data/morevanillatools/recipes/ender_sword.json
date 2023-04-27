@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "m": {
       "tag": "forge:end_stones"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "morevanillatools:ender_sword"
-  }
+  },
+  "show_notification": true
 }

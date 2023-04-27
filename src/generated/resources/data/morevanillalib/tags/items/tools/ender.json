@@ -1,9 +1,9 @@
 {
   "values": [
-    "morevanillatools:ender_sword",
-    "morevanillatools:ender_shovel",
-    "morevanillatools:ender_pickaxe",
     "morevanillatools:ender_axe",
-    "morevanillatools:ender_hoe"
+    "morevanillatools:ender_hoe",
+    "morevanillatools:ender_pickaxe",
+    "morevanillatools:ender_shovel",
+    "morevanillatools:ender_sword"
   ]
 }

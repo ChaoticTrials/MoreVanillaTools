@@ -1,9 +1,9 @@
 {
   "values": [
-    "morevanillatools:obsidian_sword",
-    "morevanillatools:obsidian_shovel",
-    "morevanillatools:obsidian_pickaxe",
     "morevanillatools:obsidian_axe",
-    "morevanillatools:obsidian_hoe"
+    "morevanillatools:obsidian_hoe",
+    "morevanillatools:obsidian_pickaxe",
+    "morevanillatools:obsidian_shovel",
+    "morevanillatools:obsidian_sword"
   ]
 }

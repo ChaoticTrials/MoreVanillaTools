@@ -1,9 +1,9 @@
 {
   "values": [
-    "morevanillatools:coal_sword",
-    "morevanillatools:coal_shovel",
-    "morevanillatools:coal_pickaxe",
     "morevanillatools:coal_axe",
-    "morevanillatools:coal_hoe"
+    "morevanillatools:coal_hoe",
+    "morevanillatools:coal_pickaxe",
+    "morevanillatools:coal_shovel",
+    "morevanillatools:coal_sword"
   ]
 }

@@ -1,9 +1,9 @@
 {
   "values": [
-    "morevanillatools:redstone_sword",
-    "morevanillatools:redstone_shovel",
-    "morevanillatools:redstone_pickaxe",
     "morevanillatools:redstone_axe",
-    "morevanillatools:redstone_hoe"
+    "morevanillatools:redstone_hoe",
+    "morevanillatools:redstone_pickaxe",
+    "morevanillatools:redstone_shovel",
+    "morevanillatools:redstone_sword"
   ]
 }

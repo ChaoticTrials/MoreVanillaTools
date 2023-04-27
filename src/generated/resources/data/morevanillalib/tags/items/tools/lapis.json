@@ -1,9 +1,9 @@
 {
   "values": [
-    "morevanillatools:lapis_sword",
-    "morevanillatools:lapis_shovel",
-    "morevanillatools:lapis_pickaxe",
     "morevanillatools:lapis_axe",
-    "morevanillatools:lapis_hoe"
+    "morevanillatools:lapis_hoe",
+    "morevanillatools:lapis_pickaxe",
+    "morevanillatools:lapis_shovel",
+    "morevanillatools:lapis_sword"
   ]
 }

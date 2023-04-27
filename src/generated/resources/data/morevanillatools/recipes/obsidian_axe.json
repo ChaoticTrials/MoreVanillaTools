@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "m": {
       "item": "morevanillatools:obsidian_shard"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "morevanillatools:obsidian_axe"
-  }
+  },
+  "show_notification": true
 }

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "m": {
       "tag": "forge:slimeballs"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "morevanillatools:slime_shovel"
-  }
+  },
+  "show_notification": true
 }

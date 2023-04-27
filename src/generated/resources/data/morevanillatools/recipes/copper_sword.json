@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "m": {
       "tag": "forge:ingots/copper"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "morevanillatools:copper_sword"
-  }
+  },
+  "show_notification": true
 }

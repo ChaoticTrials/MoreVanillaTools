@@ -1,9 +1,9 @@
 {
   "values": [
-    "morevanillatools:copper_sword",
-    "morevanillatools:copper_shovel",
-    "morevanillatools:copper_pickaxe",
     "morevanillatools:copper_axe",
-    "morevanillatools:copper_hoe"
+    "morevanillatools:copper_hoe",
+    "morevanillatools:copper_pickaxe",
+    "morevanillatools:copper_shovel",
+    "morevanillatools:copper_sword"
   ]
 }
