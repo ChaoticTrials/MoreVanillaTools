@@ -3,11 +3,9 @@ package de.melanx.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.data.ItemModelProvider;
 import de.melanx.MoreVanillaTools.data.MoreTags;
 import de.melanx.MoreVanillaTools.data.Recipes;
-import de.melanx.MoreVanillaTools.util.ModItems;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.moddingx.libx.datagen.DatagenSystem;
 import org.moddingx.libx.mod.ModXRegistration;
 import org.moddingx.libx.registration.RegistrationBuilder;
@@ -19,8 +17,6 @@ public final class MoreVanillaTools extends ModXRegistration {
 
     public MoreVanillaTools() {
         instance = this;
-
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(ModItems::createTab);
 
         DatagenSystem.create(this, system -> {
             system.addDataProvider(ItemModelProvider::new);

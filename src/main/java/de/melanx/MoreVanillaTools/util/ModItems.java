@@ -2,11 +2,7 @@ package de.melanx.MoreVanillaTools.util;
 
 import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.items.*;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.CreativeModeTabEvent;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.moddingx.libx.annotation.registration.RegisterClass;
 import org.moddingx.libx.base.ItemBase;
 
@@ -105,19 +101,4 @@ public class ModItems {
     public static final Item slimeHoe = new HoeBase(ToolMaterials.SLIME, -7.0f, 0.0f, new Item.Properties());
 
     public static final Item obsidianShard = new ItemBase(MoreVanillaTools.getInstance(), new Item.Properties());
-
-    public static void createTab(CreativeModeTabEvent.Register event) {
-        event.registerCreativeModeTab(MoreVanillaTools.getInstance().resource("tab"), builder -> {
-            builder.title(Component.literal("MoreVanillaTools"));
-            builder.icon(() -> new ItemStack(redstonePickaxe))
-                    .displayItems((enabledFlags, output) -> {
-                        ForgeRegistries.ITEMS.getValues().forEach(item -> {
-                            //noinspection DataFlowIssue
-                            if (MoreVanillaTools.getInstance().modid.equals(ForgeRegistries.ITEMS.getKey(item).getNamespace())) {
-                                output.accept(new ItemStack(item));
-                            }
-                        });
-                    });
-        });
-    }
 }

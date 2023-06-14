@@ -1,11 +1,11 @@
 modLoader = "javafml"
-loaderVersion = "[45,)"
+loaderVersion="[${fml},)"
 license = "Apache License 2.0"
 issueTrackerURL = "https://www.github.com/MelanX/MoreVanillaTools/issues/"
 
 [[mods]]
 modId = "morevanillatools"
-version = "${file.jarVersion}"
+version="${version}"
 displayName = "MoreVanillaTools"
 updateJSONURL = "https://assets.melanx.de/updates/morevanillatools.json"
 authors = "MelanX"
@@ -16,27 +16,27 @@ A mod which adds more tools in the vanilla way.
 [[dependencies.morevanillatools]]
     modId="forge"
     mandatory=true
-    versionRange="[45.0.49,)"
+    versionRange="[${forge},)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.morevanillatools]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[${minecraft},)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.morevanillatools]]
     modId="libx"
     mandatory=true
-    versionRange="[1.19.4-4.4.4,)"
+    versionRange="[1.20.1-5.0.0,)"
     ordering="AFTER"
-    side="BOTH"
-
-[[dependencies.morevanillatools]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.19.4, 1.20)"
-    ordering="NONE"
     side="BOTH"
 
 [[dependencies.morevanillatools]]
     modId="morevanillalib"
     mandatory=false
-    versionRange="[1.19.4-4.2.0,)"
+    versionRange="[1.20.1-5.0.1,)"
     ordering="NONE"
     side="BOTH"
