@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "m": {
+      "tag": "c:ingots/copper"
+    },
+    "s": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "m",
+    "s",
+    "s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "morevanillatools:copper_shovel"
+  }
+}

@@ -22,7 +22,7 @@ public class ItemModelProvider extends ItemModelProviderBase {
         if (item == ModItems.obsidianShard) {
             super.defaultItem(id, item);
         } else {
-            this.withExistingParent(id.getPath(), HANDHELD).texture("layer0", new ResourceLocation(id.getNamespace(), "item/" + id.getPath()));
+            this.withExistingParent(id.getPath(), HANDHELD).texture("layer0", ResourceLocation.fromNamespaceAndPath(id.getNamespace(), "item/" + id.getPath()));
         }
     }
 }

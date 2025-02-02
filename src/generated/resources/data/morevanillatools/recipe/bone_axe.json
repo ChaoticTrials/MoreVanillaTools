@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "m": {
+      "tag": "c:bones"
+    },
+    "s": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "mm",
+    "sm",
+    "s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "morevanillatools:bone_axe"
+  }
+}

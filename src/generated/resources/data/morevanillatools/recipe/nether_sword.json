@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "m": {
+      "item": "minecraft:nether_bricks"
+    },
+    "s": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "m",
+    "m",
+    "s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "morevanillatools:nether_sword"
+  }
+}

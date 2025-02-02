@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "m": {
+      "item": "minecraft:paper"
+    },
+    "s": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "m",
+    "s",
+    "s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "morevanillatools:paper_shovel"
+  }
+}

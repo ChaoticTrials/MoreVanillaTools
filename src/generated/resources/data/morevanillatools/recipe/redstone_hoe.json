@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "m": {
+      "tag": "c:storage_blocks/redstone"
+    },
+    "s": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "mm",
+    "s ",
+    "s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "morevanillatools:redstone_hoe"
+  }
+}

@@ -5,7 +5,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.common.Tags;
+import net.neoforged.neoforge.common.Tags;
 import org.moddingx.libx.datagen.DatagenContext;
 import org.moddingx.libx.datagen.provider.recipe.RecipeProviderBase;
 import org.moddingx.libx.datagen.provider.recipe.crafting.CompressionExtension;
@@ -34,8 +34,8 @@ public class Recipes extends RecipeProviderBase implements CompressionExtension,
         this.makeTools(Ingredient.of(Items.NETHER_BRICKS), ModItems.netherSword, ModItems.netherAxe, ModItems.netherPickaxe, ModItems.netherShovel, ModItems.netherHoe);
         this.makeTools(Ingredient.of(ModItems.obsidianShard), ModItems.obsidianSword, ModItems.obsidianAxe, ModItems.obsidianPickaxe, ModItems.obsidianShovel, ModItems.obsidianHoe);
         this.makeTools(Ingredient.of(Items.PAPER), ModItems.paperSword, ModItems.paperAxe, ModItems.paperPickaxe, ModItems.paperShovel, ModItems.paperHoe);
-        this.makeTools(Ingredient.of(Tags.Items.DUSTS_PRISMARINE), ModItems.prismarineSword, ModItems.prismarineAxe, ModItems.prismarinePickaxe, ModItems.prismarineShovel, ModItems.prismarineHoe);
-        this.makeTools(Ingredient.of(Tags.Items.STORAGE_BLOCKS_QUARTZ), ModItems.quartzSword, ModItems.quartzAxe, ModItems.quartzPickaxe, ModItems.quartzShovel, ModItems.quartzHoe);
+        this.makeTools(Ingredient.of(Tags.Items.GEMS_PRISMARINE), ModItems.prismarineSword, ModItems.prismarineAxe, ModItems.prismarinePickaxe, ModItems.prismarineShovel, ModItems.prismarineHoe);
+        this.makeTools(Ingredient.of(Items.QUARTZ_BLOCK), ModItems.quartzSword, ModItems.quartzAxe, ModItems.quartzPickaxe, ModItems.quartzShovel, ModItems.quartzHoe);
         this.makeTools(Ingredient.of(Tags.Items.STORAGE_BLOCKS_REDSTONE), ModItems.redstoneSword, ModItems.redstoneAxe, ModItems.redstonePickaxe, ModItems.redstoneShovel, ModItems.redstoneHoe);
         this.makeTools(Ingredient.of(Tags.Items.SLIMEBALLS), ModItems.slimeSword, ModItems.slimeAxe, ModItems.slimePickaxe, ModItems.slimeShovel, ModItems.slimeHoe);
     }

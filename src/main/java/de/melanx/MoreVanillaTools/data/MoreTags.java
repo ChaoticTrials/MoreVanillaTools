@@ -1,11 +1,16 @@
 package de.melanx.MoreVanillaTools.data;
 
+import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.items.*;
 import de.melanx.morevanillalib.data.ModTags;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.level.block.Block;
 import org.moddingx.libx.datagen.DatagenContext;
 import org.moddingx.libx.datagen.provider.tags.CommonTagsProviderBase;
 
@@ -17,7 +22,7 @@ public class MoreTags extends CommonTagsProviderBase {
 
     @Override
     public void setup() {
-        // NO-OP
+        this.block(Blocks.INCORRECT_FOR_HIGHER_TOOL);
     }
 
     @Override
@@ -56,23 +61,31 @@ public class MoreTags extends CommonTagsProviderBase {
         TagsProvider.TagAppender<Item> hoes = this.item(ItemTags.HOES);
 
         if (toCheck instanceof SwordBase) {
-            swords.add(ForgeRegistries.ITEMS.getResourceKey(toCheck).orElseThrow());
+            swords.add(BuiltInRegistries.ITEM.getResourceKey(toCheck).orElseThrow());
         }
 
         if (toCheck instanceof ShovelBase) {
-            shovels.add(ForgeRegistries.ITEMS.getResourceKey(toCheck).orElseThrow());
+            shovels.add(BuiltInRegistries.ITEM.getResourceKey(toCheck).orElseThrow());
         }
 
         if (toCheck instanceof PickaxeBase) {
-            pickaxes.add(ForgeRegistries.ITEMS.getResourceKey(toCheck).orElseThrow());
+            pickaxes.add(BuiltInRegistries.ITEM.getResourceKey(toCheck).orElseThrow());
         }
 
         if (toCheck instanceof AxeBase) {
-            axes.add(ForgeRegistries.ITEMS.getResourceKey(toCheck).orElseThrow());
+            axes.add(BuiltInRegistries.ITEM.getResourceKey(toCheck).orElseThrow());
         }
 
         if (toCheck instanceof HoeBase) {
-            hoes.add(ForgeRegistries.ITEMS.getResourceKey(toCheck).orElseThrow());
+            hoes.add(BuiltInRegistries.ITEM.getResourceKey(toCheck).orElseThrow());
+        }
+    }
+
+    public static class Blocks {
+        public static final TagKey<Block> INCORRECT_FOR_HIGHER_TOOL = modTag("incorrect_for_higher_tool");
+
+        private static TagKey<Block> modTag(String name) {
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(MoreVanillaTools.getInstance().modid, name));
         }
     }
 }

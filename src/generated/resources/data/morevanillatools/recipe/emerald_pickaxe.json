@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "m": {
+      "tag": "c:gems/emerald"
+    },
+    "s": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "mmm",
+    " s ",
+    " s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "morevanillatools:emerald_pickaxe"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "m": {
+      "item": "minecraft:magma_cream"
+    },
+    "s": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "mm",
+    "sm",
+    "s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "morevanillatools:fiery_axe"
+  }
+}

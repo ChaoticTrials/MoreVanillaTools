@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "m": {
+      "tag": "c:storage_blocks/lapis"
+    },
+    "s": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "m",
+    "s",
+    "s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "morevanillatools:lapis_shovel"
+  }
+}
