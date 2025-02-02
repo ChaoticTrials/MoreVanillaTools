@@ -1,3 +1,6 @@
 package de.melanx.MoreVanillaTools.config;
 
-public record ConfigurableMaterial(float speed, float attackDamageBonus, int harvestLevel, int durability, int enchantmentValue) {}
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Block;
+
+public record ConfigurableMaterial(float speed, float attackDamageBonus, TagKey<Block> incorrectBlockForDrops, int durability, int enchantmentValue) {}

@@ -2,8 +2,6 @@ package de.melanx.MoreVanillaTools.items;
 
 import de.melanx.MoreVanillaTools.config.ConfigurableMaterial;
 import de.melanx.MoreVanillaTools.config.ModConfig;
-import de.melanx.MoreVanillaTools.data.MoreTags;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
@@ -61,14 +59,7 @@ public enum ToolMaterials implements Tier {
     @Nonnull
     @Override
     public TagKey<Block> getIncorrectBlocksForDrops() {
-        return switch (this.material.harvestLevel()) {
-            case 0 -> BlockTags.INCORRECT_FOR_WOODEN_TOOL;
-            case 1 -> BlockTags.INCORRECT_FOR_STONE_TOOL;
-            case 2 -> BlockTags.INCORRECT_FOR_IRON_TOOL;
-            case 3 -> BlockTags.INCORRECT_FOR_DIAMOND_TOOL;
-            case 4 -> BlockTags.INCORRECT_FOR_NETHERITE_TOOL;
-            default -> MoreTags.Blocks.INCORRECT_FOR_HIGHER_TOOL;
-        };
+        return this.material.incorrectBlockForDrops();
     }
 
     @Override
@@ -95,9 +86,5 @@ public enum ToolMaterials implements Tier {
         rules.add(Tool.Rule.minesAndDrops(block, this.getSpeed()));
 
         return new Tool(rules, 1.0F, 1);
-    }
-
-    public int getHarvestLevel() {
-        return this.material.harvestLevel();
     }
 }

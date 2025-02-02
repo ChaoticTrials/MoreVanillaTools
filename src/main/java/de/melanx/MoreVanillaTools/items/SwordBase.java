@@ -12,7 +12,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import javax.annotation.Nonnull;
 import java.util.List;
 
-public class SwordBase extends SwordItem implements BaseTool {
+public class SwordBase extends SwordItem {
 
     private final ToolMaterials tier;
 

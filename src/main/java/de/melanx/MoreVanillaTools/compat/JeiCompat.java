@@ -1,6 +1,5 @@
 package de.melanx.MoreVanillaTools.compat;
 
-import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.IRecipeRegistration;
@@ -11,7 +10,7 @@ import javax.annotation.Nonnull;
 @JeiPlugin
 public class JeiCompat implements IModPlugin {
 
-    public static final ResourceLocation PLUGIN_UID = MoreVanillaTools.getInstance().resource("jei");
+    public static final ResourceLocation PLUGIN_UID = ResourceLocation.fromNamespaceAndPath("morevanillatools", "jei");
 
     @Nonnull
     @Override

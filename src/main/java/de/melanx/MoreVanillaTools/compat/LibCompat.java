@@ -1,6 +1,5 @@
 package de.melanx.MoreVanillaTools.compat;
 
-import de.melanx.MoreVanillaTools.items.BaseTool;
 import de.melanx.MoreVanillaTools.util.ModItems;
 import de.melanx.morevanillalib.compat.JeiCompat;
 import de.melanx.morevanillalib.config.FeatureConfig;
@@ -11,6 +10,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.fml.ModList;
 
@@ -20,10 +20,9 @@ public class LibCompat {
 
     public static final String MODID = "morevanillalib";
 
-    public static void editHoverText(BaseTool item, ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag isAdvanced) {
+    public static void editHoverText(TieredItem item, ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag isAdvanced) {
         if (Screen.hasShiftDown()) {
             tooltip.add(ComponentUtil.getTooltip("durability", item.getTier().getUses()).withStyle(ChatFormatting.GRAY));
-            tooltip.add(ComponentUtil.getTooltip("harvest_level", item.getTier().getHarvestLevel()).withStyle(ChatFormatting.GRAY));
             tooltip.add(ComponentUtil.getTooltip("repairing_item", item.getTier().getRepairIngredient().getItems()[0].getItem().getDescription().getString()).withStyle(ChatFormatting.GRAY));
         } else {
             tooltip.add(ComponentUtil.getTooltip("more_information").withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY));

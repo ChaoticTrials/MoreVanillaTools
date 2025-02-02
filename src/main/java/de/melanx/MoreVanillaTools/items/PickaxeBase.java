@@ -12,7 +12,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import javax.annotation.Nonnull;
 import java.util.List;
 
-public class PickaxeBase extends PickaxeItem implements BaseTool {
+public class PickaxeBase extends PickaxeItem {
 
     private final ToolMaterials tier;
 

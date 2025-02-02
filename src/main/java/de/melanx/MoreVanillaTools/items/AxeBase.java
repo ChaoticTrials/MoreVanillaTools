@@ -12,7 +12,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import javax.annotation.Nonnull;
 import java.util.List;
 
-public class AxeBase extends AxeItem implements BaseTool {
+public class AxeBase extends AxeItem {
 
     private final ToolMaterials tier;
 

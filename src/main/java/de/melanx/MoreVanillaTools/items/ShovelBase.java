@@ -12,7 +12,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import javax.annotation.Nonnull;
 import java.util.List;
 
-public class ShovelBase extends ShovelItem implements BaseTool {
+public class ShovelBase extends ShovelItem {
 
     private final ToolMaterials tier;
 

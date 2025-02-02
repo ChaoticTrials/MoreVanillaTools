@@ -12,7 +12,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import javax.annotation.Nonnull;
 import java.util.List;
 
-public class HoeBase extends HoeItem implements BaseTool {
+public class HoeBase extends HoeItem {
 
     private final ToolMaterials tier;
 

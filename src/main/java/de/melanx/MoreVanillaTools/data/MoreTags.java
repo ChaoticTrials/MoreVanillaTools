@@ -1,16 +1,13 @@
 package de.melanx.MoreVanillaTools.data;
 
-import de.melanx.MoreVanillaTools.MoreVanillaTools;
 import de.melanx.MoreVanillaTools.items.*;
 import de.melanx.morevanillalib.data.ModTags;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.tags.TagsProvider;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.Tier;
 import org.moddingx.libx.datagen.DatagenContext;
 import org.moddingx.libx.datagen.provider.tags.CommonTagsProviderBase;
 
@@ -22,17 +19,17 @@ public class MoreTags extends CommonTagsProviderBase {
 
     @Override
     public void setup() {
-        this.block(Blocks.INCORRECT_FOR_HIGHER_TOOL);
+        // NO-OP
     }
 
     @Override
     public void defaultItemTags(Item toCheck) {
-        ToolMaterials material = null;
-        if (toCheck instanceof BaseTool item) {
-            material = item.getTier();
+        Tier tier = null;
+        if (toCheck instanceof DiggerItem item) {
+            tier = item.getTier();
         }
 
-        if (material == null) {
+        if (!(tier instanceof ToolMaterials material)) {
             return;
         }
 
@@ -78,14 +75,6 @@ public class MoreTags extends CommonTagsProviderBase {
 
         if (toCheck instanceof HoeBase) {
             hoes.add(BuiltInRegistries.ITEM.getResourceKey(toCheck).orElseThrow());
-        }
-    }
-
-    public static class Blocks {
-        public static final TagKey<Block> INCORRECT_FOR_HIGHER_TOOL = modTag("incorrect_for_higher_tool");
-
-        private static TagKey<Block> modTag(String name) {
-            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(MoreVanillaTools.getInstance().modid, name));
         }
     }
 }
