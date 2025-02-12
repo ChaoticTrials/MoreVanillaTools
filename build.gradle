@@ -10,7 +10,7 @@ repositories {
 
 var dev = System.getenv('IS_DEV')?.toBoolean() ?: false
 var baseVersion = '21.1'
-var libxVersion = '1.21.1-6.0.0'
+var libxVersion = '1.21.1-6.0.1'
 var jeiVersion = '19.21.0.247'
 var morevanillalibVersion = '21.1.2'
 
