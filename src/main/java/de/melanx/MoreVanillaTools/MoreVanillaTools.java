@@ -8,7 +8,6 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import org.moddingx.libx.datagen.DatagenSystem;
 import org.moddingx.libx.mod.ModXRegistration;
-import org.moddingx.libx.registration.RegistrationBuilder;
 
 @Mod("morevanillatools")
 public final class MoreVanillaTools extends ModXRegistration {
@@ -37,10 +36,5 @@ public final class MoreVanillaTools extends ModXRegistration {
 
     public static MoreVanillaTools getInstance() {
         return instance;
-    }
-
-    @Override
-    protected void initRegistration(RegistrationBuilder builder) {
-        // NO-OP
     }
 }
