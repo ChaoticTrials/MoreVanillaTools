@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "m": {
-      "item": "minecraft:coal"
+      "item": "morevanillatools:coal_briquette"
     },
     "s": {
       "tag": "c:rods/wooden"

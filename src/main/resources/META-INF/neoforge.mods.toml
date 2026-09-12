@@ -41,3 +41,10 @@ A mod which adds more tools in the vanilla way.
     versionRange="[21.1.2,)"
     ordering="AFTER"
     side="BOTH"
+
+[[dependencies.${ mod.modid }]]
+modId = "farmersdelight"
+type = "optional"
+versionRange = "[1.3.4,)"
+ordering = "AFTER"
+side = "BOTH"

@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:coal"
+            "items": "morevanillatools:coal_briquette"
           }
         ]
       },

@@ -1,17 +1,24 @@
 package de.melanx.MoreVanillaTools.data;
 
+import de.melanx.MoreVanillaTools.compat.FarmersDelightCompat;
 import de.melanx.MoreVanillaTools.items.*;
 import de.melanx.morevanillalib.data.ModTags;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.DiggerItem;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TieredItem;
+import net.neoforged.neoforge.common.Tags;
 import org.moddingx.libx.datagen.DatagenContext;
 import org.moddingx.libx.datagen.provider.tags.CommonTagsProviderBase;
 
 public class MoreTags extends CommonTagsProviderBase {
+
+    public static final TagKey<Item> KNIVES = ItemTags.create(FarmersDelightCompat.location("tools/knives"));
+    public static final TagKey<Item> COMMON_KNIVES = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "tools/knife"));
 
     public MoreTags(DatagenContext context) {
         super(context);
@@ -19,13 +26,13 @@ public class MoreTags extends CommonTagsProviderBase {
 
     @Override
     public void setup() {
-        // NO-OP
+        this.item(Tags.Items.TOOLS).addTag(COMMON_KNIVES);
     }
 
     @Override
     public void defaultItemTags(Item toCheck) {
         Tier tier = null;
-        if (toCheck instanceof DiggerItem item) {
+        if (toCheck instanceof TieredItem item) {
             tier = item.getTier();
         }
 
@@ -75,6 +82,11 @@ public class MoreTags extends CommonTagsProviderBase {
 
         if (toCheck instanceof HoeBase) {
             hoes.add(BuiltInRegistries.ITEM.getResourceKey(toCheck).orElseThrow());
+        }
+
+        if (toCheck instanceof KnifeBase) {
+            this.item(KNIVES).add(toCheck);
+            this.item(COMMON_KNIVES).add(toCheck);
         }
     }
 }
